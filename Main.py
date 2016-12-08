@@ -4,9 +4,10 @@ from FeatureExtractor import FeatureExtractor
 from GithubAuthentification import GithubAuthentication
 from InputParser import InputParser
 
-parser = argparse.ArgumentParser(description='Test')
-parser.add_argument('--file', dest="filepath", help='The file location of the input file', nargs='?', required=True,
+parser = argparse.ArgumentParser(description='Program which analyses github repositories into categories.')
+parser.add_argument('-f', '--file', dest="filepath", help='The file location of the input file', nargs='?', required=True,
                     metavar='FILE')
+parser.add_argument('-t', '--train', help='Specifies the program to train with the given data', action="store_true")
 
 args = parser.parse_args()
 
