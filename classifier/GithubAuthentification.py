@@ -3,7 +3,7 @@ import configparser
 from github import Github
 
 
-class GithubAuthentication:
+class GithubAuthentification:
     def __init__(self):
         config = configparser.ConfigParser()
         config.read("github.conf")
