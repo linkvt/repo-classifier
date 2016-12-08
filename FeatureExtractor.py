@@ -3,7 +3,4 @@ class FeatureExtractor:
         self.repo = repo
 
     def extract_features(self):
-        return self.__execute_pipeline__()
-
-    def __execute_pipeline__(self):
         return []
