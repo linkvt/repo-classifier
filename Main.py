@@ -1,5 +1,6 @@
 import argparse
 
+from FeatureExtractor import FeatureExtractor
 from GithubAuthentification import GithubAuthentication
 from InputParser import InputParser
 
@@ -15,5 +16,7 @@ github_connection = GithubAuthentication()
 
 for url in splitted_urls:
     current_repo = github_connection.get_repo(url)
-    print(current_repo.name)
+    print('<Testing> Read repo name:', current_repo.name)
+    features = FeatureExtractor(current_repo).extract_features()
+    print('Extracted features: ', features)
     # TODO feature pipeline -> classifier pipeline -> output
