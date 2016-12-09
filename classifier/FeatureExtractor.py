@@ -3,4 +3,4 @@ class FeatureExtractor:
         self.repo = repo
 
     def extract_features(self):
-        return []
+        return [self.repo.forks]
