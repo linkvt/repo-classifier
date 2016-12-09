@@ -12,5 +12,5 @@ class InputParser:
             labels = [t[1] for t in split_text]
             return repo_ids, labels
         else:
-            return [path[19:] for path in text.split("\n") if path]
+            return [path[19:] for path in text.split("\n") if path], []
 
