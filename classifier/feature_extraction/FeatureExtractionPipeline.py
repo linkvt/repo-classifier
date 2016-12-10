@@ -1,3 +1,5 @@
+from github.Repository import Repository
+
 from classifier.Feature import Feature
 from classifier.feature_extraction.language.LanguageDEVFeatureExtractor import LanguageDEVFeatureExtractor
 
@@ -7,7 +9,7 @@ FEATURE_ORDER = [
 
 
 class FeatureExtractionPipeline:
-    def __init__(self, repo):
+    def __init__(self, repo: Repository):
         self.__repo = repo
 
     def extract_features(self):
