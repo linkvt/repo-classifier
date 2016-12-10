@@ -1,8 +1,8 @@
 from classifier.Feature import Feature
-from classifier.feature_extraction.language.LanguageFeatureExtractor import LanguageFeatureExtractor
+from classifier.feature_extraction.language.LanguageDEVFeatureExtractor import LanguageDEVFeatureExtractor
 
 FEATURE_ORDER = [
-    LanguageFeatureExtractor
+    LanguageDEVFeatureExtractor
 ]
 
 

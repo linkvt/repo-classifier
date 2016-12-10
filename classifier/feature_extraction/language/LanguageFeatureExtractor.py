@@ -1,3 +1,5 @@
+import abc
+
 from classifier.Feature import Feature
 from classifier.feature_extraction.FeatureExtractor import FeatureExtractor
 
@@ -17,7 +19,12 @@ class LanguageFeatureExtractor(FeatureExtractor):
             if language in languages:
                 relevant_size += languages[language]
 
-        return Feature('Language feature for DEV', relevant_size / total_size)
+        return Feature('Language feature for ' + self.__get_category_label__(), relevant_size / total_size)
 
-    def __get_relevant_languages__(self):
-        return ['Python', 'Java']
+    @abc.abstractmethod
+    def __get_category_label__(self) -> str:
+        raise NotImplementedError('Should be implemented in subclasses!')
+
+    @abc.abstractmethod
+    def __get_relevant_languages__(self) -> [str]:
+        raise NotImplementedError('Should be implemented in subclasses!')
