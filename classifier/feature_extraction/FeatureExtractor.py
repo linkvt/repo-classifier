@@ -11,7 +11,7 @@ class FeatureExtractor:
     """
 
     def __init__(self, repo: Repository):
-        self.repo = repo
+        self._repo = repo
 
     @abc.abstractmethod
     def extract_feature(self) -> Feature:

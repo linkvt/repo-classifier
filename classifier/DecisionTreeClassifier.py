@@ -12,7 +12,7 @@ class DecisionTreeClassifier():
         :param labels:
         :return:
         """
-        self.clf = self.clf.fit(self.__map_input__(samples), labels)
+        self.clf = self.clf.fit(self._map_input(samples), labels)
 
     def predict(self, samples):
         """
@@ -20,12 +20,12 @@ class DecisionTreeClassifier():
         :param samples:
         :return:
         """
-        return self.clf.predict(self.__map_input__(samples))
+        return self.clf.predict(self._map_input(samples))
 
     def predict_with_values(self, samples):
         return self.clf.predict(samples)
 
-    def __map_input__(self, samples):
+    def _map_input(self, samples):
         """
         We need a specific input for the scikit classifier
         :param samples:

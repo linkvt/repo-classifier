@@ -10,8 +10,8 @@ FEATURE_ORDER = [
 
 class FeatureExtractionPipeline:
     def __init__(self, repo: Repository):
-        self.__repo = repo
+        self._repo = repo
 
     def extract_features(self):
-        return [Feature('Test feature with forks', self.__repo.forks)] + [feature(self.__repo).extract_feature() for
-                                                                          feature in FEATURE_ORDER]
+        return [Feature('Test feature with forks', self._repo.forks)] + [feature(self._repo).extract_feature() for
+                                                                         feature in FEATURE_ORDER]

@@ -11,20 +11,20 @@ class LanguageFeatureExtractor(FeatureExtractor):
     """
 
     def extract_feature(self) -> Feature:
-        languages = self.repo.get_languages()
+        languages = self._repo.get_languages()
         total_size = sum(languages.values())
         relevant_size = 0
 
-        for language in self.__get_relevant_languages__():
+        for language in self._get_relevant_languages():
             if language in languages:
                 relevant_size += languages[language]
 
-        return Feature('Language feature for ' + self.__get_category_label__(), relevant_size / total_size)
+        return Feature('Language feature for ' + self._get_category_label(), relevant_size / total_size)
 
     @abc.abstractmethod
-    def __get_category_label__(self) -> str:
+    def _get_category_label(self) -> str:
         raise NotImplementedError('Should be implemented in subclasses!')
 
     @abc.abstractmethod
-    def __get_relevant_languages__(self) -> [str]:
+    def _get_relevant_languages(self) -> [str]:
         raise NotImplementedError('Should be implemented in subclasses!')

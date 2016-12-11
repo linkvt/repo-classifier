@@ -2,8 +2,8 @@ from classifier.feature_extraction.language.LanguageFeatureExtractor import Lang
 
 
 class LanguageDEVFeatureExtractor(LanguageFeatureExtractor):
-    def __get_relevant_languages__(self) -> [str]:
+    def _get_relevant_languages(self) -> [str]:
         return ['Python', 'Java']
 
-    def __get_category_label__(self) -> str:
+    def _get_category_label(self) -> str:
         return 'DEV'
