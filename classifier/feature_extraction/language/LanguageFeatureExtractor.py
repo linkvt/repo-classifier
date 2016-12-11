@@ -6,7 +6,7 @@ from classifier.feature_extraction.FeatureExtractor import FeatureExtractor
 
 class LanguageFeatureExtractor(FeatureExtractor):
     """
-    The languages returned from github are mapped to the kb size of usage.
+    The languages returned from github are mapped to the byte size of usage.
     Eq {'Python': 98564, 'R': 4914}
     """
 
