@@ -1,10 +1,12 @@
+import itertools
 from github.Repository import Repository
 
 from classifier.Feature import Feature
-from classifier.feature_extraction.language.LanguageDEVFeatureExtractor import LanguageDEVFeatureExtractor
+from classifier.feature_extraction import FeatureCategory
+from classifier.feature_extraction.MainCategory import MainCategory
 
-FEATURE_ORDER = [
-    LanguageDEVFeatureExtractor
+CATEGORIES = [
+    MainCategory
 ]
 
 
@@ -12,6 +14,9 @@ class FeatureExtractionPipeline:
     def __init__(self, repo: Repository):
         self._repo = repo
 
-    def extract_features(self):
-        return [Feature('Test feature with forks', self._repo.forks)] + [feature(self._repo).extract_feature() for
-                                                                         feature in FEATURE_ORDER]
+    def extract_features(self) -> [Feature]:
+        return list(
+            itertools.chain.from_iterable((category.extract() for category in self.extract_features_in_categories())))
+
+    def extract_features_in_categories(self) -> [FeatureCategory]:
+        return [category(self._repo) for category in CATEGORIES]

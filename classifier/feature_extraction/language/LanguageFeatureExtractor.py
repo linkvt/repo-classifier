@@ -10,7 +10,7 @@ class LanguageFeatureExtractor(FeatureExtractor):
     Eq {'Python': 98564, 'R': 4914}
     """
 
-    def extract_feature(self) -> Feature:
+    def extract_features(self) -> [Feature]:
         languages = self._repo.get_languages()
         total_size = sum(languages.values())
         relevant_size = 0
@@ -19,7 +19,7 @@ class LanguageFeatureExtractor(FeatureExtractor):
             if language in languages:
                 relevant_size += languages[language]
 
-        return Feature('Language feature for ' + self._get_category_label(), relevant_size / total_size)
+        return [Feature('Language feature for ' + self._get_category_label(), relevant_size / total_size)]
 
     @abc.abstractmethod
     def _get_category_label(self) -> str:

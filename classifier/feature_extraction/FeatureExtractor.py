@@ -14,7 +14,7 @@ class FeatureExtractor:
         self._repo = repo
 
     @abc.abstractmethod
-    def extract_feature(self) -> Feature:
+    def extract_features(self) -> [Feature]:
         """
         :return: Feature
         """
