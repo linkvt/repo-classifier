@@ -1,6 +1,9 @@
 # Features
 
 ## Notizen
+- vllt Lizenz
+
+
 ### Sprachen
 - Sprachen zu Kategorien zusammenfassen und dadurch wenige Features erzeugen, die dann zu bestimmten Kategorien 
 anschlagen
@@ -8,6 +11,42 @@ anschlagen
 - Wir beziehen alle verfügbaren Sprachen von Github ein. Pro Sprache ein Feature. Das wird natürlich viele Features 
 erzeugen. Dies muss vor allem mit der verwendeten MachineLearning-Strategie beachtet werden.
 
+
+## WEB
+### Features
+- TODO
+
+### Repositories
+#### BloombergMedia/whatiscode
+- index.html
+- robots.txt
+- Gruntfile.js, package.json
+- JS, HTML, CSS
+- Bilder: EPS, png, pdf, svg, gif
+- Font-Dateien/Ordner
+
+#### jacerobinson8.github.io
+- github.io im Repo Namen
+- CSS, Javascript, HTML
+- Font Ordner
+- index.html
+- webpage, Bootstrap in README
+
+#### rubymonstas-zurich/rubymonstas-zurich.github.io
+- website in README
+- URL in Repo-Beschreibung
+- assets, sass, img-Ordner
+- HTML, Ruby, CSS
+
+#### ianli/elbowpatched-boilerplate
+- url in Beschriebung
+- index.html
+- img Ordner
+- Branch gh-pages
+- website in README
+- _data-Ordner
+
+#### whoisjuan/whoisjuan.github.io
 
 ## DATA
 ### Features
@@ -23,6 +62,7 @@ erzeugen. Dies muss vor allem mit der verwendeten MachineLearning-Strategie beac
 - "data" in README, Ordner, Name, Repo-Beschreibung
 - list in Namen
 - wenige Dateien, dafuer eine grosse
+- praktisch keine .gitignore
 
 
 ### Repositories
