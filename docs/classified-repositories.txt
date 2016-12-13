@@ -28,3 +28,4 @@ https://github.com/GSA/data DATA
 https://github.com/OpenExoplanetCatalogue/open_exoplanet_catalogue DATA
 https://github.com/Hipo/university-domains-list DATA
 https://github.com/minimaxir/big-list-of-naughty-strings DATA
+https://github.com/jonico/other OTHER
