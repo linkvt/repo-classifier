@@ -2,10 +2,10 @@ import yaml
 from github.Repository import Repository
 
 from classifier.Feature import Feature
-from classifier.feature_extraction.MutliFeatureExtractor import MultiFeatureExtractor
+from classifier.feature_extraction.FeatureExtractor import FeatureExtractor
 
 
-class AllLanguageFeatureExtractor(MultiFeatureExtractor):
+class AllLanguageFeatureExtractor(FeatureExtractor):
     """
     The languages returned from github are mapped to the byte size of usage.
     Eq {'Python': 98564, 'R': 4914}
@@ -37,4 +37,4 @@ class AllLanguageFeatureExtractor(MultiFeatureExtractor):
             else:
                 print('Language "' + language + '" is not registered in the algorithm.')
 
-        return [Feature(key, value) for key, value in self._languageToProbability]
+        return [Feature('Language: ' + key, value) for key, value in self._languageToProbability.items()]
