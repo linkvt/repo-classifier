@@ -17,7 +17,7 @@ erzeugen. Dies muss vor allem mit der verwendeten MachineLearning-Strategie beac
 - TODO
 
 ### Repositories
-#### BloombergMedia/whatiscode
+#### https://github.com/BloombergMedia/whatiscode
 - index.html
 - robots.txt
 - Gruntfile.js, package.json
@@ -25,20 +25,20 @@ erzeugen. Dies muss vor allem mit der verwendeten MachineLearning-Strategie beac
 - Bilder: EPS, png, pdf, svg, gif
 - Font-Dateien/Ordner
 
-#### jacerobinson8.github.io
+#### https://github.com/jacerobinson8.github.io
 - github.io im Repo Namen
 - CSS, Javascript, HTML
 - Font Ordner
 - index.html
 - webpage, Bootstrap in README
 
-#### rubymonstas-zurich/rubymonstas-zurich.github.io
+#### https://github.com/rubymonstas-zurich/rubymonstas-zurich.github.io
 - website in README
 - URL in Repo-Beschreibung
 - assets, sass, img-Ordner
 - HTML, Ruby, CSS
 
-#### ianli/elbowpatched-boilerplate
+#### https://github.com/ianli/elbowpatched-boilerplate
 - url in Beschriebung
 - index.html
 - img Ordner
@@ -46,7 +46,7 @@ erzeugen. Dies muss vor allem mit der verwendeten MachineLearning-Strategie beac
 - website in README
 - _data-Ordner
 
-#### whoisjuan/whoisjuan.github.io
+#### https://github.com/whoisjuan/whoisjuan.github.io
 
 ## DATA
 ### Features
@@ -66,7 +66,7 @@ erzeugen. Dies muss vor allem mit der verwendeten MachineLearning-Strategie beac
 
 
 ### Repositories
-#### ericfischer/housing-inventory
+#### https://github.com/ericfischer/housing-inventory
 - viele Dateien
 - flache Hierarchie
 - viele gleiche Dateitypen
@@ -75,26 +75,26 @@ erzeugen. Dies muss vor allem mit der verwendeten MachineLearning-Strategie beac
 - viele CSV
 - keine Releases
 
-#### GSA/data
+#### https://github.com/GSA/data
 - viele CSV
 - "data" in README, Ordner, Name, Repo-Beschreibung
 - paar Bilder
 - keine Releases
 
-#### OpenExoplanetCatalogue/open_exoplanet_catalogue
+#### https://github.com/OpenExoplanetCatalogue/open_exoplanet_catalogue
 - viele Forks
 - viele Commits
 - voll in Python
 - viele Dateien in einem Ordner
 - keine Releases
 
-#### Hipo/university-domains-list
+#### https://github.com/Hipo/university-domains-list
 - keine Releases
 - data in README
 - wenige Dateien, dafuer eine grosse
 - list im Namen
 
-#### minimaxir/big-list-of-naughty-strings
+#### https://github.com/minimaxir/big-list-of-naughty-strings
 - json, txt
 - list im Namen
 - Python, Shell und Go
