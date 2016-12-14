@@ -1,9 +1,13 @@
 import argparse
 
-from classifier.DecisionTreeClassifier import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+
+from classifier.algorithm.DecisionTreeClassifier import DecisionTreeClassifier
 from classifier.GithubAuthentification import GithubAuthentification
 from classifier.InputParser import InputParser
 from classifier.feature_extraction.FeatureExtractionPipeline import FeatureExtractionPipeline
+
+from classifier.evaluation.Evaluator import Evaluator
 
 parser = argparse.ArgumentParser(description='Program which analyses github repositories into categories.')
 parser.add_argument('-f', '--file', dest="filepath", help='The file location of the input file', nargs='?',
@@ -32,6 +36,14 @@ if args.train:
         print('Extracted features: ', features)
         samples.append(features)
 
-    clf.fit(samples, labels)
-    predicted_label = clf.predict_with_values([[5, 1]])
-    print('Prediction: ', predicted_label)
+    training_split = 0.2
+    print('Splitting the data into {:.0%} training and {:.0%} test data.'.format(1 - training_split, training_split))
+    train_samples, test_samples, train_labels, test_labels = train_test_split(samples, labels, test_size=0.2,
+                                                                              random_state=0)
+    clf.fit(train_samples, train_labels)
+    predict_labels = clf.predict(test_samples)
+
+    evaluator = Evaluator(test_labels, predict_labels)
+    print(evaluator.report())
+
+

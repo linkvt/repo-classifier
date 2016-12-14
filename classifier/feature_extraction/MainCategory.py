@@ -7,4 +7,4 @@ from classifier.feature_extraction.language.LanguageDEVFeatureExtractor import L
 
 class MainCategory(FeatureCategory):
     def _get_feature_extractors(self) -> [FeatureExtractor]:
-        return [ForkExtractor(self.repo), LanguageDEVFeatureExtractor(self.repo), AllLanguageFeatureExtractor(self.repo)]
+        return [ForkExtractor(self.repo), LanguageDEVFeatureExtractor(self.repo)]

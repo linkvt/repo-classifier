@@ -19,7 +19,8 @@ class LanguageFeatureExtractor(FeatureExtractor):
             if language in languages:
                 relevant_size += languages[language]
 
-        return [Feature('Language feature for ' + self._get_category_label(), relevant_size / total_size)]
+        return [Feature('Language feature for ' + self._get_category_label(),
+                        relevant_size / total_size if total_size > 0 else 0)]
 
     @abc.abstractmethod
     def _get_category_label(self) -> str:

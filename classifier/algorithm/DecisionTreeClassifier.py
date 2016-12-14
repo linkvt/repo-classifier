@@ -31,7 +31,4 @@ class DecisionTreeClassifier():
         :param samples:
         :return:
         """
-        mapped_samples = []
-        for sample in samples:
-            mapped_samples.append([feature.value for feature in sample])
-        return mapped_samples
+        return [[feature.value for feature in sample] for sample in samples]

@@ -33,7 +33,7 @@ class AllLanguageFeatureExtractor(FeatureExtractor):
 
         for language in languages:
             if language in self._languageToProbability:
-                self._languageToProbability[language] = languages[language] / total_size
+                self._languageToProbability[language] = languages[language] / total_size if total_size > 0 else 0
             else:
                 print('Language "' + language + '" is not registered in the algorithm.')
 
