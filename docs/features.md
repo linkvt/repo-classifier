@@ -2,6 +2,8 @@
 
 ## Notizen
 - vllt Lizenz
+- .travis.yml
+- Anzahl der Dateien
 
 
 ### Sprachen
@@ -11,10 +13,133 @@ anschlagen
 - Wir beziehen alle verfügbaren Sprachen von Github ein. Pro Sprache ein Feature. Das wird natürlich viele Features 
 erzeugen. Dies muss vor allem mit der verwendeten MachineLearning-Strategie beachtet werden.
 
+## Allgemein
+- Anzahl: Commits, Releases, Forks, Watches, Branches, Stars, Contributors, Issues, PullRequests, Lizenz
+
+## DEV
+### Features
+
+### Repositories
+#### https://github.com/briantemple/homeworkr
+- Ordner "text", "lib", "vendor", "config"
+
+#### https://github.com/spring-projects/spring-boot
+- pom.xml
+- Buildsysteme
+- BuildStatus-Bild
+
+#### https://github.com/facebook/react
+- "library"
+- "src", "docs"
+- "CHANGELOG.md"
+- "dependencies", "coverage"
+
+#### https://github.com/nodegit/nodegit
+- "api"
+- Codestyle Dateien: ".editorconfig", vllt allgemein Dateien mit . am Anfang
+
+#### https://github.com/scipy/scipy 
+
+
+
+## HW
+### Features
+- Begriffe: "homework", "demo", "lecture", "assignment", "class", "department", "university", "assignment", "grading", "deadline", "submission"
+- latest commit lange her
+- Zeit zwischen erstem und letzten Commit
+
+
+### Repositories
+#### https://github.com/spez/RottenTomatoes
+- "demo"
+
+#### https://github.com/m2mtech/calculator-2015
+- "lecture", "assignment"
+
+#### https://github.com/bcaffo/751and2
+- "class", "department" in Beschreibung
+- "university"
+- "exams"-Ordner
+
+#### https://github.com/HPI-SWA-Teaching/SWT16-Project-08
+- ?
+
+#### https://github.com/uwhpsc-2016/example-python-homework
+- "assignment", "grading", "deadline"
+
+
+
+## EDU
+### Features
+- Begriffe "course", "lecture", "guide", "book", "tips", "know", "knowledge"
+- viele md
+- comitter hat University oder .edu auf Profil
+
+### Repositories
+#### https://github.com/DataScienceSpecialization/courses
+- "course", "lecture" in Beschreibung
+- index.html, Rmd und md
+- committer hat University oder .edu auf Profile
+
+#### https://github.com/githubteacher/intro-november-2015
+- viele MD
+- "introduction" in Beschreibung
+- "teacher" in README
+
+#### https://github.com/alex/what-happens-when
+- hauptsaechlich md
+
+#### https://github.com/MostlyAdequate/mostly-adequate-guide
+- "guide", "book"
+- viele Markdown
+
+### https://github.com/AllThingsSmitty/jquery-tips-everyone-should-know
+- viele "md"
+- "tips", "know", "knowledge"
+
+
+## DOCS
+### Features
+- viele md
+- manche pdf, bin, zip
+- "documentation" bzw "docs" in Name und Beschreibung und README
+
+### Repositories
+#### https://github.com/CMSgov/HealthCare.gov-Styleguide
+- Ordner und Dateien wie bei WEB
+- "documentation" in README
+- kein Release
+
+#### https://github.com/github/maturity-model
+- resources Ordner
+- key-Dateiendung
+- laengere README
+
+#### https://github.com/raspberrypi/documentation
+- viele md, pdf, bin, zip
+- "documentation" in Name und Beschreibung und README
+- in PR werden viele MD geaendert
+
+#### https://github.com/bundestag/gesetze
+- sehr viele markdown
+- viele branches
+- viele links zu md in md-README (?)
+
+#### https://github.com/fsr-itse/docs
+- viele markdown
+- "docs" im Namen
+
+
 
 ## WEB
 ### Features
-- TODO
+- index.html im Hauptverzeichnis
+- JS, HTML, CSS hauptsaechlich
+- font, assets, sass, img, _data-Ordner
+- Branch gh-pages
+- URL in Repo-Beschreibung
+- "website", "webpage", "Bootstrap" in README
+- Bilder: EPS, png, pdf, svg, gif, jpg
 
 ### Repositories
 #### https://github.com/BloombergMedia/whatiscode
