@@ -1,5 +1,6 @@
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import f1_score
+from sklearn.metrics import classification_report
 
 
 class Evaluator:
@@ -16,5 +17,6 @@ class Evaluator:
     def report(self):
         acc = 'Accuracy: {:.2%}'.format(self.accuracy())
         f1 = 'F1-Score: {}'.format([score for score in self.f1()])
+        report = classification_report(self.test_labels, self.predict_labels)
 
-        return acc + '\n' + f1
+        return '\n'.join([acc, f1, report])
