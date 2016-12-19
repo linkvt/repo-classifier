@@ -1,7 +1,7 @@
 import abc
 
 from classification.Feature import Feature
-from classification.feature_extraction import FeatureExtractor
+from classification.feature_extraction.FeatureExtractor import FeatureExtractor
 
 
 class LanguageFeatureExtractor(FeatureExtractor):
