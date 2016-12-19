@@ -1,3 +1,5 @@
+import os
+
 import yaml
 from github.Repository import Repository
 
@@ -20,7 +22,8 @@ class AllLanguageFeatureExtractor(FeatureExtractor):
 
     def _init_languages(self):
         if not AllLanguageFeatureExtractor.LANGUAGES:
-            with open('languages.yml', 'r') as f:
+            resource_path = os.path.join(os.path.dirname(__file__), 'languages.yml')
+            with open(resource_path, 'r') as f:
                 doc = yaml.load(f)
                 AllLanguageFeatureExtractor.LANGUAGES = [language for language in doc]
 
