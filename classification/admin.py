@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from classification.models import Repository
+
+admin.site.register(Repository)
