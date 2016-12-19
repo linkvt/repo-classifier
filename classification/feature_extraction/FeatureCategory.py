@@ -2,7 +2,7 @@ import abc
 from itertools import chain
 
 from classification import Feature
-from classification.feature_extraction import FeatureExtractor
+from classification.feature_extraction.FeatureExtractor import FeatureExtractor
 
 
 class FeatureCategory:
