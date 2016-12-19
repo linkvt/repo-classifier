@@ -1,3 +1,4 @@
+Django==1.10.4
 numpy==1.11.2
 PyGithub==1.29
 scikit-learn==0.18.1
