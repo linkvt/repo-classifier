@@ -1,7 +1,7 @@
 from sklearn import tree
 
 
-class DecisionTreeClassifier():
+class DecisionTreeClassifier:
     def __init__(self):
         self.clf = tree.DecisionTreeClassifier()
 

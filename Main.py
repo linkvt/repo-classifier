@@ -2,12 +2,11 @@ import argparse
 
 from sklearn.model_selection import train_test_split
 
-from classifier.algorithm.DecisionTreeClassifier import DecisionTreeClassifier
-from classifier.GithubAuthentification import GithubAuthentification
-from classifier.InputParser import InputParser
-from classifier.feature_extraction.FeatureExtractionPipeline import FeatureExtractionPipeline
-
-from classifier.evaluation.Evaluator import Evaluator
+from classification.GithubAuthentification import GithubAuthentification
+from classification.InputParser import InputParser
+from classification.algorithm.DecisionTreeClassifier import DecisionTreeClassifier
+from classification.evaluation.Evaluator import Evaluator
+from classification.feature_extraction.FeatureExtractionPipeline import FeatureExtractionPipeline
 
 parser = argparse.ArgumentParser(description='Program which analyses github repositories into categories.')
 parser.add_argument('-f', '--file', dest="filepath", help='The file location of the input file', nargs='?',

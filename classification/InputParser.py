@@ -13,4 +13,3 @@ class InputParser:
             return repo_ids, labels
         else:
             return [path[19:] for path in text.split("\n") if path], []
-

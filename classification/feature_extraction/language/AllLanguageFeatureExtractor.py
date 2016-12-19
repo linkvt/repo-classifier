@@ -1,8 +1,8 @@
 import yaml
 from github.Repository import Repository
 
-from classifier.Feature import Feature
-from classifier.feature_extraction.FeatureExtractor import FeatureExtractor
+from classification.Feature import Feature
+from classification.feature_extraction import FeatureExtractor
 
 
 class AllLanguageFeatureExtractor(FeatureExtractor):

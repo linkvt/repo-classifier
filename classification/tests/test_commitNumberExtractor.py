@@ -1,7 +1,7 @@
 from unittest import TestCase
 
-from classifier.feature_extraction.feature.CommitNumberExtractor import CommitNumberExtractor
-from tests.GithubInitializerForTest import GithubInitializerForTest
+from classification.feature_extraction.feature.CommitNumberExtractor import CommitNumberExtractor
+from classification.tests import GithubInitializerForTest
 
 
 class TestCommitNumberExtractor(TestCase):

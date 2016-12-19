@@ -2,9 +2,9 @@ from itertools import chain
 
 from github.Repository import Repository
 
-from classifier.Feature import Feature
-from classifier.feature_extraction import FeatureCategory
-from classifier.feature_extraction.MainCategory import MainCategory
+from classification.Feature import Feature
+from classification.feature_extraction.FeatureCategory import FeatureCategory
+from classification.feature_extraction.MainCategory import MainCategory
 
 CATEGORIES = [
     MainCategory
