@@ -1,4 +1,4 @@
-from classifier.GithubAuthentification import GithubAuthentification
+from classification.GithubAuthentification import GithubAuthentification
 
 
 class GithubInitializerForTest:
