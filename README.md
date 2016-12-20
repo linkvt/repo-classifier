@@ -22,6 +22,9 @@ source .venv/bin/activate
 echo "repo-classifier - NICE! (venv on)"
 ```
 
+## Run the application
+Execute `python manage.py runserver` to start the live reloading webserver on [localhost:8000](http://localhost:8000/).
+
 
 ## Reference
 - autoenv: https://github.com/kennethreitz/autoenv
