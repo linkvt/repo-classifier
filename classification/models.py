@@ -1,4 +1,8 @@
+from collections import namedtuple
+
 from django.db import models
+
+Category = namedtuple('Category', ['name', 'label'])
 
 
 class Repository(models.Model):
@@ -6,13 +10,13 @@ class Repository(models.Model):
         verbose_name_plural = 'repositories'
 
     CATEGORIES = (
-        ('DEV', 'DEV'),
-        ('HW', 'HW'),
-        ('EDU', 'EDU'),
-        ('DOCS', 'DOCS'),
-        ('WEB', 'WEB'),
-        ('DATA', 'DATA'),
-        ('OTHER', 'OTHER'),
+        Category('DEV', 'DEV'),
+        Category('HW', 'HW'),
+        Category('EDU', 'EDU'),
+        Category('DOCS', 'DOCS'),
+        Category('WEB', 'WEB'),
+        Category('DATA', 'DATA'),
+        Category('OTHER', 'OTHER'),
     )
 
     url = models.CharField(max_length=255, unique=True)
