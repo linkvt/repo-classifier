@@ -15,14 +15,14 @@ class Repository(models.Model):
         ('OTHER', 'OTHER'),
     )
 
-    url = models.CharField(max_length=255)
+    url = models.CharField(max_length=255, unique=True)
     category = models.CharField(max_length=10, blank=True, choices=CATEGORIES)
 
-    def get_id(self):
+    def get_identifier(self):
         return self.url[19:]  # TODO refactor other places which use this code
 
     def __str__(self):
-        readable_name = self.get_id()
+        readable_name = self.get_identifier()
         if self.category:
             readable_name += ' ({})'.format(self.category)
         return readable_name
