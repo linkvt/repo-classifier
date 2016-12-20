@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Showcase URLs</title>
+</head>
+<body>
+<form action="{% url 'data_collection:showcase' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="showcase_url">
+    {% for category in categories %}
+        <input type="submit" name="category" value="{{ category.name }}">
+    {% endfor %}
+</form>
+<pre>{{ urls }}</pre>
+</body>
+</html>
