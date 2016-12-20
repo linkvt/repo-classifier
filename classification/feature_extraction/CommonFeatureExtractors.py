@@ -57,5 +57,6 @@ class TotalFilesExtractor(FeatureExtractor):
             if item.type == 'blob':
                 num_files += 1
             else:
+                # If not tree we have to request the new information -> cost intensive but no other way
                 num_files += self._get_num_files(item)
         return num_files

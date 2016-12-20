@@ -3,6 +3,7 @@ from unittest import TestCase
 from classification.feature_extraction.CommonFeatureExtractors import TotalFilesExtractor, CommitNumberExtractor
 from classification.tests.GithubInitializerForTest import GithubInitializerForTest
 
+# TODO probably create a own repository with individual content to test various setups
 TEST_REPOSITORY = 'rmccue/test-repository'
 
 

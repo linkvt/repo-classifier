@@ -2,14 +2,13 @@ from github.Repository import Repository
 
 from classification.Feature import Feature
 from classification.feature_extraction.CommonFeatureExtractors import ContributorsExtractor, BranchExtractor, \
-    ForkExtractor, StarExtractor, TotalFilesExtractor, CommitNumberExtractor
+    ForkExtractor, StarExtractor, CommitNumberExtractor
 
 FEATURE_EXTRACTORS = [
     BranchExtractor,
     ContributorsExtractor,
     ForkExtractor,
     StarExtractor,
-    TotalFilesExtractor,
     CommitNumberExtractor,
 ]
 
