@@ -92,6 +92,6 @@ class TotalFilesExtractor(FeatureExtractor):
         return num_files
 
 
-class WatchesExtractor(FeatureExtractor):
+class WatchersExtractor(FeatureExtractor):
     def extract_features(self) -> [Feature]:
         return [Feature('Number of watchers', self._repo.watchers_count)]
