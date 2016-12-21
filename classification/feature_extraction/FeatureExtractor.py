@@ -2,7 +2,7 @@ import abc
 
 from github.Repository import Repository
 
-from classification.Feature import Feature
+from classification import Feature
 
 
 class FeatureExtractor:
@@ -11,7 +11,8 @@ class FeatureExtractor:
     """
 
     def __init__(self, repo: Repository):
-        self._repo = repo
+        self.repo = repo
+        self.features = []
 
     @abc.abstractmethod
     def extract_features(self) -> [Feature]:
