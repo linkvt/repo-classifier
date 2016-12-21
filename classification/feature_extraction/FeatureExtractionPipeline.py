@@ -7,10 +7,10 @@ from classification.feature_extraction.CommonFeatureExtractors import Contributo
 
 FEATURE_EXTRACTORS = [
     BranchExtractor,
+    CommitNumberExtractor,
     ContributorsExtractor,
     ForkExtractor,
     StarExtractor,
-    CommitNumberExtractor,
 ]
 
 
