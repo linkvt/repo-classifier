@@ -30,3 +30,18 @@ class Repository(models.Model):
         if self.category:
             readable_name += ' ({})'.format(self.category)
         return readable_name
+
+
+class Feature(models.Model):
+    class Meta:
+        unique_together = ('repository', 'name')
+
+    repository = models.ForeignKey('Repository', on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    value = models.FloatField()
+
+    def __str__(self):
+        return 'Feature[' + self.name + ', ' + str(self.value) + ']'
+
+    def __repr__(self):
+        return self.__str__()
