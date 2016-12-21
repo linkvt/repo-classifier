@@ -1,3 +1,4 @@
+from itertools import chain
 from github.Repository import Repository
 
 from classification.Feature import Feature
@@ -18,4 +19,5 @@ class FeatureExtractionPipeline:
         self._repo = repo
 
     def extract_features(self) -> [Feature]:
-        return [extractor(self._repo).extract_features() for extractor in FEATURE_EXTRACTORS]
+		return list(chain.from_iterable(
+            (extractor(self._repo).extract_features() for extractor in FEATURE_EXTRACTORS)))
