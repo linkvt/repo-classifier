@@ -15,7 +15,7 @@ class CommitNumberExtractor(FeatureExtractor):
     def extract_features(self) -> [Feature]:
         contributors = self._repo.get_contributors()
         total_commits_default_branch = sum(contributor.contributions for contributor in contributors)
-        return [Feature('Number of commits: ', total_commits_default_branch)]
+        return [Feature('Number of commits', total_commits_default_branch)]
 
 
 class ContributorsExtractor(FeatureExtractor):
@@ -27,7 +27,37 @@ class ContributorsExtractor(FeatureExtractor):
 
 class ForkExtractor(FeatureExtractor):
     def extract_features(self) -> [Feature]:
-        return [Feature('Test feature with forks', self._repo.forks)]
+        return [Feature('Number of forks', self._repo.forks)]
+
+
+class HasDownloadsExtractor(FeatureExtractor):
+    def extract_features(self) -> [Feature]:
+        return [Feature('Has downloads', 1 if self._repo.has_downloads else 0)]
+
+
+class HasIssuesExtractor(FeatureExtractor):
+    def extract_features(self) -> [Feature]:
+        return [Feature('Has issues', 1 if self._repo.has_issues else 0)]
+
+
+class HasWikiExtractor(FeatureExtractor):
+    def extract_features(self) -> [Feature]:
+        return [Feature('Has wiki', 1 if self._repo.has_wiki else 0)]
+
+
+class IsForkExtractor(FeatureExtractor):
+    def extract_features(self) -> [Feature]:
+        return [Feature('Is a fork', 1 if self._repo.fork else 0)]
+
+
+class OpenIssueExtractor(FeatureExtractor):
+    def extract_features(self) -> [Feature]:
+        return [Feature('Number of open issues', self._repo.open_issues_count)]
+
+
+class SizeExtractor(FeatureExtractor):
+    def extract_features(self) -> [Feature]:
+        return [Feature('Size of repo', self._repo.size)]
 
 
 class StarExtractor(FeatureExtractor):
@@ -60,3 +90,8 @@ class TotalFilesExtractor(FeatureExtractor):
                 # If not tree we have to request the new information -> cost intensive but no other way
                 num_files += self._get_num_files(item)
         return num_files
+
+
+class WatchesExtractor(FeatureExtractor):
+    def extract_features(self) -> [Feature]:
+        return [Feature('Number of watchers', self._repo.watchers_count)]
