@@ -8,10 +8,15 @@
 <form action="{% url 'data_collection:showcase' %}" method="POST">
     {% csrf_token %}
     <input type="text" name="showcase_url">
+    <br>
     {% for category in categories %}
         <input type="submit" name="category" value="{{ category.name }}">
     {% endfor %}
 </form>
-<pre>{{ urls }}</pre>
+<br>
+{% for url in urls %}
+    <span><a href="{{ url }}">{{ url }}</a> {{ selected_category }}</span>
+    <br>
+{% endfor %}
 </body>
 </html>

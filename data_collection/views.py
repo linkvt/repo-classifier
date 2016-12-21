@@ -14,18 +14,19 @@ def index(request):
 
 
 def showcase_urls(request: HttpRequest) -> HttpResponse:
-    showcase_url = request.POST.get('showcase_url', None)
+    showcase_url = request.POST.get('showcase_url')
     urls = []
 
     if showcase_url:
         webpage = requests.get(showcase_url).text
         soup = BeautifulSoup(webpage)
         tags = soup.select('h3.mb-1 a')
-        urls = [GITHUB_PREFIX + tag['href'] + ' ' + request.POST['category'] for tag in tags]
+        urls = [GITHUB_PREFIX + tag['href'] for tag in tags]
 
     template = loader.get_template('data_collection/showcase_urls.html')
     context = {
-        'urls': '\n'.join(urls),
+        'urls': urls,
+        'selected_category': request.POST.get('category'),
         'categories': Repository.CATEGORIES,
     }
     return HttpResponse(template.render(context, request))
