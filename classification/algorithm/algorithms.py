@@ -1,9 +1,11 @@
+from sklearn import neighbors
 from sklearn import tree
 
 
-class DecisionTreeClassifier:
-    def __init__(self):
-        self.clf = tree.DecisionTreeClassifier()
+class Classifier:
+    def __init__(self, clf, name):
+        self.clf = clf
+        self.name = name
 
     def fit(self, samples, labels):
         """
@@ -32,3 +34,13 @@ class DecisionTreeClassifier:
         :return:
         """
         return [[feature.value for feature in sample] for sample in samples]
+
+
+class DecisionTreeClassifier(Classifier):
+    def __init__(self):
+        super().__init__(tree.DecisionTreeClassifier(), 'DecisionTreeClassifier')
+
+
+class KNeighborsClassifier(Classifier):
+    def __init__(self):
+        super().__init__(neighbors.KNeighborsClassifier(5), 'KNeighborsClassifier')

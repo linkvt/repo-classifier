@@ -4,7 +4,8 @@ from sklearn.metrics import f1_score
 
 
 class Evaluator:
-    def __init__(self, test_labels, predict_labels):
+    def __init__(self, clf, test_labels, predict_labels):
+        self.clf = clf
         self.test_labels = test_labels
         self.predict_labels = predict_labels
 
@@ -15,8 +16,6 @@ class Evaluator:
         return f1_score(self.test_labels, self.predict_labels, average=None)
 
     def report(self):
-        acc = 'Accuracy: {:.2%}'.format(self.accuracy())
-        f1 = 'F1-Score: {}'.format([score for score in self.f1()])
         report = classification_report(self.test_labels, self.predict_labels)
 
-        return '\n'.join([acc, f1, report])
+        return self.clf.name + '\n' + report

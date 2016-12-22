@@ -2,7 +2,7 @@ from sklearn.model_selection import train_test_split
 
 from classification.GithubAuthentification import GithubAuthentification
 from classification.InputParser import InputParser
-from classification.algorithm.DecisionTreeClassifier import DecisionTreeClassifier
+from classification.algorithm.algorithms import DecisionTreeClassifier, KNeighborsClassifier
 from classification.evaluation.Evaluator import Evaluator
 from classification.feature_extraction.FeatureExtractionPipeline import FeatureExtractionPipeline
 
@@ -13,7 +13,7 @@ def train_and_classify(filepath, train=True):
     input_parser = InputParser(filepath, train)
     splitted_urls, labels = input_parser.parse()
 
-    clf = DecisionTreeClassifier()
+    classifiers = [DecisionTreeClassifier(), KNeighborsClassifier()]
 
     if train:
         samples = []
@@ -31,8 +31,9 @@ def train_and_classify(filepath, train=True):
         train_samples, test_samples, train_labels, test_labels = train_test_split(samples, labels,
                                                                                   test_size=training_split,
                                                                                   random_state=0)
-        clf.fit(train_samples, train_labels)
-        predict_labels = clf.predict(test_samples)
+        for clf in classifiers:
+            clf.fit(train_samples, train_labels)
+            predict_labels = clf.predict(test_samples)
 
-        evaluator = Evaluator(test_labels, predict_labels)
-        yield evaluator.report()
+            evaluator = Evaluator(clf, test_labels, predict_labels)
+            yield evaluator.report()
