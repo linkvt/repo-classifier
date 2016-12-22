@@ -13,7 +13,7 @@ class TestTotalFilesExtractor(TestCase):
         repo = GithubInitializerForTest.get_connection().get_repo(OWN_REPO)
         extracted_features = TotalFilesExtractor(repo).extract_features()
         self.assertEqual(len(extracted_features), 1)
-        self.assertEqual(extracted_features.pop().value, 1018, 'File num is incorrect')
+        self.assertEqual(extracted_features.pop().value, 11018, 'File num is incorrect')
 
 
 class TestCommitNumberExtractor(TestCase):

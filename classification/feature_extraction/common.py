@@ -124,8 +124,6 @@ class StarExtractor(FeatureExtractor):
 class TotalFilesExtractor(FeatureExtractor):
     """
     Extractor for returning the total number of files for the default branch of the repository.
-    TODO needs testing with num files > 1000 in one folder because the API limits the recursive call to 1000.
-    TODO testing file sizes > 1mb
     """
 
     def __init__(self, repo: Repository):
@@ -135,7 +133,8 @@ class TotalFilesExtractor(FeatureExtractor):
     def extract_features(self) -> [Feature]:
         # Not sure if master is always the best approach. Maybe it is better to request the latest commit and use the
         # SHA of it
-        total_num_files = self._get_num_files(self.repo.get_git_tree('master'))
+        # Boolean flag -> recursive call for contents
+        total_num_files = self._get_num_files(self.repo.get_git_tree('master', True))
         self.features[0].value = total_num_files
         return self.features
 
@@ -144,9 +143,7 @@ class TotalFilesExtractor(FeatureExtractor):
         for item in tree.tree:
             if item.type == 'blob':
                 num_files += 1
-            else:
-                # If not tree we have to request the new information -> cost intensive but no other way
-                num_files += self._get_num_files(self.repo.get_git_tree(item.sha))
+                # Because of recursive call ignore dirs seems to be working also with folders with 10000 files
         return num_files
 
 
