@@ -13,4 +13,3 @@ args = parser.parse_args()
 
 for output in classifier.train_and_classify(args.filepath, args.train):
     print(output)
-

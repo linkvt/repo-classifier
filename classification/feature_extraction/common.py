@@ -91,6 +91,24 @@ class IsForkExtractor(FeatureExtractor):
         return self.features
 
 
+class DescriptionKeyWordExtractor(FeatureExtractor):
+    keywords = ['homework', 'lecture', 'course', 'framework']
+
+    def __init__(self, repo: Repository):
+        super().__init__(repo)
+        self.features = [Feature('Contains keyword "' + keyword + '"') for keyword in self.keywords]
+
+    def extract_features(self):
+        description = self.repo.description
+
+        for keyword, feature in zip(self.keywords, self.features):
+            if keyword in description:
+                feature.value = 1
+            else:
+                feature.value = 0
+        return self.features
+
+
 class OpenIssueExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)

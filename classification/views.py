@@ -6,6 +6,7 @@ from classification import classifier
 
 REPOSITORIES_SAMPLE_FILE = 'repositories_sample.csv'
 
+
 def index(request: HttpRequest) -> HttpResponse:
     output_lines = []
     if 'train' in request.POST:
