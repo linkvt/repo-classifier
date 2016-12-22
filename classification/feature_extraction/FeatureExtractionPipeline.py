@@ -12,6 +12,7 @@ FEATURE_EXTRACTORS = [
     common.ContributorsExtractor,
     common.ForkExtractor,
     common.StarExtractor,
+    common.TotalFilesExtractor,
 ]
 
 
