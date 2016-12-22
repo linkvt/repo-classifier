@@ -4,6 +4,9 @@ from django.http import HttpRequest
 from django.http import HttpResponse
 from django.template import loader
 
+from random import randint
+
+from classification.GithubAuthentification import GithubAuthentification
 from classification.models import Repository
 
 GITHUB_PREFIX = 'https://github.com'
@@ -11,6 +14,20 @@ GITHUB_PREFIX = 'https://github.com'
 
 def index(request):
     return HttpResponse("Hello at the data collection index")
+
+
+def random_repo(request: HttpRequest) -> HttpResponse:
+    github = GithubAuthentification()
+    # 77000000 is roughly the number of public repos
+    since = randint(1, 77000000)
+    repo = github.get_repos(since).get_page(1)[0]
+
+    template = loader.get_template('data_collection/random_repo.html')
+    context = {
+        'url': repo.html_url,
+        'name': repo.name
+    }
+    return HttpResponse(template.render(context, request))
 
 
 def showcase_urls(request: HttpRequest) -> HttpResponse:

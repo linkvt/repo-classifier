@@ -27,3 +27,6 @@ class GithubAuthentification:
 
     def get_repo(self, url):
         return self.api.get_repo(url)
+
+    def get_repos(self, since):
+        return self.api.get_repos(since)
