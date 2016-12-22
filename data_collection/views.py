@@ -25,7 +25,9 @@ def random_repo(request: HttpRequest) -> HttpResponse:
     template = loader.get_template('data_collection/random_repo.html')
     context = {
         'url': repo.html_url,
-        'name': repo.name
+        'name': repo.name,
+        'description': repo.description,
+        'categories': Repository.CATEGORIES
     }
     return HttpResponse(template.render(context, request))
 

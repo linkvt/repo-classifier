@@ -5,6 +5,14 @@
     <title>Random Repo</title>
 </head>
 <body>
-<a target="_blank" href="{{ url }}">{{ name }}</a>
+<a target="_blank" href="{{ url }}"><h1>{{ name }}</h1></a>
+<p>Description: {{ description }}</p>
+<form action="{% url 'data_collection:random' %}" method="POST">
+    {% csrf_token %}
+    <br>
+    {% for category in categories %}
+    <input type="submit" name="category" value="{{ category.name }}">
+    {% endfor %}
+</form>
 </body>
 </html>
