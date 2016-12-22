@@ -36,7 +36,7 @@ class Feature(models.Model):
     class Meta:
         unique_together = ('repository', 'name')
 
-    repository = models.ForeignKey('Repository', on_delete=models.CASCADE)
+    repository = models.ForeignKey(Repository, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     value = models.FloatField()
 

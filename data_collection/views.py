@@ -1,10 +1,10 @@
+from random import randint
+
 import requests
 from bs4 import BeautifulSoup
 from django.http import HttpRequest
 from django.http import HttpResponse
-from django.template import loader
-
-from random import randint
+from django.shortcuts import render
 
 from classification.GithubAuthentification import GithubAuthentification
 from classification.models import Repository
@@ -22,14 +22,13 @@ def random_repo(request: HttpRequest) -> HttpResponse:
     since = randint(1, 77000000)
     repo = github.get_repos(since).get_page(1)[0]
 
-    template = loader.get_template('data_collection/random_repo.html')
     context = {
         'url': repo.html_url,
         'name': repo.name,
         'description': repo.description,
         'categories': Repository.CATEGORIES
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'data_collection/random_repo.html', context)
 
 
 def showcase_urls(request: HttpRequest) -> HttpResponse:
@@ -42,10 +41,9 @@ def showcase_urls(request: HttpRequest) -> HttpResponse:
         tags = soup.select('h3.mb-1 a')
         urls = [GITHUB_PREFIX + tag['href'] for tag in tags]
 
-    template = loader.get_template('data_collection/showcase_urls.html')
     context = {
         'urls': urls,
         'selected_category': request.POST.get('category'),
         'categories': Repository.CATEGORIES,
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'data_collection/showcase_urls.html', context)
