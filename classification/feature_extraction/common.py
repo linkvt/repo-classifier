@@ -1,5 +1,6 @@
 from github import Repository
 from github.GitTree import GitTree
+from github.GithubException import GithubException
 
 from classification.Feature import Feature
 from classification.feature_extraction.FeatureExtractor import FeatureExtractor
@@ -51,6 +52,27 @@ class ForkExtractor(FeatureExtractor):
         return self.features
 
 
+class HasBuildFileExtractor(FeatureExtractor):
+    # TODO: Add more build files
+    build_files = ['build.gradle', 'composer.json', 'makefile' 'package.json', 'pom.xml']
+
+    def __init__(self, repo: Repository):
+        super().__init__(repo)
+        self.features = [Feature('Has build file')]
+
+    def extract_features(self) -> [Feature]:
+        try:
+            files = self.repo.get_dir_contents('')
+        except GithubException:
+            files = []
+
+        self.features[0].value = 0
+        for file in files:
+            if file.name and file.name.lower() in self.build_files:
+                self.features[0].value = 1
+        return self.features
+
+
 class HasDownloadsExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)
@@ -92,6 +114,7 @@ class IsForkExtractor(FeatureExtractor):
 
 
 class DescriptionKeyWordExtractor(FeatureExtractor):
+    # TODO: Add more keywords
     keywords = ['homework', 'lecture', 'course', 'framework']
 
     def __init__(self, repo: Repository):
@@ -99,7 +122,7 @@ class DescriptionKeyWordExtractor(FeatureExtractor):
         self.features = [Feature('Contains keyword "' + keyword + '"') for keyword in self.keywords]
 
     def extract_features(self):
-        description = self.repo.description
+        description = self.repo.description.lower() if self.repo.description else ''
 
         for keyword, feature in zip(self.keywords, self.features):
             if keyword in description:

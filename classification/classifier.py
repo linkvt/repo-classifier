@@ -26,9 +26,10 @@ def train_and_classify(filepath, train=True):
             yield 'Extracted features: ' + str(features)
             samples.append(features)
 
-        training_split = 0.2
+        training_split = 0.5
         yield 'Splitting the data into {:.0%} training and {:.0%} test data.'.format(1 - training_split, training_split)
-        train_samples, test_samples, train_labels, test_labels = train_test_split(samples, labels, test_size=0.2,
+        train_samples, test_samples, train_labels, test_labels = train_test_split(samples, labels,
+                                                                                  test_size=training_split,
                                                                                   random_state=0)
         clf.fit(train_samples, train_labels)
         predict_labels = clf.predict(test_samples)
