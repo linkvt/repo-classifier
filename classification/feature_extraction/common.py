@@ -135,10 +135,7 @@ class TotalFilesExtractor(FeatureExtractor):
     def extract_features(self) -> [Feature]:
         # Not sure if master is always the best approach. Maybe it is better to request the latest commit and use the
         # SHA of it
-        tree = self.repo.get_git_tree('master')
-        assert isinstance(tree, GitTree), tree
-
-        total_num_files = self._get_num_files(tree)
+        total_num_files = self._get_num_files(self.repo.get_git_tree('master'))
         self.features[0].value = total_num_files
         return self.features
 
@@ -149,7 +146,7 @@ class TotalFilesExtractor(FeatureExtractor):
                 num_files += 1
             else:
                 # If not tree we have to request the new information -> cost intensive but no other way
-                num_files += self._get_num_files(item)
+                num_files += self._get_num_files(self.repo.get_git_tree(item.sha))
         return num_files
 
 
