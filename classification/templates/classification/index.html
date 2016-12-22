@@ -1,0 +1,18 @@
+{% extends 'classification/base.html' %}
+
+{% load bootstrap3 %}
+
+{% block content %}
+
+    <form action="{% url 'classification:index' %}" method="POST">
+        {% csrf_token %}
+        {% bootstrap_button 'Train & Classify' name='train' button_type='submit' %}
+    </form>
+
+    {% if output %}
+        <div>
+            <pre>{{ output }}</pre>
+        </div>
+    {% endif %}
+
+{% endblock %}
