@@ -3,13 +3,14 @@
 ## Requirements
 - python 3.5
 - pip
-
+- npm
 
 ## Setup
 - Create a virtual environment with `pyvenv .venv`
 - Activate the venv with `source .venv/bin/activate` or install `autoenv` and create a `.env` file as described below
 - Install the dependencies with `pip install -r requirements.txt`
 - Setup the python SDK to `.venv/bin/python` to also access the dependencies in the venv
+- Install web dependencies with `npm install`
 
 ### New Dependencies
 - Install a dependency in the venv with `pip install DEPENDENCY`

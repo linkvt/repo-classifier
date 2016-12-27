@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'bootstrap3',
     'import_export',
+    'pipeline',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +123,35 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'staticfiles')
+STATICFILES_STORAGE = 'pipeline.storage.NonPackagingPipelineStorage'
+
+PIPELINE = {
+    'PIPELINE_ENABLED': True,
+    'CSS_COMPRESSOR': None,
+    'JS_COMPRESSOR': None,
+
+    'STYLESHEETS': {
+        'bootstrap': {
+            'source_filenames': (
+                'node_modules/bootstrap/dist/css/bootstrap.css',
+            ),
+            'output_filename': 'css/bootstrap.css',
+        },
+    },
+    'JAVASCRIPT': {
+        'bootstrap': {
+            'source_filenames': (
+                './node_modules/bootstrap/dist/js/bootstrap.js'
+            ),
+            'output_filename': 'js/bootstrap.js',
+        },
+    },
+}
+
+STATICFILES_FINDERS = (
+    'pipeline.finders.AppDirectoriesFinder',
+    'pipeline.finders.FileSystemFinder',
+    'pipeline.finders.CachedFileFinder',
+    'pipeline.finders.PipelineFinder',
+)
