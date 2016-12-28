@@ -124,12 +124,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'staticfiles')
-STATICFILES_STORAGE = 'pipeline.storage.NonPackagingPipelineStorage'
+STATICFILES_STORAGE = 'pipeline.storage.NonPackagingPipelineCachedStorage'
+
+STATICFILES_DIRS = (
+    ('node_modules', os.path.join(BASE_DIR, 'node_modules')),
+)
 
 PIPELINE = {
-    'PIPELINE_ENABLED': True,
     'CSS_COMPRESSOR': None,
     'JS_COMPRESSOR': None,
+    'DISABLE_WRAPPER': True,
 
     'STYLESHEETS': {
         'bootstrap': {
@@ -142,7 +146,7 @@ PIPELINE = {
     'JAVASCRIPT': {
         'bootstrap': {
             'source_filenames': (
-                './node_modules/bootstrap/dist/js/bootstrap.js'
+                'node_modules/bootstrap/dist/js/bootstrap.js',
             ),
             'output_filename': 'js/bootstrap.js',
         },
