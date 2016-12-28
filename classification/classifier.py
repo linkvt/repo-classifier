@@ -21,13 +21,13 @@ def train_and_classify(text, train=True):
         # build the samples
         for (url, current_label) in zip(splitted_urls, labels):
             current_repo = github_connection.get_repo(url)
-            yield '<Testing> Read repo name:{} with label {}'.format(current_repo.name, current_label)
+            print('<Testing> Read repo name:{} with label {}'.format(current_repo.name, current_label))
             features = FeatureExtractionPipeline(current_repo).extract_features()
-            yield 'Extracted features: ' + str(features)
+            print('Extracted features: ', str(features))
             samples.append(features)
 
         training_split = 0.5
-        yield 'Splitting the data into {:.0%} training and {:.0%} test data.'.format(1 - training_split, training_split)
+        print('Splitting the data into {:.0%} training and {:.0%} test data.'.format(1 - training_split, training_split))
         train_samples, test_samples, train_labels, test_labels = train_test_split(samples, labels,
                                                                                   test_size=training_split,
                                                                                   random_state=0)
@@ -36,4 +36,5 @@ def train_and_classify(text, train=True):
             predict_labels = clf.predict(test_samples)
 
             evaluator = Evaluator(clf, test_labels, predict_labels)
-            yield evaluator.report()
+            print(evaluator.report())
+            yield evaluator.report()  # TODO return the classified repos when they are associated to the features

@@ -16,7 +16,7 @@ def index(request: HttpRequest) -> HttpResponse:
         with open(SAMPLE_FILE) as file:
             text = file.read()
     else:
-        text = ""
+        text = None
 
     output_lines = list(classifier.train_and_classify(text)) if text else []
 

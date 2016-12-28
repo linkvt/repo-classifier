@@ -14,5 +14,4 @@ args = parser.parse_args()
 with open(args.filepath) as file:
     text = file.read()
 
-for output in classifier.train_and_classify(text, args.train):
-    print(output)
+classifier.train_and_classify(text, args.train)
