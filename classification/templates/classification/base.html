@@ -6,7 +6,8 @@
     <title>Repository Classifier</title>
     {% stylesheet 'bootstrap' %}
 </head>
-<body>
+<body style="padding-top: 50px">
+{% include 'classification/navbar.html' %}
 <div class="container">
     <h1>{% block title %}default title{% endblock %}</h1>
     {% block content %}default content{% endblock %}

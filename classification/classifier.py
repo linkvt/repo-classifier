@@ -7,10 +7,10 @@ from classification.evaluation.Evaluator import Evaluator
 from classification.feature_extraction.FeatureExtractionPipeline import FeatureExtractionPipeline
 
 
-def train_and_classify(filepath, train=True):
+def train_and_classify(text, train=True):
     github_connection = GithubAuthentification()
 
-    input_parser = InputParser(filepath, train)
+    input_parser = InputParser(text, train)
     splitted_urls, labels = input_parser.parse()
 
     classifiers = [DecisionTreeClassifier(), KNeighborsClassifier()]

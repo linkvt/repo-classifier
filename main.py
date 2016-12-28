@@ -11,5 +11,8 @@ parser.add_argument('-t', '--train', dest="train", help='Specifies the program t
 
 args = parser.parse_args()
 
-for output in classifier.train_and_classify(args.filepath, args.train):
+with open(args.filepath) as file:
+    text = file.read()
+
+for output in classifier.train_and_classify(text, args.train):
     print(output)

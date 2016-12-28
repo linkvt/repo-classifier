@@ -1,13 +1,36 @@
 {% extends 'classification/base.html' %}
 
-{% block title %}Repository Classifier{% endblock %}
+{% block title %}Classifier{% endblock %}
 {% block content %}
-    <form action="{% url 'classification:index' %}" method="POST">
-        {% csrf_token %}
-        <button type="submit" name="train">Train & Classify'</button>
-    </form>
-
-    {% if output %}
-        <pre>{{ output }}</pre>
-    {% endif %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Input</div>
+                <div class="panel-body">
+                    <form action="{% url 'classification:index' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="control-label">Select File</label>
+                            <input type="file" class="file" name="file" data-show-preview="false" data-show-upload="false">
+                        </div>
+                        <div class="btn-group pull-right" role="group">
+                            <button type="submit" class="btn btn-default" name="train-sample">Train & Classify Sample
+                            </button>
+                            <button type="submit" class="btn btn-primary" name="train">Train & Classify</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% if output %}
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Output</div>
+                    <div class="panel-body">
+                        <pre>{{ output }}</pre>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}
