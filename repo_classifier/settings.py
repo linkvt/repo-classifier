@@ -127,7 +127,7 @@ STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'staticfiles')
 STATICFILES_STORAGE = 'pipeline.storage.NonPackagingPipelineCachedStorage'
 
 STATICFILES_DIRS = (
-    ('node_modules', os.path.join(BASE_DIR, 'node_modules')),
+    ('bootstrap', os.path.join(BASE_DIR, 'node_modules', 'bootstrap', 'dist')),
 )
 
 PIPELINE = {
@@ -138,7 +138,7 @@ PIPELINE = {
     'STYLESHEETS': {
         'bootstrap': {
             'source_filenames': (
-                'node_modules/bootstrap/dist/css/bootstrap.css',
+                'bootstrap/css/bootstrap.css',
             ),
             'output_filename': 'css/bootstrap.css',
         },
@@ -146,7 +146,7 @@ PIPELINE = {
     'JAVASCRIPT': {
         'bootstrap': {
             'source_filenames': (
-                'node_modules/bootstrap/dist/js/bootstrap.js',
+                'bootstrap/js/bootstrap.js',
             ),
             'output_filename': 'js/bootstrap.js',
         },
