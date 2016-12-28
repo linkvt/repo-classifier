@@ -3,7 +3,7 @@ diff-match-patch==20121119
 Django==1.10.4
 django-import-export==0.5.1
 django-pipeline==1.6.10
-numpy==1.11.2
+numpy==1.11.3
 PyGithub==1.29
 PyYAML==3.12
 requests==2.12.4
