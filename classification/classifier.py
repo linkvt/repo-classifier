@@ -2,12 +2,12 @@ from sklearn.model_selection import train_test_split
 
 from classification.GithubAuthentification import GithubAuthentification
 from classification.InputParser import InputParser
-from classification.algorithm.algorithms import DecisionTreeClassifier, KNeighborsClassifier
+from classification.algorithm.algorithms import Classifier, DecisionTreeClassifier, KNeighborsClassifier
 from classification.evaluation.Evaluator import Evaluator
 from classification.feature_extraction.FeatureExtractionPipeline import FeatureExtractionPipeline
 
 
-def train_and_classify(text, train=True):
+def train(text, train=True):
     github_connection = GithubAuthentification()
 
     input_parser = InputParser(text, train)
@@ -27,7 +27,8 @@ def train_and_classify(text, train=True):
             samples.append(features)
 
         training_split = 0.5
-        print('Splitting the data into {:.0%} training and {:.0%} test data.'.format(1 - training_split, training_split))
+        print(
+            'Splitting the data into {:.0%} training and {:.0%} test data.'.format(1 - training_split, training_split))
         train_samples, test_samples, train_labels, test_labels = train_test_split(samples, labels,
                                                                                   test_size=training_split,
                                                                                   random_state=0)
@@ -38,3 +39,32 @@ def train_and_classify(text, train=True):
             evaluator = Evaluator(clf, test_labels, predict_labels)
             print(evaluator.report())
             yield evaluator.report()  # TODO return the classified repos when they are associated to the features
+
+        classifiers[0].save()
+
+
+def classify(text):
+    github_connection = GithubAuthentification()
+
+    input_parser = InputParser(text, train)
+    urls, _ = input_parser.parse()
+
+    clf = Classifier.load()
+
+    if not clf:
+        yield 'No trained model available.'
+        return
+
+    samples = []
+
+    for url in urls:
+        current_repo = github_connection.get_repo(url)
+        print('<Testing> Read repo name:{}'.format(current_repo.name))
+        features = FeatureExtractionPipeline(current_repo).extract_features()
+        print('Extracted features: ', str(features))
+        samples.append(features)
+
+    labels = clf.predict(samples)
+    result = [url + ' ' + label for url, label in zip(urls, labels)]
+
+    yield ''.join(result)

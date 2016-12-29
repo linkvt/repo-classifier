@@ -9,16 +9,24 @@ SAMPLE_FILE = 'repositories_sample.csv'
 
 def index(request: HttpRequest) -> HttpResponse:
     uploaded_file = request.FILES.get('file')
-    if uploaded_file:
+    mode = request.POST['mode'] if 'mode' in request.POST else None
+    if mode == 'train' and uploaded_file:
         data = uploaded_file.read()
         text = data.decode(uploaded_file.charset or 'utf-8')
-    elif request.POST:
+    elif mode == 'train-sample':
         with open(SAMPLE_FILE) as file:
             text = file.read()
+    elif mode == 'classify' and uploaded_file:
+        data = uploaded_file.read()
+        text = data.decode(uploaded_file.charset or 'utf-8')
     else:
         text = None
 
-    output_lines = list(classifier.train_and_classify(text)) if text else []
+    output_lines = ''
+    if mode == 'train' or mode == 'train-sample':
+        output_lines = list(classifier.train(text)) if text else []
+    elif mode == 'classify':
+        output_lines = list(classifier.classify(text)) if text else []
 
     context = {
         'output': '\n'.join(output_lines),

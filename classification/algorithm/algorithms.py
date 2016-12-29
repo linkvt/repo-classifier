@@ -1,8 +1,11 @@
 from sklearn import neighbors
 from sklearn import tree
+from sklearn.externals import joblib
 
 
 class Classifier:
+    model_file_name = 'model.pkl'
+
     def __init__(self, clf, name):
         self.clf = clf
         self.name = name
@@ -26,6 +29,16 @@ class Classifier:
 
     def predict_with_values(self, samples):
         return self.clf.predict(samples)
+
+    def save(self):
+        joblib.dump(self, self.model_file_name)
+
+    @staticmethod
+    def load():
+        try:
+            return joblib.load(Classifier.model_file_name)
+        except FileNotFoundError:
+            return None
 
     def _map_input(self, samples):
         """
