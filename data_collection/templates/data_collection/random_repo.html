@@ -5,14 +5,25 @@
     <title>Random Repo</title>
 </head>
 <body>
-<a target="_blank" href="{{ url }}"><h1>{{ name }}</h1></a>
-<p>Description: {{ description }}</p>
-<form action="{% url 'data_collection:random' %}" method="POST">
-    {% csrf_token %}
-    <br>
-    {% for category in categories %}
-    <input type="submit" name="category" value="{{ category.name }}">
-    {% endfor %}
-</form>
+
 </body>
 </html>
+{% extends 'classification/base.html' %}
+
+{% load filters %}
+
+{% block title %}Classify Random Repos{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Name: <a target="_blank" href="{{ url }}">{{ name }}</a></h2>
+        <p>Description: {{ description }}</p>
+        <form class="form-inline" action="{% url 'data_collection:random' %}" method="POST">
+            {% csrf_token %}
+            {% for category in categories %}
+            <input type="submit" name="category" value="{{ category.name }}">
+            {% endfor %}
+        </form>
+    </div>
+</div>
+{% endblock %}
