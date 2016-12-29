@@ -115,7 +115,7 @@ class IsForkExtractor(FeatureExtractor):
 
 class DescriptionKeyWordExtractor(FeatureExtractor):
     # TODO: Add more keywords
-    keywords = ['homework', 'lecture', 'course', 'framework']
+    keywords = ['homework', 'lecture', 'course', 'framework', 'assignment', 'application', 'api', 'webapp']
 
     def __init__(self, repo: Repository):
         super().__init__(repo)
