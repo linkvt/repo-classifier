@@ -37,13 +37,13 @@ def train(text, train=True):
             predict_labels = clf.predict(test_samples)
 
             evaluator = Evaluator(clf, test_labels, predict_labels)
-            print(evaluator.report())
             yield evaluator.report()  # TODO return the classified repos when they are associated to the features
 
         classifiers[0].save()
 
 
 def classify(text):
+    GITHUB_PREFIX = 'https://github.com/'
     github_connection = GithubAuthentification()
 
     input_parser = InputParser(text, train)
@@ -65,6 +65,8 @@ def classify(text):
         samples.append(features)
 
     labels = clf.predict(samples)
-    result = [url + ' ' + label for url, label in zip(urls, labels)]
 
-    yield ''.join(result)
+    result = [GITHUB_PREFIX + url + ' ' + label for url, label in zip(urls, labels)]
+
+    for r in result:
+        yield r
