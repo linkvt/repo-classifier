@@ -2,7 +2,7 @@ from sklearn.model_selection import train_test_split
 
 from classification.GithubAuthentification import GithubAuthentification
 from classification.InputParser import InputParser
-from classification.algorithm.algorithms import Classifier, DecisionTreeClassifier, KNeighborsClassifier
+from classification.algorithm.algorithms import Classifier, DecisionTreeClassifier, KNeighborsClassifier, MLPClassifier
 from classification.evaluation.Evaluator import Evaluator
 from classification.feature_extraction.FeatureExtractionPipeline import FeatureExtractionPipeline
 
@@ -13,7 +13,7 @@ def train(text, train=True):
     input_parser = InputParser(text, train)
     splitted_urls, labels = input_parser.parse()
 
-    classifiers = [DecisionTreeClassifier(), KNeighborsClassifier()]
+    classifiers = [DecisionTreeClassifier(), MLPClassifier(), KNeighborsClassifier()]
 
     if train:
         samples = []

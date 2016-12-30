@@ -1,5 +1,6 @@
 from sklearn import neighbors
 from sklearn import tree
+from sklearn import neural_network
 from sklearn.externals import joblib
 
 
@@ -57,3 +58,8 @@ class DecisionTreeClassifier(Classifier):
 class KNeighborsClassifier(Classifier):
     def __init__(self):
         super().__init__(neighbors.KNeighborsClassifier(5), 'KNeighborsClassifier')
+
+
+class MLPClassifier(Classifier):
+    def __init__(self):
+        super().__init__(neural_network.MLPClassifier(), 'MLPClassifier')
