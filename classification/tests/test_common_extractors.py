@@ -1,4 +1,4 @@
-from unittest import TestCase
+from django.test import TestCase
 
 from classification.feature_extraction.common import TotalFilesExtractor, CommitNumberExtractor
 from classification.tests.GithubInitializerForTest import GithubInitializerForTest
