@@ -1,3 +1,7 @@
+# Must be before any model related call or anything
+from utils import django_init
+django_init.setup()
+
 import argparse
 
 from classification import classifier
