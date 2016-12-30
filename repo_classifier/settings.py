@@ -140,27 +140,25 @@ PIPELINE = {
     'STYLESHEETS': {
         'bootstrap': {
             'source_filenames': (
-                'bootstrap/css/bootstrap.css',
-                'bootstrap-fileinput/css/fileinput.css',
+                os.path.join('bootstrap', 'css', 'bootstrap.css'),
+                os.path.join('bootstrap-fileinput', 'css', 'fileinput.css'),
             ),
-            'output_filename': 'css/bootstrap.css',
+            'output_filename': os.path.join('css', 'bootstrap.css'),
         },
     },
     'JAVASCRIPT': {
         'bootstrap': {
             'source_filenames': (
-                'jquery/jquery.js',
-                'bootstrap/js/bootstrap.js',
-                'bootstrap-fileinput/js/fileinput.js',
+                os.path.join('jquery', 'jquery.js'),
+                os.path.join('bootstrap', 'js', 'bootstrap.js'),
+                os.path.join('bootstrap-fileinput', 'js', 'fileinput.js'),
             ),
-            'output_filename': 'js/bootstrap.js',
+            'output_filename': os.path.join('js', 'bootstrap.js'),
         },
     },
 }
 
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'pipeline.finders.AppDirectoriesFinder',
     'pipeline.finders.FileSystemFinder',
     'pipeline.finders.CachedFileFinder',
