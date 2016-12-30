@@ -8,6 +8,7 @@ Category = namedtuple('Category', ['name', 'label'])
 class Repository(models.Model):
     class Meta:
         verbose_name_plural = 'repositories'
+        app_label = 'app_model_belongs_to'  # Hot fix for error during testing
 
     CATEGORIES = (
         Category('DEV', 'DEV'),
@@ -35,6 +36,7 @@ class Repository(models.Model):
 class Feature(models.Model):
     class Meta:
         unique_together = ('repository', 'name')
+        app_label = 'app_model_belongs_to'  # Hot fix see above
 
     repository = models.ForeignKey(Repository, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)

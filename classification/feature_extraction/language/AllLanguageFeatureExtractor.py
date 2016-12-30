@@ -2,9 +2,8 @@ import os
 
 import yaml
 from github.Repository import Repository
-
-from classification.Feature import Feature
 from classification.feature_extraction.FeatureExtractor import FeatureExtractor
+from classification.models import Feature
 
 
 class AllLanguageFeatureExtractor(FeatureExtractor):

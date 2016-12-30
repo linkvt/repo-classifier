@@ -2,14 +2,14 @@ from github import Repository
 from github.GitTree import GitTree
 from github.GithubException import GithubException
 
-from classification.Feature import Feature
 from classification.feature_extraction.FeatureExtractor import FeatureExtractor
+from classification.models import Feature
 
 
 class BranchExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)
-        self.features = [Feature('Number of branches')]
+        self.features = [Feature(name='Number of branches')]
 
     def extract_features(self) -> [Feature]:
         branches = self.repo.get_branches()
@@ -21,7 +21,7 @@ class BranchExtractor(FeatureExtractor):
 class CommitNumberExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)
-        self.features = [Feature('Number of commits')]
+        self.features = [Feature(name='Number of commits')]
 
     def extract_features(self) -> [Feature]:
         contributors = self.repo.get_contributors()
@@ -33,7 +33,7 @@ class CommitNumberExtractor(FeatureExtractor):
 class ContributorsExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)
-        self.features = [Feature('Number of contributors')]
+        self.features = [Feature(name='Number of contributors')]
 
     def extract_features(self) -> [Feature]:
         contributors = self.repo.get_contributors()
@@ -45,7 +45,7 @@ class ContributorsExtractor(FeatureExtractor):
 class ForkExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)
-        self.features = [Feature('Number of forks')]
+        self.features = [Feature(name='Number of forks')]
 
     def extract_features(self) -> [Feature]:
         self.features[0].value = self.repo.forks
@@ -76,7 +76,7 @@ class HasBuildFileExtractor(FeatureExtractor):
 class HasDownloadsExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)
-        self.features = [Feature('Has downloads')]
+        self.features = [Feature(name='Has downloads')]
 
     def extract_features(self) -> [Feature]:
         self.features[0].value = 1 if self.repo.has_downloads else 0
@@ -86,7 +86,7 @@ class HasDownloadsExtractor(FeatureExtractor):
 class HasIssuesExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)
-        self.features = [Feature('Has issues')]
+        self.features = [Feature(name='Has issues')]
 
     def extract_features(self) -> [Feature]:
         self.features[0].value = 1 if self.repo.has_issues else 0
@@ -96,7 +96,7 @@ class HasIssuesExtractor(FeatureExtractor):
 class HasWikiExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)
-        self.features = [Feature('Has wiki')]
+        self.features = [Feature(name='Has wiki')]
 
     def extract_features(self) -> [Feature]:
         self.features[0].value = 1 if self.repo.has_wiki else 0
@@ -106,7 +106,7 @@ class HasWikiExtractor(FeatureExtractor):
 class IsForkExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)
-        self.features = [Feature('Is a fork')]
+        self.features = [Feature(name='Is a fork')]
 
     def extract_features(self) -> [Feature]:
         self.features[0].value = 1 if self.repo.fork else 0
@@ -135,7 +135,7 @@ class DescriptionKeyWordExtractor(FeatureExtractor):
 class OpenIssueExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)
-        self.features = [Feature('Number of open issues')]
+        self.features = [Feature(name='Number of open issues')]
 
     def extract_features(self) -> [Feature]:
         self.features[0].value = self.repo.open_issues_count
@@ -145,7 +145,7 @@ class OpenIssueExtractor(FeatureExtractor):
 class SizeExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)
-        self.features = [Feature('Size of repo')]
+        self.features = [Feature(name='Size of repo')]
 
     def extract_features(self) -> [Feature]:
         self.features[0].value = self.repo.size
@@ -155,7 +155,7 @@ class SizeExtractor(FeatureExtractor):
 class StarExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)
-        self.features = [Feature('Number of stars')]
+        self.features = [Feature(name='Number of stars')]
 
     def extract_features(self) -> [Feature]:
         self.features[0].value = self.repo.stargazers_count
@@ -169,7 +169,7 @@ class TotalFilesExtractor(FeatureExtractor):
 
     def __init__(self, repo: Repository):
         super().__init__(repo)
-        self.features = [Feature('Number of files')]
+        self.features = [Feature(name='Number of files')]
 
     def extract_features(self) -> [Feature]:
         # Not sure if master is always the best approach. Maybe it is better to request the latest commit and use the
@@ -191,7 +191,7 @@ class TotalFilesExtractor(FeatureExtractor):
 class WatchersExtractor(FeatureExtractor):
     def __init__(self, repo: Repository):
         super().__init__(repo)
-        self.features = [Feature('Number of watchers')]
+        self.features = [Feature(name='Number of watchers')]
 
     def extract_features(self) -> [Feature]:
         self.features[0].value = self.repo.watchers_count

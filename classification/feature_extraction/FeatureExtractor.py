@@ -2,7 +2,7 @@ import abc
 
 from github.Repository import Repository
 
-from classification import Feature
+from classification.models import Feature
 
 
 class FeatureExtractor:

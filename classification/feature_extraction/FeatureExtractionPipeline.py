@@ -2,7 +2,7 @@ from itertools import chain
 
 from github.Repository import Repository
 
-from classification import Feature
+from classification.models import Feature
 from classification.feature_extraction import common
 from classification.feature_extraction.CachedFeatureExtractor import CachedFeatureExtractor
 

@@ -1,5 +1,5 @@
-from classification import Feature
 from classification.feature_extraction import FeatureExtractor
+from classification.models import Feature
 
 
 class CachedFeatureExtractor:
@@ -21,7 +21,6 @@ class CachedFeatureExtractor:
 
 # TODO auslagern
 class TEST:
-
     def _build_cache(self):
         return
 

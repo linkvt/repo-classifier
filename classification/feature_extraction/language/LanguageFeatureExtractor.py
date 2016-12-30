@@ -1,6 +1,6 @@
 import abc
 
-from classification.Feature import Feature
+from classification.models import Feature
 from classification.feature_extraction.FeatureExtractor import FeatureExtractor
 
 
