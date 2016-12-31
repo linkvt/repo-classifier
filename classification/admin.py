@@ -18,7 +18,7 @@ class RepositoryResource(resources.ModelResource):
         skip_unchanged = True
 
 
-class CSVWithSpaces(CSV):
+class CSVForRepository(CSV):
     _column_headers = ['url', 'category']
     _delimiter = ' '
 
@@ -39,9 +39,19 @@ class CSVWithSpaces(CSV):
         return self.get_format().export_set(dataset, delimiter=self._delimiter, **kwargs)
 
 
+class CSVKeepingOrder(CSV):
+    def create_dataset(self, in_stream, **kwargs):
+        # reverse line order, because they get reversed again by the framework when importing them
+        lines = in_stream.split('\n')
+        header = lines.pop(0)
+        lines = list(filter(None, lines))
+        in_stream = header + '\n' + '\n'.join(lines[::-1])
+        return super(CSV, self).create_dataset(in_stream, **kwargs)
+
+
 class RepositoryAdmin(ImportExportModelAdmin):
     resource_class = RepositoryResource
-    formats = (CSVWithSpaces,)
+    formats = (CSVForRepository,)
     list_display = ('url', 'category')
     list_max_show_all = 10000
 
@@ -50,17 +60,21 @@ class RepositoryAdmin(ImportExportModelAdmin):
 
 
 class FeatureResource(resources.ModelResource):
-    repository = fields.Field(attribute='repository', column_name='repository', widget=ForeignKeyWidget(Repository, 'url'))
+    repository = fields.Field(attribute='repository',
+                              column_name='repository',
+                              widget=ForeignKeyWidget(Repository, 'url'))
 
     class Meta:
         model = Feature
         fields = ('repository', 'name', 'value')
         export_order = fields
         import_id_fields = ('repository', 'name')
+        skip_unchanged = True
 
 
 class FeatureAdmin(ImportExportModelAdmin):
     resource_class = FeatureResource
+    formats = (CSVKeepingOrder,)
     list_display = ('repository', 'name', 'value')
     list_max_show_all = 10000
 
