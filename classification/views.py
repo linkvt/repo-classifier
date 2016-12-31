@@ -4,19 +4,11 @@ from django.shortcuts import render
 
 from classification import classifier
 
-SAMPLE_FILE = 'repositories_sample.csv'
-
 
 def index(request: HttpRequest) -> HttpResponse:
     uploaded_file = request.FILES.get('file')
     mode = request.POST['mode'] if 'mode' in request.POST else None
-    if mode == 'train' and uploaded_file:
-        data = uploaded_file.read()
-        text = data.decode(uploaded_file.charset or 'utf-8')
-    elif mode == 'train-sample':
-        with open(SAMPLE_FILE) as file:
-            text = file.read()
-    elif mode == 'classify' and uploaded_file:
+    if mode and uploaded_file:
         data = uploaded_file.read()
         text = data.decode(uploaded_file.charset or 'utf-8')
     else:
