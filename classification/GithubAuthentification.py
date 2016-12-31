@@ -25,8 +25,8 @@ class GithubAuthentification:
         for repo in self.api.get_user().get_repos():
             print(repo.name)
 
-    def get_repo(self, url):
-        return self.api.get_repo(url)
+    def get_repo(self, identifier):
+        return self.api.get_repo(identifier)
 
     def get_repos(self, since):
         return self.api.get_repos(since)

@@ -4,10 +4,11 @@ class InputParser:
         self.train = train
 
     def parse(self):
+        lines = filter(None, self.text.split('\n'))
         if self.train:
-            split_text = [path[19:].split(" ") for path in self.text.split("\n") if path]
+            split_text = [line.split(" ") for line in lines]
             repo_ids = [t[0] for t in split_text]
             labels = [t[1] for t in split_text]
             return repo_ids, labels
         else:
-            return [path[19:] for path in self.text.split("\n") if path], []
+            return lines, []

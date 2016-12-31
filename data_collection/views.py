@@ -33,13 +33,14 @@ def random_repo(request: HttpRequest) -> HttpResponse:
 
 def showcase_urls(request: HttpRequest) -> HttpResponse:
     showcase_url = request.POST.get('showcase_url')
-    urls = []
 
     if showcase_url:
         webpage = requests.get(showcase_url).text
         soup = BeautifulSoup(webpage)
         tags = soup.select('h3.mb-1 a')
         urls = [GITHUB_PREFIX + tag['href'] for tag in tags]
+    else:
+        urls = []
 
     context = {
         'urls': urls,
