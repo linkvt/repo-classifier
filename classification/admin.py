@@ -42,6 +42,7 @@ class CSVWithSpaces(CSV):
 class RepositoryAdmin(ImportExportModelAdmin):
     resource_class = RepositoryResource
     formats = (CSVWithSpaces,)
+    list_display = ('url', 'category')
     list_max_show_all = 10000
 
     def get_export_filename(self, file_format):
@@ -60,6 +61,7 @@ class FeatureResource(resources.ModelResource):
 
 class FeatureAdmin(ImportExportModelAdmin):
     resource_class = FeatureResource
+    list_display = ('repository', 'name', 'value')
     list_max_show_all = 10000
 
     def get_export_filename(self, file_format):
