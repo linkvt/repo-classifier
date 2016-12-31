@@ -1,14 +1,13 @@
-from itertools import chain
-
 import multiprocessing
+from itertools import chain
 from typing import List, Type
 
-from github.Repository import Repository
+import itertools
 
-from classification.feature_extraction.FeatureExtractor import FeatureExtractor
-from classification.models import Feature
 from classification.feature_extraction import common
 from classification.feature_extraction.CachedFeatureExtractor import CachedFeatureExtractor
+from classification.feature_extraction.FeatureExtractor import FeatureExtractor
+from classification.models import Feature, Repository
 
 FEATURE_EXTRACTORS = [
     common.BranchExtractor,
@@ -20,15 +19,16 @@ FEATURE_EXTRACTORS = [
 ]
 
 
+def extract_from_single_extractor(data: (Type[FeatureExtractor], Repository)) -> List[Feature]:
+    cached_extractor = CachedFeatureExtractor(data[0](data[1]))
+    return cached_extractor.extract_features()
+
+
 class FeatureExtractionPipeline:
-    def __init__(self, repo: Repository):
-        self._repo = repo
+    def __init__(self):
+        self._pool = multiprocessing.Pool(len(FEATURE_EXTRACTORS))
 
-    def extract_features(self) -> [Feature]:
-        pool = multiprocessing.Pool(len(FEATURE_EXTRACTORS))
-        feature_lists = pool.map(self._extract_from_single_extractor, FEATURE_EXTRACTORS)
+    def extract_features(self, repo: Repository) -> [Feature]:
+        data = zip(FEATURE_EXTRACTORS, itertools.repeat(repo))
+        feature_lists = self._pool.map(extract_from_single_extractor, data)
         return list(chain.from_iterable(feature_lists))
-
-    def _extract_from_single_extractor(self, extractor: Type[FeatureExtractor]) -> List[Feature]:
-        cached_extractor = CachedFeatureExtractor(extractor(self._repo))
-        return cached_extractor.extract_features()

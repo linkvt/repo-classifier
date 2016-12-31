@@ -20,9 +20,10 @@ def train(text, train=True):
         samples = []
 
         # build the samples
+        extraction_pipeline = FeatureExtractionPipeline()
         for (repo, current_label) in zip(repositories, labels):
             print('<Testing> Read repo name:{} with label {}'.format(repo.name, current_label))
-            features = FeatureExtractionPipeline(repo).extract_features()
+            features = extraction_pipeline.extract_features(repo)
             print('Extracted features: ', str(features))
             samples.append(features)
 
@@ -58,8 +59,9 @@ def classify(text):
     samples = []
 
     for repo in repos:
+        extraction_pipeline = FeatureExtractionPipeline()
         print('<Testing> Read repo name:{}'.format(repo.name))
-        features = FeatureExtractionPipeline(repo).extract_features()
+        features = extraction_pipeline.extract_features(repo)
         print('Extracted features: ', str(features))
         samples.append(features)
 
