@@ -1,7 +1,11 @@
 from itertools import chain
 
+import multiprocessing
+from typing import List, Type
+
 from github.Repository import Repository
 
+from classification.feature_extraction.FeatureExtractor import FeatureExtractor
 from classification.models import Feature
 from classification.feature_extraction import common
 from classification.feature_extraction.CachedFeatureExtractor import CachedFeatureExtractor
@@ -21,5 +25,10 @@ class FeatureExtractionPipeline:
         self._repo = repo
 
     def extract_features(self) -> [Feature]:
-        return list(chain.from_iterable(
-            (CachedFeatureExtractor(extractor(self._repo)).extract_features() for extractor in FEATURE_EXTRACTORS)))
+        pool = multiprocessing.Pool(len(FEATURE_EXTRACTORS))
+        feature_lists = pool.map(self._extract_from_single_extractor, FEATURE_EXTRACTORS)
+        return list(chain.from_iterable(feature_lists))
+
+    def _extract_from_single_extractor(self, extractor: Type[FeatureExtractor]) -> List[Feature]:
+        cached_extractor = CachedFeatureExtractor(extractor(self._repo))
+        return cached_extractor.extract_features()
