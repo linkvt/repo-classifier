@@ -2,7 +2,6 @@ from typing import List
 
 from sklearn.model_selection import train_test_split
 
-from classification.GithubAuthentification import GithubAuthentification
 from classification.InputParser import InputParser
 from classification.algorithm.algorithms import Classifier, DecisionTreeClassifier, KNeighborsClassifier, MLPClassifier
 from classification.evaluation.Evaluator import Evaluator
@@ -15,7 +14,7 @@ def train(text, train=True):
     splitted_urls, labels = input_parser.parse()
     repositories = map_urls_to_repositories(splitted_urls)
 
-    classifiers = [DecisionTreeClassifier()]  #, MLPClassifier(), KNeighborsClassifier()]
+    classifiers = [DecisionTreeClassifier(), MLPClassifier(), KNeighborsClassifier()]
 
     if train:
         samples = []
