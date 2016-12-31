@@ -1,10 +1,12 @@
 import tablib
 from django.contrib import admin
+from import_export import fields
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 from import_export.formats.base_formats import CSV
+from import_export.widgets import ForeignKeyWidget
 
-from classification.models import Repository
+from classification.models import Repository, Feature
 
 
 class RepositoryResource(resources.ModelResource):
@@ -40,9 +42,29 @@ class CSVWithSpaces(CSV):
 class RepositoryAdmin(ImportExportModelAdmin):
     resource_class = RepositoryResource
     formats = (CSVWithSpaces,)
+    list_max_show_all = 10000
 
     def get_export_filename(self, file_format):
         return 'repositories.{}'.format(file_format.get_extension())
 
 
+class FeatureResource(resources.ModelResource):
+    repository = fields.Field(attribute='repository', column_name='repository', widget=ForeignKeyWidget(Repository, 'url'))
+
+    class Meta:
+        model = Feature
+        fields = ('repository', 'name', 'value')
+        export_order = fields
+        import_id_fields = ('repository', 'name')
+
+
+class FeatureAdmin(ImportExportModelAdmin):
+    resource_class = FeatureResource
+    list_max_show_all = 10000
+
+    def get_export_filename(self, file_format):
+        return 'features.{}'.format(file_format.get_extension())
+
+
 admin.site.register(Repository, RepositoryAdmin)
+admin.site.register(Feature, FeatureAdmin)
