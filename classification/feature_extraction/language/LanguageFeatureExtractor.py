@@ -11,7 +11,7 @@ class LanguageFeatureExtractor(FeatureExtractor):
     """
 
     def extract_features(self) -> [Feature]:
-        languages = self.repo.get_languages()
+        languages = self.api_repo.get_languages()
         total_size = sum(languages.values())
         relevant_size = 0
 

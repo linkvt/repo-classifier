@@ -30,7 +30,7 @@ class AllLanguageFeatureExtractor(FeatureExtractor):
         return self._languageToProbability
 
     def extract_features(self) -> [Feature]:
-        languages = self.repo.get_languages()
+        languages = self.api_repo.get_languages()
         total_size = sum(languages.values())
 
         for language in languages:
