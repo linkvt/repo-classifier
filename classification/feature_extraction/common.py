@@ -172,10 +172,8 @@ class TotalFilesExtractor(FeatureExtractor):
         self.features = [Feature(name='Number of files')]
 
     def extract_features(self) -> [Feature]:
-        # Not sure if master is always the best approach. Maybe it is better to request the latest commit and use the
-        # SHA of it
         # Boolean flag -> recursive call for contents
-        total_num_files = self._get_num_files(self.repo.get_git_tree('master', True))
+        total_num_files = self._get_num_files(self.repo.get_git_tree(self.repo.default_branch, True))
         self.features[0].value = total_num_files
         return self.features
 
