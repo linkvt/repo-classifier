@@ -53,6 +53,8 @@ class RepositoryAdmin(ImportExportModelAdmin):
     resource_class = RepositoryResource
     formats = (CSVForRepository,)
     list_display = ('url', 'category')
+    list_editable = ('category',)
+    list_filter = ('category',)
     list_max_show_all = 10000
 
     def get_export_filename(self, file_format):
