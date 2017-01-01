@@ -45,8 +45,6 @@ def train(text, train=True):
 
 
 def classify(text):
-    GITHUB_PREFIX = 'https://github.com/'
-
     input_parser = InputParser(text, train)
     urls, _ = input_parser.parse()
     repos = map_urls_to_repositories(urls)
@@ -69,7 +67,7 @@ def classify(text):
 
     labels = clf.predict(samples)
 
-    result = [GITHUB_PREFIX + url + ' ' + label for url, label in zip(urls, labels)]
+    result = [url + ' ' + label for url, label in zip(urls, labels)]
 
     for r in result:
         yield r
