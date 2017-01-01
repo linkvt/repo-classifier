@@ -17,6 +17,12 @@ def index(request):
 
 
 def random_repo(request: HttpRequest) -> HttpResponse:
+    url = request.POST.get('url')
+    selected_category = request.POST.get('category')
+
+    if url and selected_category:
+        Repository.objects.create(url=url, category=selected_category)
+
     github = GithubAuthentification()
     # 77000000 is roughly the number of public repos
     since = randint(1, 77000000)
@@ -25,6 +31,8 @@ def random_repo(request: HttpRequest) -> HttpResponse:
     context = {
         'url': repo.html_url,
         'name': repo.name,
+        'owner': repo.owner.login,
+        'owner_url': repo.owner.html_url,
         'description': repo.description,
         'categories': Repository.CATEGORIES
     }
