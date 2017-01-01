@@ -30,5 +30,13 @@ class FeatureExtractionPipeline:
 
     def extract_features(self, repo: Repository) -> [Feature]:
         data = zip(FEATURE_EXTRACTORS, itertools.repeat(repo))
-        feature_lists = self._pool.map(extract_from_single_extractor, data)
+        feature_lists = self._pool.imap(extract_from_single_extractor, data, chunksize=5)
         return list(chain.from_iterable(feature_lists))
+
+    def close(self):
+        """
+        Clean up spawned child processes
+        :return:
+        """
+        self._pool.close()
+        self._pool.join()

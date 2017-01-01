@@ -26,6 +26,7 @@ def train(text, train=True):
             features = extraction_pipeline.extract_features(repo)
             print('Extracted features: ', str(features))
             samples.append(features)
+        extraction_pipeline.close()
 
         training_split = 0.5
         print(
@@ -58,12 +59,13 @@ def classify(text):
 
     samples = []
 
+    extraction_pipeline = FeatureExtractionPipeline()
     for repo in repos:
-        extraction_pipeline = FeatureExtractionPipeline()
         print('<Testing> Read repo name:{}'.format(repo.name))
         features = extraction_pipeline.extract_features(repo)
         print('Extracted features: ', str(features))
         samples.append(features)
+    extraction_pipeline.close()
 
     labels = clf.predict(samples)
 
