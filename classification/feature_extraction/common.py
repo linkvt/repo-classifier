@@ -8,11 +8,14 @@ from classification.models import Feature
 
 class ActiveTimeExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Usage Time')]
+        self.features = [Feature(name='Active time in days')]
 
     def _extract(self):
-        active_time = self.api_repo.updated_at - self.api_repo.created_at
-        self.features[0] = active_time.days
+        # updated_at doesn't tell when the last activity happened: http://stackoverflow.com/a/15922637
+        last_commit_date = self.api_repo.pushed_at
+        initial_creation_date = self.api_repo.parent.created_at if self.api_repo.fork else self.api_repo.created_at
+        active_time = last_commit_date - initial_creation_date
+        self.features[0].value = active_time.days
 
 
 class BranchExtractor(FeatureExtractor):
