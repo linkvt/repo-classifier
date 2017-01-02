@@ -17,6 +17,7 @@ FEATURE_EXTRACTORS = [
     common.ForkExtractor,
     common.HasDownloadsExtractor,
     common.HasIssuesExtractor,
+    common.HasPagesExtractor,
     common.HasWikiExtractor,
     common.IsForkExtractor,
     common.OpenIssueExtractor,

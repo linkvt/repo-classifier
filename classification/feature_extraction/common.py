@@ -72,6 +72,15 @@ class HasIssuesExtractor(FeatureExtractor):
         self.features[0].value = 1 if self.api_repo.has_issues else 0
 
 
+class HasPagesExtractor(FeatureExtractor):
+    def _init_features(self):
+        self.features = [Feature(name='Has pages')]
+
+    def _extract(self):
+        used_to_load_raw_data = self.api_repo.has_issues
+        self.features[0].value = 1 if self.api_repo._rawData.get('has_pages') else 0
+
+
 class HasWikiExtractor(FeatureExtractor):
     def _init_features(self):
         self.features = [Feature(name='Has wiki')]
