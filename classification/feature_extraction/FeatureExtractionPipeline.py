@@ -10,12 +10,20 @@ from classification.feature_extraction.FeatureExtractor import FeatureExtractor
 from classification.models import Feature, Repository
 
 FEATURE_EXTRACTORS = [
+    common.ActiveTimeExtractor,
     common.BranchExtractor,
     common.CommitNumberExtractor,
     common.ContributorsExtractor,
     common.ForkExtractor,
+    common.HasDownloadsExtractor,
+    common.HasIssuesExtractor,
+    common.HasWikiExtractor,
+    common.IsForkExtractor,
+    common.OpenIssueExtractor,
+    common.SizeExtractor,
     common.StarExtractor,
     common.TotalFilesExtractor,
+    common.WatchersExtractor,
 ]
 
 

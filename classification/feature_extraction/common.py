@@ -1,8 +1,18 @@
+"""Contains common extractors that are used for all categories."""
+
 from github.GitTree import GitTree
-from github.GithubException import GithubException
 
 from classification.feature_extraction.FeatureExtractor import FeatureExtractor
 from classification.models import Feature
+
+
+class ActiveTimeExtractor(FeatureExtractor):
+    def _init_features(self):
+        self.features = [Feature(name='Usage Time')]
+
+    def _extract(self):
+        active_time = self.api_repo.updated_at - self.api_repo.created_at
+        self.features[0] = active_time.days
 
 
 class BranchExtractor(FeatureExtractor):
@@ -43,25 +53,6 @@ class ForkExtractor(FeatureExtractor):
         self.features[0].value = self.api_repo.forks
 
 
-class HasBuildFileExtractor(FeatureExtractor):
-    # TODO: Add more build files
-    build_files = ['build.gradle', 'composer.json', 'makefile' 'package.json', 'pom.xml']
-
-    def _init_features(self):
-        self.features = [Feature('Has build file')]
-
-    def _extract(self):
-        try:
-            files = self.api_repo.get_dir_contents('')
-        except GithubException:
-            files = []
-
-        self.features[0].value = 0
-        for file in files:
-            if file.name and file.name.lower() in self.build_files:
-                self.features[0].value = 1
-
-
 class HasDownloadsExtractor(FeatureExtractor):
     def _init_features(self):
         self.features = [Feature(name='Has downloads')]
@@ -92,23 +83,6 @@ class IsForkExtractor(FeatureExtractor):
 
     def _extract(self):
         self.features[0].value = 1 if self.api_repo.fork else 0
-
-
-class DescriptionKeyWordExtractor(FeatureExtractor):
-    # TODO: Add more keywords
-    keywords = ['homework', 'lecture', 'course', 'framework', 'assignment', 'application', 'api', 'webapp']
-
-    def _init_features(self):
-        self.features = [Feature('Contains keyword "' + keyword + '"') for keyword in self.keywords]
-
-    def _extract(self):
-        description = self.api_repo.description.lower() if self.api_repo.description else ''
-
-        for keyword, feature in zip(self.keywords, self.features):
-            if keyword in description:
-                feature.value = 1
-            else:
-                feature.value = 0
 
 
 class OpenIssueExtractor(FeatureExtractor):
@@ -163,12 +137,3 @@ class WatchersExtractor(FeatureExtractor):
 
     def _extract(self):
         self.features[0].value = self.api_repo.watchers_count
-
-
-class ActiveTimeExtractor(FeatureExtractor):
-    def _init_features(self):
-        self.features = [Feature(name='Usage Time')]
-
-    def _extract(self):
-        active_time = self.api_repo.updated_at - self.api_repo.created_at
-        self.features[0] = active_time.days
