@@ -41,10 +41,12 @@ class FeatureExtractionPipeline:
         feature_lists = self._pool.imap(extract_from_single_extractor, data, chunksize=5)
         return list(chain.from_iterable(feature_lists))
 
-    def close(self):
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
         """
         Clean up spawned child processes
         :return:
         """
-        self._pool.close()
-        self._pool.join()
+        self._pool.terminate()
