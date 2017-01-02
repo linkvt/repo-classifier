@@ -8,13 +8,13 @@ class CachedFeatureExtractor:
     def __init__(self, extractor: FeatureExtractor):
         self.extractor = extractor
 
-    def extract_features(self) -> [Feature]:
+    def extract(self) -> [Feature]:
         for feature in self.extractor.features:
             cached_feature = self.get_cached(self.extractor.repo, feature)
             if cached_feature:
                 feature.value = cached_feature.value
             else:
-                new_features = self.extractor.extract_features()
+                new_features = self.extractor.extract()
                 for new_feature in new_features:
                     self.update_cached(self.extractor.repo, new_feature)
                 return new_features

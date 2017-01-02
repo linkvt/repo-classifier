@@ -15,7 +15,7 @@ def index(request: HttpRequest) -> HttpResponse:
         text = None
 
     output_lines = ''
-    if mode == 'train' or mode == 'train-sample':
+    if mode == 'train':
         output_lines = list(classifier.train(text)) if text else []
     elif mode == 'classify':
         output_lines = list(classifier.classify(text)) if text else []

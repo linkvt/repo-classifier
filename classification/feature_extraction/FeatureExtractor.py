@@ -1,9 +1,9 @@
 import abc
 
-from github.Repository import Repository
+import github.Repository as GithubRepository
 
 from classification.GithubAuthentification import GithubAuthentification
-from classification.models import Feature
+from classification.models import Feature, Repository
 
 
 class FeatureExtractor:
@@ -15,9 +15,10 @@ class FeatureExtractor:
         self._api_repo = None
         self.repo = repo
         self.features = []
+        self._init_features()
 
     @property
-    def api_repo(self):
+    def api_repo(self) -> GithubRepository:
         """
         :return: a lazily initialized Github API repository
         """
@@ -25,9 +26,14 @@ class FeatureExtractor:
             self._api_repo = GithubAuthentification().get_repo(self.repo.identifier)
         return self._api_repo
 
+    def extract(self) -> [Feature]:
+        self._extract()
+        return self.features
+
     @abc.abstractmethod
-    def extract_features(self) -> [Feature]:
-        """
-        :return: Feature
-        """
+    def _init_features(self):
+        raise NotImplementedError()
+
+    @abc.abstractmethod
+    def _extract(self):
         raise NotImplementedError('Main class should not be called for feature extraction!')

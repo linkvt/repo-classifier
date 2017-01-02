@@ -10,7 +10,7 @@ class LanguageFeatureExtractor(FeatureExtractor):
     Eq {'Python': 98564, 'R': 4914}
     """
 
-    def extract_features(self) -> [Feature]:
+    def extract(self) -> [Feature]:
         languages = self.api_repo.get_languages()
         total_size = sum(languages.values())
         relevant_size = 0

@@ -11,7 +11,7 @@ OWN_REPO = 'BlackDark/InformatiCup2017TestRepo'
 class TestTotalFilesExtractor(TestCase):
     def test_extract_features(self):
         repo = GithubInitializerForTest.get_connection().get_repo(OWN_REPO)
-        extracted_features = TotalFilesExtractor(repo).extract_features()
+        extracted_features = TotalFilesExtractor(repo).extract()
         self.assertEqual(len(extracted_features), 1)
         self.assertEqual(extracted_features.pop().value, 11018, 'File num is incorrect')
 
@@ -19,6 +19,6 @@ class TestTotalFilesExtractor(TestCase):
 class TestCommitNumberExtractor(TestCase):
     def test_extract_features(self):
         repo = GithubInitializerForTest.get_connection().get_repo(TEST_REPOSITORY)
-        extracted_features = CommitNumberExtractor(repo).extract_features()
+        extracted_features = CommitNumberExtractor(repo).extract()
         self.assertEqual(len(extracted_features), 1)
         self.assertEqual(extracted_features.pop().value, 3, 'Commit number incorrect')
