@@ -21,7 +21,7 @@ FEATURE_EXTRACTORS = [
 
 def extract_from_single_extractor(data: (Type[FeatureExtractor], Repository)) -> List[Feature]:
     cached_extractor = CachedFeatureExtractor(data[0](data[1]))
-    return cached_extractor.extract_features()
+    return cached_extractor.extract()
 
 
 class FeatureExtractionPipeline:
