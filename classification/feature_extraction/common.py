@@ -163,3 +163,12 @@ class WatchersExtractor(FeatureExtractor):
 
     def _extract(self):
         self.features[0].value = self.api_repo.watchers_count
+
+
+class ActiveTimeExtractor(FeatureExtractor):
+    def _init_features(self):
+        self.features = [Feature(name='Usage Time')]
+
+    def _extract(self):
+        active_time = self.api_repo.updated_at - self.api_repo.created_at
+        self.features[0] = active_time.days
