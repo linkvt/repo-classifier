@@ -173,7 +173,10 @@ class TotalFilesExtractor(FeatureExtractor):
 
     def extract_features(self) -> [Feature]:
         # Boolean flag -> recursive call for contents
-        total_num_files = self._get_num_files(self.api_repo.get_git_tree(self.api_repo.default_branch, True))
+        try:
+            total_num_files = self._get_num_files(self.api_repo.get_git_tree(self.api_repo.default_branch, True))
+        except GithubException:
+            total_num_files = 0
         self.features[0].value = total_num_files
         return self.features
 
