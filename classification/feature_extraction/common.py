@@ -1,5 +1,5 @@
 """Contains common extractors that are used for all categories."""
-
+from github import GithubException
 from github.GitTree import GitTree
 
 from classification.feature_extraction.FeatureExtractor import FeatureExtractor
