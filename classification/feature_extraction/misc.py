@@ -6,7 +6,9 @@ from classification.models import Feature
 
 class DescriptionKeyWordExtractor(FeatureExtractor):
     # TODO: Add more keywords
-    keywords = ['homework', 'lecture', 'course', 'framework', 'assignment', 'application', 'api', 'webapp']
+    keywords = ['homework', 'lecture', 'course', 'framework', 'assignment', 'application', 'api', 'webapp', 'icons',
+                'data', 'list', 'fonts', 'materials', 'introduction', 'github', 'website', 'site', 'page', 'assignment',
+                'group', 'official', 'documentation', 'policy']
 
     def _init_features(self):
         self.features = [Feature(name='Contains keyword "' + keyword + '"') for keyword in self.keywords]
