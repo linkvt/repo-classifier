@@ -2,6 +2,7 @@ from sklearn import neighbors
 from sklearn import tree
 from sklearn import neural_network
 from sklearn.externals import joblib
+from sklearn.preprocessing import StandardScaler
 
 
 class Classifier:
@@ -10,6 +11,7 @@ class Classifier:
     def __init__(self, clf, name):
         self.clf = clf
         self.name = name
+        self.scaler = StandardScaler()
 
     def fit(self, samples, labels):
         """
@@ -18,7 +20,9 @@ class Classifier:
         :param labels:
         :return:
         """
-        self.clf = self.clf.fit(self._map_input(samples), labels)
+        feature_vectors = self._map_input(samples)
+        scaled_vectors = self.scaler.fit_transform(feature_vectors)
+        self.clf = self.clf.fit(scaled_vectors, labels)
 
     def predict(self, samples):
         """
@@ -26,10 +30,12 @@ class Classifier:
         :param samples:
         :return:
         """
-        return self.clf.predict(self._map_input(samples))
+        feature_vectors = self._map_input(samples)
+        scaled_vectors = self.scaler.transform(feature_vectors)
+        return self.clf.predict(scaled_vectors)
 
     def predict_with_values(self, samples):
-        return self.clf.predict(samples)
+        return self.clf.predict(self.scaler.transform(samples))
 
     def save(self):
         joblib.dump(self, self.model_file_name)

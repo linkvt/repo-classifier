@@ -9,7 +9,7 @@ class DescriptionKeyWordExtractor(FeatureExtractor):
     keywords = ['homework', 'lecture', 'course', 'framework', 'assignment', 'application', 'api', 'webapp']
 
     def _init_features(self):
-        self.features = [Feature('Contains keyword "' + keyword + '"') for keyword in self.keywords]
+        self.features = [Feature(name='Contains keyword "' + keyword + '"') for keyword in self.keywords]
 
     def _extract(self):
         description = self.api_repo.description.lower() if self.api_repo.description else ''
