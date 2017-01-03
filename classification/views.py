@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 from classification import classifier
+from classification.evaluation.DescriptionAnalyser import DescriptionAnalyser
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -25,3 +26,22 @@ def index(request: HttpRequest) -> HttpResponse:
     }
 
     return render(request, 'classification/index.html', context)
+
+
+def description(request: HttpRequest) -> HttpResponse:
+    uploaded_file = request.FILES.get('file')
+
+    result = ''
+    if uploaded_file:
+        data = uploaded_file.read()
+        text = data.decode(uploaded_file.charset or 'utf-8')
+
+        analyser = DescriptionAnalyser(text)
+        result = analyser.analyse()
+        print(result)
+
+    context = {
+        'output': result,
+    }
+
+    return render(request, 'classification/description.html', context)
