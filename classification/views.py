@@ -4,6 +4,7 @@ from django.shortcuts import render
 
 from classification import classifier
 from classification.evaluation.DescriptionAnalyser import DescriptionAnalyser
+from classification.evaluation.FileNameAnalyser import FileNameAnalyser
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -28,20 +29,26 @@ def index(request: HttpRequest) -> HttpResponse:
     return render(request, 'classification/index.html', context)
 
 
-def description(request: HttpRequest) -> HttpResponse:
+def analysis(request: HttpRequest) -> HttpResponse:
     uploaded_file = request.FILES.get('file')
+    subject = request.POST.get('subject')
 
     result = ''
     if uploaded_file:
         data = uploaded_file.read()
         text = data.decode(uploaded_file.charset or 'utf-8')
 
-        analyser = DescriptionAnalyser(text)
-        result = analyser.analyse()
-        print(result)
+        analyser = None
+        if subject == 'description':
+            analyser = DescriptionAnalyser()
+        elif subject == 'filename':
+            analyser = FileNameAnalyser()
+
+        analyser.text = text
+        result = analyser.analyse(text)
 
     context = {
         'output': result,
     }
 
-    return render(request, 'classification/description.html', context)
+    return render(request, 'classification/analysis.html', context)

@@ -1,39 +1,43 @@
 import string
 from collections import OrderedDict
 
+from github.GithubException import GithubException
+
 from classification.GithubAuthentification import GithubAuthentification
 from classification.InputParser import InputParser
 from classification.models import Repository
 
 
-class DescriptionAnalyser:
+class FileNameAnalyser:
     def analyse(self, text):
         urls, labels = InputParser(text, train=True).parse()
 
         github = GithubAuthentification()
 
-        descriptions = [github.get_repo(url[19:]).description for url in urls]
+        files = []
+        for url in urls:
+            try:
+                files.append(github.get_repo(url[19:]).get_dir_contents(''))
+            except GithubException:
+                pass
 
         categories = [c.name for c in Repository.CATEGORIES]
-        stopwords = ['the', 'in', 'of', 'this', 'that', 'for', 'and', 'at', 'on', 'with', 'a', 'an', 'to', 'as', 'with',
-                     'is', '-']
+        stop_files = ['.gitignore', 'README.md']
 
         word_frequency = {}
 
         for category in categories:
             word_frequency[category] = {}
 
-        for desc, label in zip(descriptions, labels):
+        for root, label in zip(files, labels):
             label = label.rstrip()
-            desc = desc.translate(string.punctuation).lower() if desc else ''
-            words = desc.split()
 
-            for word in words:
-                if word in stopwords:
+            for file in root:
+                if file.name in stop_files:
                     continue
-                if word not in word_frequency[label]:
-                    word_frequency[label][word] = 0
-                word_frequency[label][word] += 1
+                if file.name and file.name not in word_frequency[label]:
+                    word_frequency[label][file.name] = 0
+                word_frequency[label][file.name] += 1
 
         result_text = ''
 

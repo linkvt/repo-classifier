@@ -2,14 +2,14 @@
 
 {% load filters %}
 
-{% block title %}Description Analysis{% endblock %}
+{% block title %}Repo Analysis{% endblock %}
 {% block content %}
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">Input</div>
             <div class="panel-body">
-                <form action="{% url 'classification:description' %}" method="POST" enctype="multipart/form-data">
+                <form action="{% url 'classification:analysis' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="form-group">
                         <label class="control-label">Select File</label>
@@ -17,7 +17,12 @@
                                data-show-upload="false">
                     </div>
                     <div class="btn-group pull-right" role="group">
-                        <button type="submit" class="btn btn-default">Analyse</button>
+                        <button type="submit" name="subject" value="description" class="btn btn-default">Analyse
+                            descriptions
+                        </button>
+                        <button type="submit" name="subject" value="filename" class="btn btn-default">Analyse
+                            filenames
+                        </button>
                     </div>
                 </form>
             </div>
