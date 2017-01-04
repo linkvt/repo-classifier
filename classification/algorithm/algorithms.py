@@ -2,7 +2,7 @@ from sklearn import neighbors
 from sklearn import tree
 from sklearn import neural_network
 from sklearn.externals import joblib
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
 
 
 class Classifier:
@@ -11,7 +11,7 @@ class Classifier:
     def __init__(self, clf, name):
         self.clf = clf
         self.name = name
-        self.scaler = StandardScaler()
+        self.scaler = MinMaxScaler()
 
     def fit(self, samples, labels):
         """
