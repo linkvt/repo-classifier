@@ -1,7 +1,10 @@
+from sklearn import ensemble
 from sklearn import neighbors
-from sklearn import tree
 from sklearn import neural_network
 from sklearn.externals import joblib
+from sklearn.feature_selection import SelectKBest
+from sklearn.model_selection import GridSearchCV
+from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler
 
 
@@ -9,7 +12,9 @@ class Classifier:
     model_file_name = 'model.pkl'
 
     def __init__(self, clf, name):
-        self.clf = clf
+        self.clf = Pipeline([('kbest', SelectKBest(k=25)), ('clf', clf)])
+        params = dict(kbest__k=[10, 15, 20, 25, 30])
+        self.clf = GridSearchCV(self.clf, param_grid=params)
         self.name = name
         self.scaler = MinMaxScaler()
 
@@ -56,9 +61,9 @@ class Classifier:
         return [[feature.value for feature in sample] for sample in samples]
 
 
-class DecisionTreeClassifier(Classifier):
+class RandomForestClassifier(Classifier):
     def __init__(self):
-        super().__init__(tree.DecisionTreeClassifier(), 'DecisionTreeClassifier')
+        super().__init__(ensemble.RandomForestClassifier(n_estimators=10), 'RandomForestClassifier')
 
 
 class KNeighborsClassifier(Classifier):
