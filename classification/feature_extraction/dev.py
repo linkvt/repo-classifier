@@ -13,7 +13,7 @@ class HasBuildFileExtractor(FeatureExtractor):
                    'requirements.txt', 'manifest.json', 'Package.swift']
 
     def _init_features(self):
-        self.features = [Feature(name='Has build file')]
+        self.features = [Feature.create('Has build file')]
 
     def _extract(self):
         try:

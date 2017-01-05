@@ -12,7 +12,7 @@ class DescriptionKeyWordExtractor(FeatureExtractor):
                 'group', 'official', 'documentation', 'document', 'dokument', 'policy']
 
     def _init_features(self):
-        self.features = [Feature(name='Contains keyword "' + keyword + '"') for keyword in self.keywords]
+        self.features = [Feature.create('Contains keyword "' + keyword + '"') for keyword in self.keywords]
 
     def _extract(self):
         description = self.api_repo.description.lower() if self.api_repo.description else ''
@@ -28,7 +28,7 @@ class FileNameExtractor(FeatureExtractor):
     filenames = ['index.html', 'css', 'js', 'img', 'images', 'fonts', 'src']
 
     def _init_features(self):
-        self.features = [Feature(name='Contains file "' + filename + '"') for filename in self.filenames]
+        self.features = [Feature.create('Contains file "' + filename + '"') for filename in self.filenames]
 
     def _extract(self):
         repo_filenames = []

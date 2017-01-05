@@ -8,7 +8,7 @@ from classification.models import Feature
 
 class ActiveTimeExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Active time in days')]
+        self.features = [Feature.create('Active time in days')]
 
     def _extract(self):
         # updated_at doesn't tell when the last activity happened: http://stackoverflow.com/a/15922637
@@ -20,7 +20,7 @@ class ActiveTimeExtractor(FeatureExtractor):
 
 class BranchExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Number of branches')]
+        self.features = [Feature.create('Number of branches')]
 
     def _extract(self):
         branches = self.api_repo.get_branches()
@@ -30,7 +30,7 @@ class BranchExtractor(FeatureExtractor):
 
 class CommitNumberExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Number of commits')]
+        self.features = [Feature.create('Number of commits')]
 
     def _extract(self):
         try:
@@ -45,7 +45,7 @@ class CommitNumberExtractor(FeatureExtractor):
 
 class ContributorsExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Number of contributors')]
+        self.features = [Feature.create('Number of contributors')]
 
     def _extract(self):
         try:
@@ -60,7 +60,7 @@ class ContributorsExtractor(FeatureExtractor):
 
 class ForkExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Number of forks')]
+        self.features = [Feature.create('Number of forks')]
 
     def _extract(self):
         self.features[0].value = self.api_repo.forks
@@ -68,7 +68,7 @@ class ForkExtractor(FeatureExtractor):
 
 class HasDownloadsExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Has downloads')]
+        self.features = [Feature.create('Has downloads')]
 
     def _extract(self):
         self.features[0].value = 1 if self.api_repo.has_downloads else 0
@@ -76,7 +76,7 @@ class HasDownloadsExtractor(FeatureExtractor):
 
 class HasIssuesExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Has issues')]
+        self.features = [Feature.create('Has issues')]
 
     def _extract(self):
         self.features[0].value = 1 if self.api_repo.has_issues else 0
@@ -84,7 +84,7 @@ class HasIssuesExtractor(FeatureExtractor):
 
 class HasPagesExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Has pages')]
+        self.features = [Feature.create('Has pages')]
 
     def _extract(self):
         used_to_load_raw_data = self.api_repo.has_issues
@@ -93,7 +93,7 @@ class HasPagesExtractor(FeatureExtractor):
 
 class HasWikiExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Has wiki')]
+        self.features = [Feature.create('Has wiki')]
 
     def _extract(self):
         self.features[0].value = 1 if self.api_repo.has_wiki else 0
@@ -101,7 +101,7 @@ class HasWikiExtractor(FeatureExtractor):
 
 class IsForkExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Is a fork')]
+        self.features = [Feature.create('Is a fork')]
 
     def _extract(self):
         self.features[0].value = 1 if self.api_repo.fork else 0
@@ -109,7 +109,7 @@ class IsForkExtractor(FeatureExtractor):
 
 class OpenIssueExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Number of open issues')]
+        self.features = [Feature.create('Number of open issues')]
 
     def _extract(self):
         self.features[0].value = self.api_repo.open_issues_count
@@ -117,7 +117,7 @@ class OpenIssueExtractor(FeatureExtractor):
 
 class SizeExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Size of repo')]
+        self.features = [Feature.create('Size of repo')]
 
     def _extract(self):
         self.features[0].value = self.api_repo.size
@@ -125,7 +125,7 @@ class SizeExtractor(FeatureExtractor):
 
 class StarExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Number of stars')]
+        self.features = [Feature.create('Number of stars')]
 
     def _extract(self):
         self.features[0].value = self.api_repo.stargazers_count
@@ -137,7 +137,7 @@ class TotalFilesExtractor(FeatureExtractor):
     """
 
     def _init_features(self):
-        self.features = [Feature(name='Number of files')]
+        self.features = [Feature.create('Number of files')]
 
     def _extract(self):
         # Boolean flag -> recursive call for contents
@@ -158,7 +158,7 @@ class TotalFilesExtractor(FeatureExtractor):
 
 class WatchersExtractor(FeatureExtractor):
     def _init_features(self):
-        self.features = [Feature(name='Number of watchers')]
+        self.features = [Feature.create('Number of watchers')]
 
     def _extract(self):
         self.features[0].value = self.api_repo.watchers_count

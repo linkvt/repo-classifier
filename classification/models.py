@@ -47,6 +47,13 @@ class Feature(models.Model):
     name = models.CharField(max_length=255)
     value = models.FloatField()
 
+    @classmethod
+    def create(cls, name: str):
+        """
+        Method to make a required field for in code creation of the objects.
+        """
+        return cls(name=name)
+
     def __str__(self):
         return 'Feature[' + self.name + ', ' + str(self.value) + ']'
 

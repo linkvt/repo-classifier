@@ -39,4 +39,4 @@ class AllLanguageFeatureExtractor(FeatureExtractor):
             else:
                 print('Language "' + language + '" is not registered in the algorithm.')
 
-        return [Feature('Language: ' + key, value) for key, value in self._languageToProbability.items()]
+        return [Feature.create('Language: ' + key, value) for key, value in self._languageToProbability.items()]
