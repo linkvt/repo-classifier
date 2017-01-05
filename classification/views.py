@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 from classification import classifier
+from classification.evaluation.LanguageAnalyser import LanguageAnalyser
 from classification.evaluation.DescriptionAnalyser import DescriptionAnalyser
 from classification.evaluation.FileNameAnalyser import FileNameAnalyser
 
@@ -43,7 +44,8 @@ def analysis(request: HttpRequest) -> HttpResponse:
             analyser = DescriptionAnalyser()
         elif subject == 'filename':
             analyser = FileNameAnalyser()
-
+        elif subject == 'language':
+            analyser = LanguageAnalyser()
         analyser.text = text
         result = analyser.analyse(text)
 
