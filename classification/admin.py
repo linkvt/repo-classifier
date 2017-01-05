@@ -78,6 +78,7 @@ class FeatureAdmin(ImportExportModelAdmin):
     resource_class = FeatureResource
     formats = (CSVKeepingOrder,)
     list_display = ('repository', 'name', 'value')
+    list_filter = ('repository__category',)
     list_max_show_all = 10000
 
     def get_export_filename(self, file_format):
