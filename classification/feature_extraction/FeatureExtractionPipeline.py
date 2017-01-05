@@ -1,7 +1,6 @@
 import itertools
-import multiprocessing
 from itertools import chain
-
+from multiprocessing.pool import ThreadPool
 from typing import List, Type
 
 from classification.feature_extraction import common, misc, dev, web
@@ -40,7 +39,7 @@ def extract_from_single_extractor(data: (Type[FeatureExtractor], Repository)) ->
 
 class FeatureExtractionPipeline:
     def __init__(self):
-        self._pool = multiprocessing.Pool(len(FEATURE_EXTRACTORS))
+        self._pool = ThreadPool(len(FEATURE_EXTRACTORS))
 
     def extract_features(self, repo: Repository) -> [Feature]:
         data = zip(FEATURE_EXTRACTORS, itertools.repeat(repo))
