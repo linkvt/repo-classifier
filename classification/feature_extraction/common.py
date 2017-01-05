@@ -33,9 +33,14 @@ class CommitNumberExtractor(FeatureExtractor):
         self.features = [Feature(name='Number of commits')]
 
     def _extract(self):
-        contributors = self.api_repo.get_contributors()
-        total_commits_default_branch = sum(contributor.contributions for contributor in contributors)
-        self.features[0].value = total_commits_default_branch
+        try:
+            contributors = self.api_repo.get_contributors()
+            total_commits_default_branch = sum(contributor.contributions for contributor in contributors)
+            self.features[0].value = total_commits_default_branch
+        except GithubException as e:
+            if e.status == 403:
+                # Number of contributors too large for api: choose very large value
+                self.features[0].value = 10000
 
 
 class ContributorsExtractor(FeatureExtractor):
@@ -43,9 +48,14 @@ class ContributorsExtractor(FeatureExtractor):
         self.features = [Feature(name='Number of contributors')]
 
     def _extract(self):
-        contributors = self.api_repo.get_contributors()
-        num = len([c for c in contributors])
-        self.features[0].value = num
+        try:
+            contributors = self.api_repo.get_contributors()
+            num = len([c for c in contributors])
+            self.features[0].value = num
+        except GithubException as e:
+            if e.status == 403:
+                # Number of contributors too large for api: choose very large value
+                self.features[0].value = 1000
 
 
 class ForkExtractor(FeatureExtractor):
