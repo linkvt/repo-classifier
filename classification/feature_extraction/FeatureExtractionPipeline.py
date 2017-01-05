@@ -1,10 +1,10 @@
+import itertools
 import multiprocessing
 from itertools import chain
+
 from typing import List, Type
 
-import itertools
-
-from classification.feature_extraction import common
+from classification.feature_extraction import common, misc, dev
 from classification.feature_extraction.CachedFeatureExtractor import CachedFeatureExtractor
 from classification.feature_extraction.FeatureExtractor import FeatureExtractor
 from classification.models import Feature, Repository
@@ -25,6 +25,9 @@ FEATURE_EXTRACTORS = [
     common.StarExtractor,
     common.TotalFilesExtractor,
     common.WatchersExtractor,
+    dev.HasBuildFileExtractor,
+    misc.DescriptionKeyWordExtractor,
+    misc.FileNameExtractor,
 ]
 
 

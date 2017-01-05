@@ -13,7 +13,7 @@ class Classifier:
 
     def __init__(self, clf, params, name):
         self.clf = Pipeline([('kbest', SelectKBest(k=25)), ('clf', clf)])
-        params['kbest__k'] = [10, 15, 20, 25, 30]
+        params['kbest__k'] = [10, 15, 20, 25, 30, 35, 40]
         self.clf = GridSearchCV(self.clf, param_grid=params)
         self.name = name
         self.scaler = MinMaxScaler()
@@ -77,5 +77,5 @@ class KNeighborsClassifier(Classifier):
 
 class MLPClassifier(Classifier):
     def __init__(self):
-        params = dict(clf__hidden_layer_sizes=[(60,), (80,), (100,), (120,)])
+        params = dict(clf__hidden_layer_sizes=[(80,), (100,), (120,)], clf__solver=['lbfgs', 'adam', 'sgd'])
         super().__init__(neural_network.MLPClassifier(), params, 'MLPClassifier')
