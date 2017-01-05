@@ -26,6 +26,23 @@ class FeatureExtractor:
             self._api_repo = GithubAuthentification().get_repo(self.repo.identifier)
         return self._api_repo
 
+    @property
+    def feature(self):
+        if not self.features:
+            raise IndexError()
+        if len(self.features) > 1:
+            raise NoUniqueFeatureExists()
+        return self.features[0]
+
+    @feature.setter
+    def feature(self, value: Feature):
+        if len(self.features) > 1:
+            raise NoUniqueFeatureExists()
+        if not self.features:
+            self.features.append(value)
+        else:
+            self.features[0] = value
+
     def extract(self) -> [Feature]:
         self._extract()
         return self.features
@@ -37,3 +54,7 @@ class FeatureExtractor:
     @abc.abstractmethod
     def _extract(self):
         raise NotImplementedError('Main class should not be called for feature extraction!')
+
+
+class NoUniqueFeatureExists(Exception):
+    pass

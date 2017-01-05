@@ -14,7 +14,7 @@ class HasBuildFileExtractor(FeatureExtractor):
                    'requirements.txt', 'manifest.json', 'Package.swift']
 
     def _init_features(self):
-        self.features = [Feature.create('Has build file')]
+        self.feature = Feature.create('Has build file')
 
     def _extract(self):
         try:
@@ -22,10 +22,10 @@ class HasBuildFileExtractor(FeatureExtractor):
         except GithubException:
             files = []
 
-        self.features[0].value = 0
+        self.feature.value = 0
         for file in files:
             if file.name and file.name.lower() in self.build_files:
-                self.features[0].value = 1
+                self.feature.value = 1
 
 
 class LanguageDEVExtractor(LanguageFeatureExtractor):
