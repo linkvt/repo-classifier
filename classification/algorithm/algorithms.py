@@ -11,9 +11,9 @@ from sklearn.preprocessing import MinMaxScaler
 class Classifier:
     model_file_name = 'model.pkl'
 
-    def __init__(self, clf, name):
+    def __init__(self, clf, params, name):
         self.clf = Pipeline([('kbest', SelectKBest(k=25)), ('clf', clf)])
-        params = dict(kbest__k=[10, 15, 20, 25, 30])
+        params['kbest__k'] = [10, 15, 20, 25, 30]
         self.clf = GridSearchCV(self.clf, param_grid=params)
         self.name = name
         self.scaler = MinMaxScaler()
@@ -28,6 +28,8 @@ class Classifier:
         feature_vectors = self._map_input(samples)
         scaled_vectors = self.scaler.fit_transform(feature_vectors)
         self.clf = self.clf.fit(scaled_vectors, labels)
+        print('Best Params:')
+        print(self.clf.best_params_)
 
     def predict(self, samples):
         """
@@ -63,14 +65,17 @@ class Classifier:
 
 class RandomForestClassifier(Classifier):
     def __init__(self):
-        super().__init__(ensemble.RandomForestClassifier(n_estimators=10), 'RandomForestClassifier')
+        params = dict(clf__n_estimators=[5, 10, 15, 20])
+        super().__init__(ensemble.RandomForestClassifier(), params, 'RandomForestClassifier')
 
 
 class KNeighborsClassifier(Classifier):
     def __init__(self):
-        super().__init__(neighbors.KNeighborsClassifier(5), 'KNeighborsClassifier')
+        params = dict(clf__n_neighbors=[2, 4, 6, 8])
+        super().__init__(neighbors.KNeighborsClassifier(), params, 'KNeighborsClassifier')
 
 
 class MLPClassifier(Classifier):
     def __init__(self):
-        super().__init__(neural_network.MLPClassifier(), 'MLPClassifier')
+        params = dict(clf__hidden_layer_sizes=[(60,), (80,), (100,), (120,)])
+        super().__init__(neural_network.MLPClassifier(), params, 'MLPClassifier')

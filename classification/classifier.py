@@ -44,7 +44,7 @@ def train(text, train=True):
 
 
 def classify(text):
-    input_parser = InputParser(text, train)
+    input_parser = InputParser(text, train=False)
     urls, _ = input_parser.parse()
     repos = map_urls_to_repositories(urls)
 
