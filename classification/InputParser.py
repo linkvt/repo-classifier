@@ -4,7 +4,7 @@ class InputParser:
         self.train = train
 
     def parse(self):
-        lines = filter(None, self.text.split('\n'))
+        lines = [line.rstrip() for line in self.text.split('\n') if line]
         if self.train:
             split_text = [line.split(" ") for line in lines]
             repo_ids = [t[0] for t in split_text]
