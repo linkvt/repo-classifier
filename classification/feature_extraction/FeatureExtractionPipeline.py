@@ -1,12 +1,12 @@
 import logging
 import typing
 from itertools import chain
-from multiprocessing.pool import ThreadPool
+from multiprocessing.pool import ThreadPool, Pool
 
 import github.Repository as GithubRepository
 
 from classification.GithubAuthentification import GithubAuthentification
-from classification.feature_extraction import common, misc, dev, web
+from classification.feature_extraction import common, misc, data, dev, docs, web
 from classification.feature_extraction.FeatureExtractor import FeatureExtractor
 from classification.models import Feature, Repository
 
@@ -26,10 +26,11 @@ FEATURE_EXTRACTORS = [
     common.StarExtractor,
     common.TotalFilesExtractor,
     common.WatchersExtractor,
+    data.DATAFileExtensionExtractor,
     dev.HasBuildFileExtractor,
     dev.LanguageDEVExtractor,
+    docs.DOCSFileExtensionExtractor,
     misc.DescriptionKeyWordExtractor,
-    misc.FileExtensionExtractor,
     misc.FileNameExtractor,
     web.LanguageWEBExtractor,
 ]
@@ -45,7 +46,7 @@ class FeatureExtractionPipeline:
 
     def extract_features(self, repos: [Repository]) -> [Feature]:
         with ThreadPool(10) as pool:
-            feature_lists = pool.map(self._extract_for_single_repo, repos)
+            feature_lists = pool.map(self._extract_for_single_repo, repos, 2)
             return list(chain.from_iterable(feature_lists))
 
     def _extract_for_single_repo(self, repo: Repository) -> [Feature]:
@@ -53,7 +54,6 @@ class FeatureExtractionPipeline:
         extractors = [extractor(repo) for extractor in FEATURE_EXTRACTORS]
         features = []
 
-        logger.info('Extracting features for <%s>', repo.identifier)
         for extractor in extractors:
             extracted_features = self._extract_for_single_repo_single_extractor(extractor, repo, api_repo)
             features.extend(extracted_features)

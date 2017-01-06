@@ -51,15 +51,9 @@ class FileNameExtractor(FeatureExtractor):
 
 class FileExtensionExtractor(FeatureExtractor):
     def _init_features(self):
-        self._extension_to_size_features = {}
-        self._extension_to_count_features = {}
-
-        for ext in self.extensions_to_check:
-            to_count_feature = Feature(name='Share of extension "{}" by count'.format(ext))
-            self._extension_to_count_features[ext] = to_count_feature
-            to_size_feature = Feature(name='Share of extension "{}" by size'.format(ext))
-            self._extension_to_size_features[ext] = to_size_feature
-            self.features.extend([to_count_feature, to_size_feature])
+        self._extension_to_count_feature = Feature.create('Share of {}-extensions by count'.format(self.category))
+        self._extension_to_size_feature = Feature.create('Share of {}-extensions by size'.format(self.category))
+        self.features = [self._extension_to_count_feature, self._extension_to_size_feature]
 
     def _extract(self):
         try:
@@ -80,12 +74,18 @@ class FileExtensionExtractor(FeatureExtractor):
         total_count = sum(extensions_to_count.values())
         total_size = sum(extensions_to_size.values())
 
-        for ext in self.extensions_to_check:
-            self._extension_to_count_features[ext].value = extensions_to_count[ext] / total_count
-            self._extension_to_size_features[ext].value = extensions_to_size[ext] / total_size
+        relevant_count = sum(extensions_to_count[ext] for ext in self.extensions_to_check)
+        relevant_size = sum(extensions_to_size[ext] for ext in self.extensions_to_check)
+
+        self._extension_to_count_feature.value = relevant_count / total_count if total_count else 0
+        self._extension_to_size_feature.value = relevant_size / total_size if total_size else 0
 
     @property
+    @abc.abstractmethod
+    def category(self) -> str:
+        raise NotImplementedError()
+
+    @property
+    @abc.abstractmethod
     def extensions_to_check(self) -> typing.Set[str]:
-        data_extensions = ['.json', '.xml', '.csv', '.yml', '.txt', '.sql', '.xls', '.xlsx']
-        docs_extensions = ['.md']
-        return {*data_extensions, *docs_extensions}
+        raise NotImplementedError()
