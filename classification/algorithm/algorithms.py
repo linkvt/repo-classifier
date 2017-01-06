@@ -41,9 +41,6 @@ class Classifier:
         scaled_vectors = self.scaler.transform(feature_vectors)
         return self.clf.predict(scaled_vectors)
 
-    def predict_with_values(self, samples):
-        return self.clf.predict(self.scaler.transform(samples))
-
     def save(self):
         joblib.dump(self, self.model_file_name)
 
