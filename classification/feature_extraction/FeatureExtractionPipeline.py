@@ -1,10 +1,12 @@
-import itertools
+import logging
+import typing
 from itertools import chain
 from multiprocessing.pool import ThreadPool
-from typing import List, Type
 
+import github.Repository as GithubRepository
+
+from classification.GithubAuthentification import GithubAuthentification
 from classification.feature_extraction import common, misc, dev, web
-from classification.feature_extraction.CachedFeatureExtractor import CachedFeatureExtractor
 from classification.feature_extraction.FeatureExtractor import FeatureExtractor
 from classification.models import Feature, Repository
 
@@ -32,27 +34,58 @@ FEATURE_EXTRACTORS = [
     web.LanguageWEBExtractor,
 ]
 
-
-def extract_from_single_extractor(data: (Type[FeatureExtractor], Repository)) -> List[Feature]:
-    cached_extractor = CachedFeatureExtractor(data[0](data[1]))
-    return cached_extractor.extract()
+logger = logging.getLogger(__name__)
 
 
 class FeatureExtractionPipeline:
+    cache_features = True
+
     def __init__(self):
-        self._pool = ThreadPool(len(FEATURE_EXTRACTORS))
+        self._github_authentication = GithubAuthentification()
 
-    def extract_features(self, repo: Repository) -> [Feature]:
-        data = zip(FEATURE_EXTRACTORS, itertools.repeat(repo))
-        feature_lists = self._pool.imap(extract_from_single_extractor, data, chunksize=5)
-        return list(chain.from_iterable(feature_lists))
+    def extract_features(self, repos: [Repository]) -> [Feature]:
+        with ThreadPool(10) as pool:
+            feature_lists = pool.map(self._extract_for_single_repo, repos)
+            return list(chain.from_iterable(feature_lists))
 
-    def __enter__(self):
-        return self
+    def _extract_for_single_repo(self, repo: Repository) -> [Feature]:
+        api_repo = self._create_api_repo(repo)
+        extractors = [extractor(repo) for extractor in FEATURE_EXTRACTORS]
+        features = []
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        """
-        Clean up spawned child processes
-        :return:
-        """
-        self._pool.terminate()
+        logger.info('Extracting features for <%s>', repo.identifier)
+        for extractor in extractors:
+            extracted_features = self._extract_for_single_repo_single_extractor(extractor, repo, api_repo)
+            features.extend(extracted_features)
+        logger.info('Features of %s: %s', repo.identifier, features)
+
+        return features
+
+    def _create_api_repo(self, repo: Repository) -> GithubRepository:
+        return self._github_authentication.get_repo(repo.identifier)
+
+    def _extract_for_single_repo_single_extractor(self,
+                                                  extractor: FeatureExtractor,
+                                                  repo: Repository,
+                                                  api_repo: GithubRepository) -> [Feature]:
+        cached_features = []
+        for feature in extractor.features:
+            cached_feature = self._get_cached(repo, feature)
+            if self.cache_features and cached_feature:
+                cached_features.append(cached_feature)
+            else:
+                updated_features = extractor.extract(api_repo)
+                for updated_feature in updated_features:
+                    self._update_cached(repo, updated_feature)
+                return updated_features
+        return cached_features
+
+    def _get_cached(self, repo: Repository, feature: Feature) -> typing.Union[Feature, None]:
+        try:
+            feature = Feature.objects.get(repository=repo, name=feature.name)
+            return feature
+        except Feature.DoesNotExist:
+            return None
+
+    def _update_cached(self, repo: Repository, feature: Feature):
+        repo.feature_set.update_or_create(name=feature.name, defaults={'value': feature.value})

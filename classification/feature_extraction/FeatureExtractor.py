@@ -43,7 +43,8 @@ class FeatureExtractor:
         else:
             self.features[0] = value
 
-    def extract(self) -> [Feature]:
+    def extract(self, api_repo: GithubRepository = None) -> [Feature]:
+        self._api_repo = api_repo
         self._extract()
         return self.features
 
@@ -57,4 +58,8 @@ class FeatureExtractor:
 
 
 class NoUniqueFeatureExists(Exception):
+    pass
+
+
+class NoRepositoryAvailable(Exception):
     pass

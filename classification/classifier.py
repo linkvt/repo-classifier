@@ -9,6 +9,7 @@ from classification.feature_extraction.FeatureExtractionPipeline import FeatureE
 from classification.models import Repository
 
 logger = logging.getLogger(__name__)
+extraction_pipeline = FeatureExtractionPipeline()
 
 
 def train(text, train=True):
@@ -19,15 +20,7 @@ def train(text, train=True):
     classifiers = [RandomForestClassifier(), MLPClassifier(), KNeighborsClassifier()]
 
     if train:
-        samples = []
-
-        # build the samples
-        with FeatureExtractionPipeline() as extraction_pipeline:
-            for (repo, current_label) in zip(repositories, labels):
-                print('<Testing> Read repo name:{} with label {}'.format(repo.name, current_label))
-                features = extraction_pipeline.extract_features(repo)
-                print('Extracted features: ', str(features))
-                samples.append(features)
+        samples = extraction_pipeline.extract_features(repositories)
 
         training_split = 0.5
         logger.info('Splitting into {:.0%} training and {:.0%} test data.'.format(1 - training_split, training_split))
@@ -55,14 +48,7 @@ def classify(text):
         yield 'No trained model available.'
         return
 
-    samples = []
-
-    with FeatureExtractionPipeline() as extraction_pipeline:
-        for repo in repos:
-            print('<Testing> Read repo name:{}'.format(repo.name))
-            features = extraction_pipeline.extract_features(repo)
-            print('Extracted features: ', str(features))
-            samples.append(features)
+    samples = extraction_pipeline.extract_features(repos)
 
     labels = clf.predict(samples)
 
