@@ -44,7 +44,7 @@ class Feature(models.Model):
         app_label = 'classification'  # Hot fix see above
 
     repository = models.ForeignKey(Repository, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, db_index=True)
     value = models.FloatField()
 
     @classmethod
