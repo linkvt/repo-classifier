@@ -1,4 +1,4 @@
-from classification.feature_extraction.language.LanguageFeatureExtractor import LanguageFeatureExtractor
+from classification.feature_extraction.LanguageFeatureExtractor import LanguageFeatureExtractor
 from classification.models import Feature
 
 

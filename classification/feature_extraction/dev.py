@@ -3,7 +3,7 @@
 from github import GithubException
 
 from classification.feature_extraction.FeatureExtractor import FeatureExtractor
-from classification.feature_extraction.language.LanguageFeatureExtractor import LanguageFeatureExtractor
+from classification.feature_extraction.LanguageFeatureExtractor import LanguageFeatureExtractor
 from classification.models import Feature
 
 
