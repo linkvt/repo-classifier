@@ -6,6 +6,7 @@ from classification import classifier
 from classification.evaluation.LanguageAnalyser import LanguageAnalyser
 from classification.evaluation.DescriptionAnalyser import DescriptionAnalyser
 from classification.evaluation.FileNameAnalyser import FileNameAnalyser
+from classification.models import Feature
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -54,3 +55,20 @@ def analysis(request: HttpRequest) -> HttpResponse:
     }
 
     return render(request, 'classification/analysis.html', context)
+
+
+def dbactions(request: HttpRequest) -> HttpResponse:
+    remove_group_button = request.POST.get('remove_group')
+    group_to_remove = request.POST.get('group_to_remove')
+    available_names = [item["name"] for item in Feature.objects.values('name').distinct()]
+    result = ''
+
+    if remove_group_button and group_to_remove:
+        result = '%i features have been deleted.' % Feature.objects.filter(name=group_to_remove).delete()[0]
+
+    context = {
+        'output': result,
+        'name_fields': available_names
+    }
+
+    return render(request, 'classification/dbactions.html', context)

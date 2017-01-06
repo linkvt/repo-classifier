@@ -1,0 +1,42 @@
+{% extends 'classification/base.html' %}
+
+{% load filters %}
+
+{% block title %}Database Quick Actions{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Input</div>
+                <div class="panel-body">
+                    <form action="{% url 'classification:dbactions' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="sel1">Select name value for removal:</label>
+                            <select class="form-control" id="sel1" name="group_to_remove">
+                                {% for item in name_fields %}
+                                    <option>{{ item }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="btn-group pull-right" role="group">
+                            <button type="submit" name="remove_group" value="name_group_removal"
+                                    class="btn btn-default">Remove entries
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% if output %}
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Output</div>
+                    <div class="panel-body">
+                        <pre style="margin-bottom: 0">{{ output | escape }}</pre>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
