@@ -27,6 +27,7 @@ FEATURE_EXTRACTORS = [
     dev.HasBuildFileExtractor,
     dev.LanguageDEVExtractor,
     misc.DescriptionKeyWordExtractor,
+    misc.FileExtensionExtractor,
     misc.FileNameExtractor,
     web.LanguageWEBExtractor,
 ]

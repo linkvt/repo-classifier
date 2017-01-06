@@ -1,6 +1,7 @@
 """Contains extractors that belong to no specific category but can be used in multiple categories."""
 import abc
 import os
+import typing
 from collections import defaultdict
 
 from github import GithubException
@@ -83,9 +84,8 @@ class FileExtensionExtractor(FeatureExtractor):
             self._extension_to_count_features[ext].value = extensions_to_count[ext] / total_count
             self._extension_to_size_features[ext].value = extensions_to_size[ext] / total_size
 
-    @abc.abstractproperty
-    def extensions_to_check(self) -> [str]:
-        """
-        :return: lower case file extensions prefixed by a dot like '.java'
-        """
-        raise NotImplementedError()
+    @property
+    def extensions_to_check(self) -> typing.Set[str]:
+        data_extensions = ['.json', '.xml', '.csv', '.yml', '.txt', '.sql', '.xls', '.xlsx']
+        docs_extensions = ['.md']
+        return {*data_extensions, *docs_extensions}
