@@ -30,6 +30,7 @@ FEATURE_EXTRACTORS = [
     misc.DescriptionKeyWordExtractor,
     misc.FileNameExtractor,
     web.LanguageWEBExtractor,
+    web.DescriptionContainsURLExtractor,
 ]
 
 
