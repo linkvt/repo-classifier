@@ -25,7 +25,7 @@ class DescriptionKeyWordExtractor(FeatureExtractor):
 
 
 class FileNameExtractor(FeatureExtractor):
-    filenames = ['index.html', 'css', 'js', 'img', 'images', 'fonts', 'src']
+    filenames = ['index.html', 'css', 'js', 'img', 'images', 'fonts', 'src', 'assets', 'sass', '_data']
 
     def _init_features(self):
         self.features = [Feature.create('Contains file "' + filename + '"') for filename in self.filenames]
