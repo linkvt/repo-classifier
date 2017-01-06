@@ -1,7 +1,7 @@
 import abc
 
-from classification.models import Feature
 from classification.feature_extraction.FeatureExtractor import FeatureExtractor
+from classification.models import Feature
 
 
 class LanguageFeatureExtractor(FeatureExtractor):
@@ -10,7 +10,7 @@ class LanguageFeatureExtractor(FeatureExtractor):
     Eq {'Python': 98564, 'R': 4914}
     """
 
-    def extract(self) -> [Feature]:
+    def _extract(self) -> [Feature]:
         languages = self.api_repo.get_languages()
         total_size = sum(languages.values())
         relevant_size = 0
@@ -19,12 +19,7 @@ class LanguageFeatureExtractor(FeatureExtractor):
             if language in languages:
                 relevant_size += languages[language]
 
-        return [Feature('Language feature for ' + self._get_category_label(),
-                        relevant_size / total_size if total_size > 0 else 0)]
-
-    @abc.abstractmethod
-    def _get_category_label(self) -> str:
-        raise NotImplementedError('Should be implemented in subclasses!')
+        self.features[0].value = relevant_size / total_size if total_size > 0 else 0
 
     @abc.abstractmethod
     def _get_relevant_languages(self) -> [str]:

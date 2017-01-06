@@ -4,7 +4,7 @@ from itertools import chain
 
 from typing import List, Type
 
-from classification.feature_extraction import common, misc, dev
+from classification.feature_extraction import common, misc, dev, web
 from classification.feature_extraction.CachedFeatureExtractor import CachedFeatureExtractor
 from classification.feature_extraction.FeatureExtractor import FeatureExtractor
 from classification.models import Feature, Repository
@@ -26,8 +26,10 @@ FEATURE_EXTRACTORS = [
     common.TotalFilesExtractor,
     common.WatchersExtractor,
     dev.HasBuildFileExtractor,
+    dev.LanguageDEVExtractor,
     misc.DescriptionKeyWordExtractor,
     misc.FileNameExtractor,
+    web.LanguageWEBExtractor,
 ]
 
 
