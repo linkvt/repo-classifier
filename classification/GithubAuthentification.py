@@ -1,6 +1,9 @@
 import configparser
+import logging
 
 from github import Github
+
+logger = logging.getLogger(__name__)
 
 
 class GithubAuthentification:
@@ -13,17 +16,13 @@ class GithubAuthentification:
         fileToken = config.get("DEFAULT", "token")
 
         if not fileUsername and not fileToken:
-            print("Username and Token is not filled in github.conf file. Please input login data.")
+            logger.error("Username and Token is not filled in github.conf file. Please input login data.")
             raise LookupError("github.conf is not properly filled.")
 
         if fileToken:
             self.api = Github(fileToken)
         else:
             self.api = Github(fileUsername, filePassword)
-
-    def test(self):
-        for repo in self.api.get_user().get_repos():
-            print(repo.name)
 
     def get_repo(self, identifier):
         return self.api.get_repo(identifier)

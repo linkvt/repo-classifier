@@ -1,4 +1,4 @@
-from typing import List
+import logging
 
 from sklearn.model_selection import train_test_split
 
@@ -7,6 +7,9 @@ from classification.algorithm.algorithms import Classifier, RandomForestClassifi
 from classification.evaluation.Evaluator import Evaluator
 from classification.feature_extraction.FeatureExtractionPipeline import FeatureExtractionPipeline
 from classification.models import Repository
+
+logger = logging.getLogger(__name__)
+extraction_pipeline = FeatureExtractionPipeline()
 
 
 def train(text, train=True):
@@ -17,19 +20,10 @@ def train(text, train=True):
     classifiers = [RandomForestClassifier(), MLPClassifier(), KNeighborsClassifier()]
 
     if train:
-        samples = []
-
-        # build the samples
-        with FeatureExtractionPipeline() as extraction_pipeline:
-            for (repo, current_label) in zip(repositories, labels):
-                print('<Testing> Read repo name:{} with label {}'.format(repo.name, current_label))
-                features = extraction_pipeline.extract_features(repo)
-                print('Extracted features: ', str(features))
-                samples.append(features)
+        samples = extraction_pipeline.extract_features(repositories)
 
         training_split = 0.5
-        print(
-            'Splitting the data into {:.0%} training and {:.0%} test data.'.format(1 - training_split, training_split))
+        logger.info('Splitting into {:.0%} training and {:.0%} test data.'.format(1 - training_split, training_split))
         train_samples, test_samples, train_labels, test_labels = train_test_split(samples, labels,
                                                                                   test_size=training_split,
                                                                                   random_state=0)
@@ -54,14 +48,7 @@ def classify(text):
         yield 'No trained model available.'
         return
 
-    samples = []
-
-    with FeatureExtractionPipeline() as extraction_pipeline:
-        for repo in repos:
-            print('<Testing> Read repo name:{}'.format(repo.name))
-            features = extraction_pipeline.extract_features(repo)
-            print('Extracted features: ', str(features))
-            samples.append(features)
+    samples = extraction_pipeline.extract_features(repos)
 
     labels = clf.predict(samples)
 
@@ -71,7 +58,7 @@ def classify(text):
         yield r
 
 
-def map_urls_to_repositories(urls: List[str]) -> List[Repository]:
+def map_urls_to_repositories(urls: [str]) -> [Repository]:
     repos = []
     for url in urls:
         repo, created = Repository.objects.get_or_create(url=url, defaults={'url': url})

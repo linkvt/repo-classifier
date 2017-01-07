@@ -3,9 +3,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 from classification import classifier
-from classification.evaluation.LanguageAnalyser import LanguageAnalyser
 from classification.evaluation.DescriptionAnalyser import DescriptionAnalyser
 from classification.evaluation.FileNameAnalyser import FileNameAnalyser
+from classification.evaluation.LanguageAnalyser import LanguageAnalyser
 from classification.models import Feature
 
 
@@ -58,14 +58,17 @@ def analysis(request: HttpRequest) -> HttpResponse:
 
 
 def dbactions(request: HttpRequest) -> HttpResponse:
-    remove_group_button = request.POST.get('remove_group')
+    mode = request.POST.get('mode')
     group_to_remove = request.POST.get('group_to_remove')
+    deleted_features = None
+
+    if mode == 'name_group_removal' and group_to_remove:
+        deleted_features = Feature.objects.filter(name=group_to_remove).delete()[0]
+    elif mode == 'all':
+        deleted_features = Feature.objects.all().delete()[0]
+
+    result = '%i features have been deleted.' % deleted_features if deleted_features is not None else ''
     available_names = [item["name"] for item in Feature.objects.values('name').distinct()]
-    result = ''
-
-    if remove_group_button and group_to_remove:
-        result = '%i features have been deleted.' % Feature.objects.filter(name=group_to_remove).delete()[0]
-
     context = {
         'output': result,
         'name_fields': available_names
