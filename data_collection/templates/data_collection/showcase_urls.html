@@ -1,22 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Showcase URLs</title>
-</head>
-<body>
-<form action="{% url 'data_collection:showcase' %}" method="POST">
-    {% csrf_token %}
-    <input type="text" name="showcase_url" value="{{ request.POST.showcase_url }}">
-    <br>
-    {% for category in categories %}
-        <input type="submit" name="category" value="{{ category.name }}">
-    {% endfor %}
-</form>
-<br>
-{% for url in urls %}
-    <span><a href="{{ url }}">{{ url }}</a> {{ selected_category }}</span>
-    <br>
-{% endfor %}
-</body>
-</html>
+{% extends 'classification/base.html' %}
+
+{% load filters %}
+
+{% block title %}Extract Showcase Repositories{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <form action="{% url 'data_collection:showcase' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="showcase-url">Showcase URL</label>
+                    <input id="showcase-url" type="text" class="form-control" name="showcase_url" required>
+                </div>
+                <div class="btn-group" role="group">
+                    {% for category in categories %}
+                        <input type="submit" class="btn btn-default" name="category" value="{{ category.name }}">
+                    {% endfor %}
+                </div>
+            </form>
+        </div>
+        {% if urls %}
+            <div class="col-md-12">
+                <h3>Repositories</h3>
+                <p>Showcase: <a href="{{ request.POST.showcase_url }}">{{ request.POST.showcase_url }}</a></p>
+                <pre style="white-space: nowrap;">
+                    {% for url in urls %}
+                        <span><a href="{{ url }}">{{ url }}</a> {{ selected_category }}</span><br>
+                    {% endfor %}
+                </pre>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
