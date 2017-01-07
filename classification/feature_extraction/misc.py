@@ -15,16 +15,17 @@ class DescriptionKeyWordExtractor(FeatureExtractor):
                 'data', 'list', 'fonts', 'material', 'introduction', 'github', 'website', 'site', 'page', 'assignment',
                 'group', 'official', 'documentation', 'document', 'dokument', 'policy', 'grading', 'submission',
                 'deadline', 'university', 'science', 'learning', 'slides', 'notes', 'guide', 'presentation', 'personal',
-                'blog', 'project', 'portfolio', 'my']
+                'blog', 'project', 'portfolio', 'my', 'class', 'collection']
 
     def _init_features(self):
         self.features = [Feature.create('Contains keyword "' + keyword + '"') for keyword in self.keywords]
 
     def _extract(self):
         description = self.api_repo.description.lower() if self.api_repo.description else ''
+        name = self.api_repo.name if self.api_repo.name else ''
 
         for keyword, feature in zip(self.keywords, self.features):
-            if keyword in description:
+            if keyword in description or keyword in name:
                 feature.value = 1
             else:
                 feature.value = 0
