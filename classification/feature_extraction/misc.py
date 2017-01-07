@@ -12,9 +12,10 @@ from classification.models import Feature
 
 class DescriptionKeyWordExtractor(FeatureExtractor):
     keywords = ['homework', 'lecture', 'course', 'framework', 'application', 'api', 'webapp', 'icons',
-                'data', 'list', 'fonts', 'materials', 'introduction', 'github', 'website', 'site', 'page', 'assignment',
+                'data', 'list', 'fonts', 'material', 'introduction', 'github', 'website', 'site', 'page', 'assignment',
                 'group', 'official', 'documentation', 'document', 'dokument', 'policy', 'grading', 'submission',
-                'deadline', 'university']
+                'deadline', 'university', 'science', 'learning', 'slides', 'notes', 'guide', 'presentation', 'personal',
+                'blog', 'project', 'portfolio', 'my']
 
     def _init_features(self):
         self.features = [Feature.create('Contains keyword "' + keyword + '"') for keyword in self.keywords]

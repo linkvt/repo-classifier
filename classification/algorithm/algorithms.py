@@ -12,8 +12,8 @@ class Classifier:
     model_file_name = 'model.pkl'
 
     def __init__(self, clf, params, name):
-        self.clf = Pipeline([('kbest', SelectKBest(k=25)), ('clf', clf)])
-        params['kbest__k'] = [10, 15, 20, 25, 30, 35, 40]
+        self.clf = Pipeline([('kbest', SelectKBest()), ('clf', clf)])
+        params['kbest__k'] = [10, 15, 20, 25, 30, 35, 40, 45, 50]
         self.clf = GridSearchCV(self.clf, param_grid=params)
         self.name = name
         self.scaler = MinMaxScaler()
