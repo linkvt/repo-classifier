@@ -4,6 +4,7 @@ from django.shortcuts import render
 
 from classification import classifier
 from classification.evaluation.DescriptionAnalyser import DescriptionAnalyser
+from classification.evaluation.FileExtensionAnalyser import FileExtensionAnalyser
 from classification.evaluation.FileNameAnalyser import FileNameAnalyser
 from classification.evaluation.LanguageAnalyser import LanguageAnalyser
 from classification.models import Feature
@@ -47,6 +48,8 @@ def analysis(request: HttpRequest) -> HttpResponse:
             analyser = FileNameAnalyser()
         elif subject == 'language':
             analyser = LanguageAnalyser()
+        elif subject == 'extension':
+            analyser = FileExtensionAnalyser()
         analyser.text = text
         result = analyser.analyse(text)
 
