@@ -13,7 +13,7 @@ class Classifier:
 
     def __init__(self, clf, params, name):
         self.clf = Pipeline([('kbest', SelectKBest()), ('clf', clf)])
-        params['kbest__k'] = [10, 15, 20, 25, 30, 35, 40, 45, 50]
+        params['kbest__k'] = [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 'all']
         self.clf = GridSearchCV(self.clf, param_grid=params)
         self.name = name
         self.scaler = MinMaxScaler()
