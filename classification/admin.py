@@ -56,6 +56,7 @@ class RepositoryAdmin(ImportExportModelAdmin):
     list_editable = ('category',)
     list_filter = ('category',)
     list_max_show_all = 10000
+    search_fields = ('url',)
 
     def get_export_filename(self, file_format):
         return 'repositories.{}'.format(file_format.get_extension())
@@ -78,8 +79,9 @@ class FeatureAdmin(ImportExportModelAdmin):
     resource_class = FeatureResource
     formats = (CSVKeepingOrder,)
     list_display = ('repository', 'name', 'value')
-    list_filter = ('repository__category',)
+    list_filter = ('repository__category', 'name')
     list_max_show_all = 10000
+    search_fields = ('repository__url', 'name')
 
     def get_export_filename(self, file_format):
         return 'features.{}'.format(file_format.get_extension())
