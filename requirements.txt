@@ -1,16 +1,13 @@
 beautifulsoup4==4.5.1
 diff-match-patch==20121119
-dj-database-url==0.4.2
 Django==1.10.4
 django-import-export==0.5.1
 django-pipeline==1.6.10
 gunicorn==19.6.0
 numpy==1.11.3
 PyGithub==1.29
-python-dateutil==2.6.0
 PyYAML==3.12
 requests==2.12.4
 scikit-learn==0.18.1
 scipy==0.18.1
-six==1.10.0
 tablib==0.11.3
