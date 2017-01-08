@@ -44,15 +44,16 @@ class BaseAnalyser(ABC):
         pass
 
     def _pretty_print(self, frequencies: DefaultDict[Any, DefaultDict[Any, int]]) -> str:
-        result_text = ''
-
+        lines = []
         for category in frequencies:
-            result_text += '{}: '.format(category)
+            line = '{}: '.format(category)
             category_frequency = frequencies[category]
             ordered = OrderedDict(sorted(category_frequency.items(), key=lambda t: t[1], reverse=True))
             for word, frequency in ordered.items():
                 if frequency > 1:
-                    result_text += '({}, {}) '.format(word, frequency)
-            result_text += '\n'
+                    line += '({}, {}) '.format(word, frequency)
 
-        return result_text
+            lines.append(line)
+
+        lines.sort()
+        return '\n'.join(lines)
