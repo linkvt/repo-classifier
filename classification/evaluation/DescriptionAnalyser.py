@@ -1,49 +1,24 @@
 import string
-from collections import OrderedDict
 
-from classification.GithubAuthentification import GithubAuthentification
-from classification.InputParser import InputParser
-from classification.models import Repository
+from github import Repository as GithubRepository
+
+from classification.evaluation.BaseAnalyser import BaseAnalyser
 
 
-class DescriptionAnalyser:
-    def analyse(self, text):
-        urls, labels = InputParser(text, train=True).parse()
+class DescriptionAnalyser(BaseAnalyser):
+    def __init__(self):
+        super().__init__()
+        self._stop_words = ['the', 'in', 'of', 'this', 'that', 'for', 'and', 'at', 'on', 'with', 'a', 'an', 'to', 'as',
+                            'with', 'is', '-']
 
-        github = GithubAuthentification()
+    def _get_data_entry(self, repo: GithubRepository):
+        return repo.description
 
-        descriptions = [github.get_repo(url[19:]).description for url in urls]
+    def _extract_information(self, frequencies, entry, label):
+        desc = entry.translate(string.punctuation).lower() if entry else ''
+        words = desc.split()
 
-        categories = [c.name for c in Repository.CATEGORIES]
-        stopwords = ['the', 'in', 'of', 'this', 'that', 'for', 'and', 'at', 'on', 'with', 'a', 'an', 'to', 'as', 'with',
-                     'is', '-']
-
-        word_frequency = {}
-
-        for category in categories:
-            word_frequency[category] = {}
-
-        for desc, label in zip(descriptions, labels):
-            label = label.rstrip()
-            desc = desc.translate(string.punctuation).lower() if desc else ''
-            words = desc.split()
-
-            for word in words:
-                if word in stopwords:
-                    continue
-                if word not in word_frequency[label]:
-                    word_frequency[label][word] = 0
-                word_frequency[label][word] += 1
-
-        result_text = ''
-
-        for category in word_frequency:
-            result_text += '{}: '.format(category)
-            category_frequency = word_frequency[category]
-            ordered = OrderedDict(sorted(category_frequency.items(), key=lambda t: t[1], reverse=True))
-            for word, frequency in ordered.items():
-                if frequency > 1:
-                    result_text += '({}, {}) '.format(word, frequency)
-            result_text += '\n'
-
-        return result_text
+        for word in words:
+            if word in self._stop_words:
+                continue
+            frequencies[label][word] += 1
