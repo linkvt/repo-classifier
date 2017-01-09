@@ -17,7 +17,7 @@ def train(text, train=True):
     splitted_urls, labels = input_parser.parse()
     repositories = map_urls_to_repositories(splitted_urls)
 
-    classifiers = [RandomForestClassifier(), MLPClassifier(), KNeighborsClassifier()]
+    classifiers = [MLPClassifier(), RandomForestClassifier(), KNeighborsClassifier()]
 
     if train:
         samples = extraction_pipeline.extract_features(repositories)
@@ -68,7 +68,7 @@ def classify_single_repo(url):
 
     samples = extraction_pipeline.extract_features([repo])
     categories, probabilities = clf.predict_proba(samples)
-    result = '\n'.join(['{}: {}'.format(category, prob) for category, prob in zip(categories, probabilities[0])])
+    result = '\n'.join(['{}: {:.2%}'.format(category, prob) for category, prob in zip(categories, probabilities[0])])
 
     yield result
 
