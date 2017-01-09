@@ -13,7 +13,7 @@ class Classifier:
 
     def __init__(self, clf, params, name):
         self.clf = Pipeline([('kbest', SelectKBest()), ('clf', clf)])
-        params['kbest__k'] = [10, 15, 20, 25, 30, 35, 40, 45, 50]
+        params['kbest__k'] = [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70]
         self.clf = GridSearchCV(self.clf, param_grid=params)
         self.name = name
         self.scaler = MinMaxScaler()
@@ -40,6 +40,11 @@ class Classifier:
         feature_vectors = self._map_input(samples)
         scaled_vectors = self.scaler.transform(feature_vectors)
         return self.clf.predict(scaled_vectors)
+
+    def predict_proba(self, samples):
+        feature_vectors = self._map_input(samples)
+        scaled_vectors = self.scaler.transform(feature_vectors)
+        return self.clf.best_estimator_.named_steps['clf'].classes_, self.clf.predict_proba(scaled_vectors)
 
     def save(self):
         joblib.dump(self, self.model_file_name)

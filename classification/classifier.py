@@ -58,6 +58,21 @@ def classify(text):
         yield r
 
 
+def classify_single_repo(url):
+    repo, _ = Repository.objects.get_or_create(url=url, defaults={'url': url})
+
+    clf = Classifier.load()
+    if not clf:
+        yield 'No trained model available.'
+        return
+
+    samples = extraction_pipeline.extract_features([repo])
+    categories, probabilities = clf.predict_proba(samples)
+    result = '\n'.join(['{}: {}'.format(category, prob) for category, prob in zip(categories, probabilities[0])])
+
+    yield result
+
+
 def map_urls_to_repositories(urls: [str]) -> [Repository]:
     repos = []
     for url in urls:

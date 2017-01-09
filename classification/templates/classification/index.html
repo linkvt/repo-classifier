@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">
-            <div class="panel-heading">Input</div>
+            <div class="panel-heading">Train or classify from a file</div>
             <div class="panel-body">
                 <form action="{% url 'classification:index' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
@@ -17,9 +17,8 @@
                                data-show-upload="false" required>
                     </div>
                     <div class="btn-group pull-right" role="group">
-                        <button type="submit" class="btn btn-default" name="mode" value="train">Train from file</button>
-                        <button type="submit" class="btn btn-default" name="mode" value="classify">Classify from file
-                        </button>
+                        <button type="submit" class="btn btn-default" name="mode" value="train">Train</button>
+                        <button type="submit" class="btn btn-default" name="mode" value="classify">Classify</button>
                     </div>
                 </form>
             </div>
@@ -39,5 +38,23 @@
         </div>
     </div>
     {% endif %}
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Classify a single repo</div>
+            <div class="panel-body">
+                <form action="{% url 'classification:index' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="control-label">Repository URL</label>
+                        <input type="text" class="form-control" name="repo-url" value="" required>
+                    </div>
+                    <div class="btn-group pull-right" role="group">
+                        <button type="submit" class="btn btn-default" name="mode" value="classify-single-repo">Classify
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

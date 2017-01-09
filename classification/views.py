@@ -12,6 +12,7 @@ from classification.models import Feature
 
 def index(request: HttpRequest) -> HttpResponse:
     uploaded_file = request.FILES.get('file')
+    url = request.POST['repo-url'] if 'repo-url' in request.POST else None
     mode = request.POST['mode'] if 'mode' in request.POST else None
     if mode and uploaded_file:
         data = uploaded_file.read()
@@ -24,6 +25,8 @@ def index(request: HttpRequest) -> HttpResponse:
         output_lines = list(classifier.train(text)) if text else []
     elif mode == 'classify':
         output_lines = list(classifier.classify(text)) if text else []
+    elif mode == 'classify-single-repo':
+        output_lines = list(classifier.classify_single_repo(url)) if url else []
 
     context = {
         'output': '\n'.join(output_lines),
