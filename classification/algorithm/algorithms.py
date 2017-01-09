@@ -1,6 +1,7 @@
 from sklearn import ensemble
 from sklearn import neighbors
 from sklearn import neural_network
+from sklearn import svm
 from sklearn.externals import joblib
 from sklearn.feature_selection import SelectKBest
 from sklearn.model_selection import GridSearchCV
@@ -13,7 +14,7 @@ class Classifier:
 
     def __init__(self, clf, params, name):
         self.clf = Pipeline([('kbest', SelectKBest()), ('clf', clf)])
-        params['kbest__k'] = [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70]
+        params['kbest__k'] = [30, 40, 50, 60, 70, 'all']
         self.clf = GridSearchCV(self.clf, param_grid=params)
         self.name = name
         self.scaler = MinMaxScaler()
@@ -67,8 +68,14 @@ class Classifier:
 
 class RandomForestClassifier(Classifier):
     def __init__(self):
-        params = dict(clf__n_estimators=[5, 10, 15, 20])
+        params = dict(clf__n_estimators=[20, 25, 30, 40, 50])
         super().__init__(ensemble.RandomForestClassifier(), params, 'RandomForestClassifier')
+
+
+class ExtraTreesClassifier(Classifier):
+    def __init__(self):
+        params = dict(clf__n_estimators=[20, 25, 30, 40, 50])
+        super().__init__(ensemble.RandomForestClassifier(), params, 'ExtraTreesClassifier')
 
 
 class KNeighborsClassifier(Classifier):
@@ -77,7 +84,13 @@ class KNeighborsClassifier(Classifier):
         super().__init__(neighbors.KNeighborsClassifier(), params, 'KNeighborsClassifier')
 
 
+class SVMClassifier(Classifier):
+    def __init__(self):
+        params = dict(clf__kernel=['linear', 'rbf', 'poly'])
+        super().__init__(svm.SVC(), params, 'SVMClassifier')
+
+
 class MLPClassifier(Classifier):
     def __init__(self):
-        params = dict(clf__hidden_layer_sizes=[(80,), (100,), (120,)], clf__solver=['lbfgs', 'adam', 'sgd'])
+        params = dict(clf__hidden_layer_sizes=[(100,), (120,), (140,)], clf__solver=['lbfgs', 'adam', 'sgd'])
         super().__init__(neural_network.MLPClassifier(), params, 'MLPClassifier')
