@@ -75,7 +75,7 @@ class RandomForestClassifier(Classifier):
 class ExtraTreesClassifier(Classifier):
     def __init__(self):
         params = dict(clf__n_estimators=[20, 25, 30, 40, 50])
-        super().__init__(ensemble.RandomForestClassifier(), params, 'ExtraTreesClassifier')
+        super().__init__(ensemble.ExtraTreesClassifier(), params, 'ExtraTreesClassifier')
 
 
 class KNeighborsClassifier(Classifier):
