@@ -13,4 +13,7 @@ class DOCSFileExtensionExtractor(FileExtensionExtractor):
 
     @property
     def extensions_to_check(self) -> typing.Set[str]:
-        return {'.md'}
+        return {
+            '.markdown', '.md', '.pdf', '.rst', '.tex', '.txt',
+            '.doc', '.docx', '.key', '.odt', '.ppt', '.pptx'
+        }
