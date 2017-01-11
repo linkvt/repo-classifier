@@ -45,7 +45,7 @@ class Feature(models.Model):
 
     repository = models.ForeignKey(Repository, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, db_index=True)
-    value = models.FloatField()
+    value = models.FloatField(default=0.0)
 
     @classmethod
     def create(cls, name: str):
