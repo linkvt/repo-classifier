@@ -1,549 +1,550 @@
-https://github.com/youtaya/objective-c-style-guide DOCS
-https://github.com/xbezdick/clvm DOCS
-https://github.com/gscott1967/datasharing DOCS
-https://github.com/Regloom/the-art-of-command-line DOCS
-https://github.com/cirosantilli/write-free-science-books-to-get-famous-website DOCS
-https://github.com/panchotiya/JavaScript-Load-Image DEV
-https://github.com/GokhanArik/Stack DEV
-https://github.com/NickCullen/UnityFSM DEV
-https://github.com/zichengl/Command-Line-Minesweeper DEV
-https://github.com/Transmuist/G-Supply DEV
-https://github.com/rorellana2/OCMusicEvents DEV
-https://github.com/Xal3ph/leaflet-dvf DEV
-https://github.com/jcbrmn/animsition DEV
-https://github.com/trifork/gradle-plugins DEV
-https://github.com/JesterXL/Health-Katas DEV
-https://github.com/drscannell/stackables DEV
-https://github.com/alepolidori/chrome-nethserver-phonehome DEV
-https://github.com/Solaries666/Ultra-AutoMan-2.0 OTHER
-https://github.com/mimo84/ngUpload DEV
-https://github.com/Vicken52/CS454-Homework2 HW
-https://github.com/BrashFlea/CS3030Homework8 HW
-https://github.com/BBK-SDP-2015-gorbel01/group HW
-https://github.com/kaleko/CourseraML HW
-https://github.com/Teodor92/TelerikAcademy HW
-https://github.com/tiy-gvl-python-2015-09/mystery-word HW
-https://github.com/meta-ajinkya-pande/homework HW
-https://github.com/ps-tuebingen-sdpt-2016/homework HW
-https://github.com/Kentalot/CourseraHomework HW
-https://github.com/hmisty/adc_tomatoclock HW
-https://github.com/iosdecal/ios-decal-hw2 HW
-https://github.com/mignev/python-homework HW
-https://github.com/pcantrell/comp225-registrar HW
-https://github.com/CS273/HW02 HW
-https://github.com/facebook/react DEV
-https://github.com/VisualDataWeb/WebVOWL DEV
-https://github.com/briantemple/homeworkr DEV
-https://github.com/spring-projects/spring-boot DEV
-https://github.com/nodegit/nodegit DEV
-https://github.com/scipy/scipy DEV
-https://github.com/m2mtech/calculator-2015 HW
-https://github.com/HPI-SWA-Teaching/SWT16-Project-08 HW
-https://github.com/DataScienceSpecialization/courses EDU
-https://github.com/alex/what-happens-when EDU
-https://github.com/AllThingsSmitty/jquery-tips-everyone-should-know EDU
-https://github.com/CMSgov/HealthCare.gov-Styleguide DOCS
-https://github.com/github/maturity-model DOCS
-https://github.com/raspberrypi/documentation DOCS
-https://github.com/bundestag/gesetze DOCS
-https://github.com/fsr-itse/docs DOCS
-https://github.com/BloombergMedia/whatiscode WEB
-https://github.com/JaceRobinson8/jacerobinson8.github.io WEB
-https://github.com/rubymonstas-zurich/rubymonstas-zurich.github.io WEB
-https://github.com/ianli/elbowpatched-boilerplate WEB
-https://github.com/whoisjuan/whoisjuan.github.io WEB
-https://github.com/ericfischer/housing-inventory DATA
-https://github.com/GSA/data DATA
-https://github.com/OpenExoplanetCatalogue/open_exoplanet_catalogue DATA
-https://github.com/Hipo/university-domains-list DATA
-https://github.com/minimaxir/big-list-of-naughty-strings DATA
-https://github.com/jonico/other OTHER
-https://github.com/openaddresses/openaddresses DATA
-https://github.com/unitedstates/congress-legislators DATA
-https://github.com/APIs-guru/openapi-directory DATA
-https://github.com/Chicago/food-inspections-evaluation DATA
-https://github.com/cernopendata/opendata.cern.ch DATA
-https://github.com/benbalter/congressional-districts DATA
-https://github.com/nodejs/node DEV
-https://github.com/django/django DEV
-https://github.com/rust-lang/rust DEV
-https://github.com/howdyai/botkit DEV
-https://github.com/exercism/exercism.io DEV
-https://github.com/python/cpython DEV
-https://github.com/HospitalRun/hospitalrun-frontend DEV
-https://github.com/hoodiehq/hoodie DEV
-https://github.com/pybee/batavia DEV
-https://github.com/OperationCode/operationcode DEV
-https://github.com/d3/d3 DEV
-https://github.com/chartjs/Chart.js DEV
-https://github.com/Leaflet/Leaflet DEV
-https://github.com/ecomfe/echarts DEV
-https://github.com/gionkunz/chartist-js DEV
-https://github.com/jacomyal/sigma.js DEV
-https://github.com/mozilla/metrics-graphics DEV
-https://github.com/dc-js/dc.js DEV
-https://github.com/epochjs/epoch DEV
-https://github.com/vega/vega DEV
-https://github.com/matplotlib/matplotlib DEV
-https://github.com/densitydesign/raw DEV
-https://github.com/benpickles/peity DEV
-https://github.com/FormidableLabs/victory DEV
-https://github.com/gka/chroma.js DEV
-https://github.com/Boris-Em/BEMSimpleLineGraph DEV
-https://github.com/PMSI-AlignAlytics/dimple DEV
-https://github.com/samizdatco/arbor DEV
-https://github.com/okfn/recline DEV
-https://github.com/AnalyticalGraphicsInc/cesium DEV
-https://github.com/uber/deck.gl DEV
-https://github.com/HumbleSoftware/envisionjs DEV
-https://github.com/Kozea/pygal DEV
-https://github.com/kartograph/kartograph.js DEV
-https://github.com/Netflix/vizceral DEV
-https://github.com/stamen/modestmaps-js DEV
-https://github.com/keen/keen-dataviz.js DEV
-https://github.com/meteor/meteor DEV
-https://github.com/rails/rails DEV
-https://github.com/expressjs/express DEV
-https://github.com/laravel/laravel DEV
-https://github.com/pallets/flask DEV
-https://github.com/balderdashy/sails DEV
-https://github.com/symfony/symfony DEV
-https://github.com/spring-projects/spring-framework DEV
-https://github.com/linnovate/mean DEV
-https://github.com/playframework/playframework DEV
-https://github.com/sinatra/sinatra DEV
-https://github.com/revel/revel DEV
-https://github.com/cakephp/cakephp DEV
-https://github.com/jhipster/generator-jhipster DEV
-https://github.com/NancyFx/Nancy DEV
-https://github.com/derbyjs/derby DEV
-https://github.com/keithwhor/nodal DEV
-https://github.com/hanami/hanami DEV
-https://github.com/padrino/padrino-framework DEV
-https://github.com/aspnetboilerplate/aspnetboilerplate DEV
-https://github.com/kraih/mojo DEV
-https://github.com/ninjaframework/ninja DEV
-https://github.com/web2py/web2py DEV
-https://github.com/kemalcr/kemal DEV
-https://github.com/pakyow/pakyow DEV
-https://github.com/frappe/frappe DEV
-https://github.com/perl-catalyst/catalyst-runtime DEV
-https://github.com/adobe-fonts/source-code-pro DATA
-https://github.com/google/fonts DATA
-https://github.com/mozilla/Fira DATA
-https://github.com/google/roboto DATA
-https://github.com/adobe-fonts/source-sans-pro DATA
-https://github.com/be5invis/Iosevka DATA
-https://github.com/larsenwork/Gidole DATA
-https://github.com/adobe-fonts/source-serif-pro DATA
-https://github.com/theleagueof/league-gothic DATA
-https://github.com/theleagueof/raleway DATA
-https://github.com/theleagueof/ostrich-sans DATA
-https://github.com/theleagueof/junction DATA
-https://github.com/klepas/open-baskerville DATA
-https://github.com/theleagueof/chunk DATA
-https://github.com/FortAwesome/Font-Awesome DATA
-https://github.com/google/material-design-icons DATA
-https://github.com/driftyco/ionicons DATA
-https://github.com/erikflowers/weather-icons DATA
-https://github.com/primer/octicons DATA
-https://github.com/somerandomdude/Iconic DATA
-https://github.com/smcllns/css-social-buttons DATA
-https://github.com/stephenhutchings/typicons.font DATA
-https://github.com/parkerbennett/stackicons DATA
-https://github.com/Keyamoon/IcoMoon-Free DATA
-https://github.com/pfefferle/openwebicons DATA
-https://github.com/MfgLabs/mfglabs-iconset DATA
-https://github.com/scottdejonge/map-icons DATA
-https://github.com/fontello/brandico.font DATA
-https://github.com/jhogue/PE-Analog-Clock-icon-font DATA
-https://github.com/whhglyphs/webhostinghub-glyphs DATA
-https://github.com/xtoolkit/Micon DATA
-https://github.com/twitter/innovators-patent-agreement DOCS
-https://github.com/usds/playbook DOCS
-https://github.com/project-open-data/project-open-data.github.io DOCS
-https://github.com/divegeek/uscode DOCS
-https://github.com/catalyzeio/policies DOCS
-https://github.com/hackdaymanifesto/hackdaymanifesto.github.com DOCS
-https://github.com/GSA/https DOCS
-https://github.com/18F/open-source-policy DOCS
-https://github.com/BetaNYC/Bike-Share-Data-Best-Practices DOCS
-https://github.com/code4lib/antiharassment-policy DOCS
-https://github.com/WhiteHouse/fitara DOCS
-https://github.com/CommerceGov/Policies-and-Guidance DOCS
-https://github.com/adobe/adobe.github.com WEB
-https://github.com/Netflix/netflix.github.com WEB
-https://github.com/Esri/esri.github.com WEB
-https://github.com/Shopify/shopify.github.com WEB
-https://github.com/SAP/sap.github.com WEB
-https://github.com/guardian/guardian.github.com WEB
-https://github.com/gilt/code.gilt.com WEB
-https://github.com/cfpb/cfpb.github.io WEB
-https://github.com/addyosmani/backbone-fundamentals DOCS
-https://github.com/substack/stream-handbook DOCS
-https://github.com/manuelkiessling/nodebeginner.org DOCS
-https://github.com/btford/write-good DOCS
-https://github.com/mixu/singlepageappbook DOCS
-https://github.com/oreillymedia/open_government DOCS
-https://github.com/HoTT/book DOCS
-https://github.com/swannodette/logic-tutorial DOCS
-https://github.com/JJ/hoborg DOCS
-https://github.com/mozzadrella/Informal-Tech-Project DOCS
-https://github.com/harvesthq/how-to-walkabout DOCS
-https://github.com/ipython/ipython DEV
-https://github.com/sympy/sympy DEV
-https://github.com/astropy/astropy DEV
-https://github.com/simbody/simbody DEV
-https://github.com/dfm/emcee DEV
-https://github.com/dib-lab/khmer DEV
-https://github.com/cms-sw/cmssw DEV
-https://github.com/psas/av3-fc DEV
-https://github.com/ComputationalRadiationPhysics/picongpu DEV
-https://github.com/ropensci/rplos DEV
-https://github.com/cyverse/atmosphere DEV
-https://github.com/swcarpentry/swcarpentry DOCS
-https://github.com/docker/docker DEV
-https://github.com/ansible/ansible DEV
-https://github.com/kubernetes/kubernetes DEV
-https://github.com/firehol/netdata DEV
-https://github.com/mitchellh/vagrant DEV
-https://github.com/grafana/grafana DEV
-https://github.com/getsentry/sentry DEV
-https://github.com/etsy/statsd DEV
-https://github.com/capistrano/capistrano DEV
-https://github.com/fabric/fabric DEV
-https://github.com/saltstack/salt DEV
-https://github.com/elastic/logstash DEV
-https://github.com/chef/chef DEV
-https://github.com/puppetlabs/puppet DEV
-https://github.com/graphite-project/graphite-web DEV
-https://github.com/deployphp/deployer DEV
-https://github.com/openshift/origin DEV
-https://github.com/openstack/openstack DEV
-https://github.com/StackStorm/st2 DEV
-https://github.com/thenewstack/docker-and-containers-ebooks DEV
-https://github.com/cloud66/habitus DEV
-https://github.com/libgdx/libgdx DEV
-https://github.com/cocos2d/cocos2d-x DEV
-https://github.com/godotengine/godot DEV
-https://github.com/CRYTEK-CRYENGINE/CRYENGINE DEV
-https://github.com/SFTtech/openage DEV
-https://github.com/MonoGame/MonoGame DEV
-https://github.com/OpenRA/OpenRA DEV
-https://github.com/turbulenz/turbulenz_engine DEV
-https://github.com/GarageGames/Torque3D DEV
-https://github.com/Gamua/Starling-Framework DEV
-https://github.com/gameplay3d/GamePlay DEV
-https://github.com/urho3d/Urho3D DEV
-https://github.com/jMonkeyEngine/jmonkeyengine DEV
-https://github.com/SiliconStudio/xenko DEV
-https://github.com/GarageGames/Torque2D DEV
-https://github.com/AtomicGameEngine/AtomicGameEngine DEV
-https://github.com/superpowers/superpowers-core DEV
-https://github.com/spring/spring DEV
-https://github.com/AdamsLair/duality DEV
-https://github.com/panda3d/panda3d DEV
-https://github.com/methusalah/OpenRTS DEV
-https://github.com/4ian/GD DEV
-https://github.com/Circular-Studios/Dash DEV
-https://github.com/xlgames-inc/XLE DEV
-https://github.com/apple/swift DEV
-https://github.com/Alamofire/Alamofire DEV
-https://github.com/SwiftyJSON/SwiftyJSON DEV
-https://github.com/PerfectlySoft/Perfect DEV
-https://github.com/raywenderlich/swift-algorithm-club DOCS
-https://github.com/Quick/Quick DEV
-https://github.com/realm/SwiftLint DEV
-https://github.com/xmartlabs/Eureka DEV
-https://github.com/Moya/Moya DEV
-https://github.com/twostraws/HackingWithSwift DOCS
-https://github.com/patchthecode/JTAppleCalendar DEV
-https://github.com/typelift/SwiftCheck DEV
-https://github.com/robrix/Madness DEV
-https://github.com/buunguyen/octotree DEV
-https://github.com/OctoLinker/browser-extension DEV
-https://github.com/jasonlong/isometric-contributions DEV
-https://github.com/sindresorhus/refined-github DEV
-https://github.com/muan/github-gmail DEV
-https://github.com/Justineo/github-hovercard DEV
-https://github.com/thieman/github-selfies DEV
-https://github.com/sindresorhus/notifier-for-github-chrome DEV
-https://github.com/notwaldorf/github-canned-responses DEV
-https://github.com/kamranahmedse/githunt DEV
-https://github.com/sindresorhus/notifier-for-github DEV
-https://github.com/harshjv/github-repo-size DEV
-https://github.com/muan/dashboard DEV
-https://github.com/sanemat/do-not-merge-wip-for-github DEV
-https://github.com/ProLoser/Github-Omnibox DEV
-https://github.com/thecodejunkie/github.expandinizr DEV
-https://github.com/Yatser/prettypullrequests DEV
-https://github.com/ryanflorence/github-plusone-extension DEV
-https://github.com/benbalter/github-mention-highlighter DEV
-https://github.com/panzerdp/clipboardy DEV
-https://github.com/ForbesLindesay/github-real-names DEV
-https://github.com/mike-north/chrome-github-boxcutter DEV
-https://github.com/serverless/serverless DEV
-https://github.com/apex/apex DEV
-https://github.com/Miserlou/Zappa DEV
-https://github.com/lambci/lambci DEV
-https://github.com/awslabs/chalice DEV
-https://github.com/claudiajs/claudia DEV
-https://github.com/jorgebastida/gordon DEV
-https://github.com/mentum/lambdaws DEV
-https://github.com/goadapp/goad DEV
-https://github.com/MitocGroup/deep-framework DEV
-https://github.com/atom/atom DEV
-https://github.com/adobe/brackets DEV
-https://github.com/neovim/neovim DEV
-https://github.com/Microsoft/vscode DEV
-https://github.com/limetext/lime DEV
-https://github.com/textmate/textmate DEV
-https://github.com/syl20bnr/spacemacs DEV
-https://github.com/LightTable/LightTable DEV
-https://github.com/coolwanglu/vim.js DEV
-https://github.com/sharelatex/sharelatex DEV
-https://github.com/CodeboxIDE/codebox DEV
-https://github.com/slap-editor/slap DEV
-https://github.com/zedapp/zed DEV
-https://github.com/Komodo/KomodoEdit DEV
-https://github.com/thomaswilburn/Caret DEV
-https://github.com/leo-editor/leo-editor DEV
-https://github.com/docker/dockercraft DEV
-https://github.com/MovingBlocks/Terasology DEV
-https://github.com/Bukkit/Bukkit DEV
-https://github.com/MinecraftForge/MinecraftForge DEV
-https://github.com/cuberite/cuberite DEV
-https://github.com/overviewer/Minecraft-Overviewer DEV
-https://github.com/SirCmpwn/TrueCraft DEV
-https://github.com/PocketMine/PocketMine-MP DEV
-https://github.com/walterhiggins/ScriptCraft DEV
-https://github.com/sk89q/WorldEdit DEV
-https://github.com/msmhq/msm DEV
-https://github.com/essentials/Essentials DEV
-https://github.com/SpigotMC/BungeeCord DEV
-https://github.com/MightyPirates/OpenComputers DEV
-https://github.com/Vazkii/Botania DEV
-https://github.com/PrismarineJS/mineflayer DEV
-https://github.com/micdoodle8/Galacticraft DEV
-https://github.com/GlowstoneMC/Glowstone DEV
-https://github.com/MachineMuse/MachineMusePowersuits DEV
-https://github.com/minefold/hubot-minecraft DEV
-https://github.com/leereilly/hubot-minecraft-skin OTHER
-https://github.com/fastlane/fastlane DEV
-https://github.com/twitter/twitter-kit-android DEV
-https://github.com/twitter/digits-android DEV
-https://github.com/bower/bower DEV
-https://github.com/VundleVim/Vundle.vim DEV
-https://github.com/npm/npm DEV
-https://github.com/alcatraz/Alcatraz DEV
-https://github.com/CocoaPods/CocoaPods DEV
-https://github.com/composer/composer DEV
-https://github.com/Carthage/Carthage DEV
-https://github.com/jordansissel/fpm DEV
-https://github.com/Homebrew/brew DEV
-https://github.com/apple/swift-package-manager DEV
-https://github.com/componentjs/component DEV
-https://github.com/Masterminds/glide DEV
-https://github.com/wbond/package_control DEV
-https://github.com/pypa/pip DEV
-https://github.com/chocolatey/chocolatey DEV
-https://github.com/tmux-plugins/tpm DEV
-https://github.com/rust-lang/cargo DEV
-https://github.com/rubygems/rubygems DEV
-https://github.com/caolan/jam DEV
-https://github.com/volojs/volo DEV
-https://github.com/gpmgo/gopm DEV
-https://github.com/spmjs/spm DEV
-https://github.com/atom/apm DEV
-https://github.com/freshshell/fresh DEV
-https://github.com/ruslo/hunter DEV
-https://github.com/NuGet/Home DEV
-https://github.com/ocaml/opam DEV
-https://github.com/bbatsov/rubocop DEV
-https://github.com/jshint/jshint DEV
-https://github.com/eslint/eslint DEV
-https://github.com/koalaman/shellcheck DEV
-https://github.com/jscs-dev/node-jscs DEV
-https://github.com/CSSLint/csslint DEV
-https://github.com/brigade/scss-lint DEV
-https://github.com/PyCQA/pycodestyle DEV
-https://github.com/csscomb/csscomb.js DEV
-https://github.com/golang/lint DEV
-https://github.com/oclint/oclint DEV
-https://github.com/checkstyle/checkstyle DEV
-https://github.com/yaniswang/HTMLHint DEV
-https://github.com/pre-commit/pre-commit DEV
-https://github.com/coala/coala DEV
-https://github.com/clutchski/coffeelint DEV
-https://github.com/rodjek/puppet-lint DEV
-https://github.com/ndmitchell/hlint DEV
-https://github.com/inaka/elvis DEV
-https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System DOCS
-https://github.com/fivethirtyeight/data DATA
-https://github.com/newsapps/beeswithmachineguns DEV
-https://github.com/nprapps/app-template DEV
-https://github.com/voxmedia/meme DEV
-https://github.com/propublica/guides DOCS
-https://github.com/times/cardkit DEV
-https://github.com/TimeMagazine/babynames DATA
-https://github.com/censusreporter/censusreporter DEV
-https://github.com/datadesk/python-elections DEV
-https://github.com/huffpostdata/ap-election-loader DEV
-https://github.com/ajam/2014_payday-nation-data DATA
-https://github.com/tensorflow/tensorflow DEV
-https://github.com/scikit-learn/scikit-learn DEV
-https://github.com/BVLC/caffe DEV
-https://github.com/fchollet/keras DEV
-https://github.com/apache/incubator-predictionio DEV
-https://github.com/Microsoft/CNTK DEV
-https://github.com/harthur/brain DEV
-https://github.com/dmlc/mxnet DEV
-https://github.com/karpathy/convnetjs DEV
-https://github.com/dmlc/xgboost DEV
-https://github.com/Theano/Theano DEV
-https://github.com/clips/pattern DEV
-https://github.com/numenta/nupic DEV
-https://github.com/JohnLangford/vowpal_wabbit DEV
-https://github.com/sjwhitworth/golearn DEV
-https://github.com/ryanb/ruby-warrior DEV
-https://github.com/cazala/synaptic DEV
-https://github.com/NervanaSystems/neon DEV
-https://github.com/h2oai/h2o-2 DEV
-https://github.com/cloudera/oryx DEV
-https://github.com/shogun-toolbox/shogun DEV
-https://github.com/mikeizbicki/HLearn DEV
-https://github.com/apache/mahout DEV
-https://github.com/SeldonIO/seldon-server DEV
-https://github.com/nikolaypavlov/MLPNeuralNet DEV
-https://github.com/datumbox/datumbox-framework DEV
-https://github.com/jubatus/jubatus DEV
-https://github.com/danielsdeleo/Decider DEV
-https://github.com/github-archive/developer.github.com WEB
-https://github.com/Microsoft/microsoft.github.io WEB
-https://github.com/twitter/twitter.github.com WEB
-https://github.com/github/government.github.com WEB
-https://github.com/electron/electron.atom.io WEB
-https://github.com/IBM/ibm.github.io WEB
-https://github.com/square/square.github.io WEB
-https://github.com/artsy/artsy.github.io WEB
-https://github.com/Yelp/yelp.github.io WEB
-https://github.com/githubteacher/intro-november-2015 EDU
-https://github.com/MostlyAdequate/mostly-adequate-guide EDU
-https://github.com/DataScienceSpecialization/Developing_Data_Products EDU
-https://github.com/briandalessandro/DataScienceCourse EDU
-https://github.com/codeschool/EmberCourseDemo EDU
-https://github.com/jdleesmiller/latex-course EDU
-https://github.com/SAP/openSAP-ui5-course EDU
-https://github.com/rdpeng/CourseraLectures EDU
-https://github.com/schryer/python_course_material EDU
-https://github.com/rhiever/python-data-visualization-course EDU
-https://github.com/berkeley-cs186/course EDU
-https://github.com/micrum/course EDU
-https://github.com/uwescience/datasci_course_materials EDU
-https://github.com/EricSimons/ionic-course EDU
-https://github.com/byorgey/haskell-course EDU
-https://github.com/arnicas/interactive-vis-course EDU
-https://github.com/berkeley-cs186/course-fa15 EDU
-https://github.com/XQueryInstitute/Course-Materials EDU
-https://github.com/sincerekamal/Advance-Android-Tutorials EDU
-https://github.com/joeeames/MEANAppsFiles EDU
-https://github.com/alexis-datascience/courses EDU
-https://github.com/McNopper/OpenGL EDU
-https://github.com/CamZHU/camzhu.github.io WEB
-https://github.com/tcsthyc/hexoPB WEB
-https://github.com/rockheart/rockheart.github.io WEB
-https://github.com/ikew0ng/Blog WEB
-https://github.com/kamilrextin/KamilWebSite WEB
-https://github.com/asoborov/www.instead WEB
-https://github.com/stuntguy3000/stuntguy3000.github.io WEB
-https://github.com/menardmb/kleptocreations.com WEB
-https://github.com/amyboyd/amyboyd.co.uk WEB
-https://github.com/corefan/playfuljs WEB
-https://github.com/jimeh/jimeh.me-api WEB
-https://github.com/barshamaharjan/barshamaharjan.github.io WEB
-https://github.com/NASA-rocket-science/NASA-rocket-science.github.io WEB
-https://github.com/nasa/api-docs DOCS
-https://github.com/ProseMirror/website WEB
-https://github.com/FOSDEM/website WEB
-https://github.com/github/dmca DOCS
-https://github.com/jlevy/the-art-of-command-line DOCS
-https://github.com/xabier/comunes-conocimiento-democracia DOCS
-https://github.com/jtleek/datasharing DOCS
-https://github.com/dbfun/sql-samples DOCS
-https://github.com/mmozuras/showoff-resharper DOCS
-https://github.com/tbandixen/Data-Mining EDU
-https://github.com/nborwankar/LearnDataScience EDU
-https://github.com/NYTimes/objective-c-style-guide DOCS
-https://github.com/yelhouari/20141019-Moolah-Investigation DOCS
-https://github.com/tollefson/tollefson.github.io DOCS
-https://github.com/metacran/ropensci-commcall-2015 DOCS
-https://github.com/seriesseed/equity DOCS
-https://github.com/MikeL83/CV DOCS
-https://github.com/ppau/documents DOCS
-https://github.com/DeepskyLog/Documents DOCS
-https://github.com/kbandla/APTnotes DOCS
-https://github.com/perl6/specs DOCS
-https://github.com/GnomeAsiaSummit2015/Documents DOCS
-https://github.com/WebAssembly/design DOCS
-https://github.com/fscs/esag DOCS
-https://github.com/madialting/dokumenter DOCS
-https://github.com/firegento/verein DOCS
-https://github.com/thinkingstone/dsa-documents DOCS
-https://github.com/ffimsl/Dokumente DOCS
-https://github.com/esokolov/ml-course-msu EDU
-https://github.com/jtleek/dataanalysis EDU
-https://github.com/zhouxc/Stanford-Machine-Learning-Course EDU
-https://github.com/zlotus/Coursera_Machine_Learning_Exercises EDU
-https://github.com/tuanavu/coursera-university-of-washington EDU
-https://github.com/BasicProbability/LectureNotes EDU
-https://github.com/jagajaga/FP-Course-ITMO EDU
-https://github.com/LoyolaChicagoBooks/lucoodevcourse EDU
-https://github.com/aycignl/AlgsAndProg-II-BilkentUniversity EDU
-https://github.com/micromata/webengineering-2015-ss EDU
-https://github.com/pcsaini/website WEB
-https://github.com/peterhurford/personal WEB
-https://github.com/Cyral/Personal-Website WEB
-https://github.com/sahat/sahat.github.com WEB
-https://github.com/aymanfarhat/personal-website WEB
-https://github.com/unhosted/website WEB
-https://github.com/parisjs/parisjs-website WEB
-https://github.com/emberjs/website WEB
-https://github.com/Lucifier129/Lucifier129.github.io WEB
-https://github.com/Azure/azure.github.io WEB
-https://github.com/kubernetes/kubernetes.github.io WEB
-https://github.com/rails/homepage WEB
-https://github.com/AlexFlipnote/homepage WEB
-https://github.com/spez/RottenTomatoes HW
-https://github.com/bcaffo/751and2 HW
-https://github.com/uwhpsc-2016/example-python-homework HW
-https://github.com/pcsforeducation/Homework HW
-https://github.com/bcho/homework HW
-https://github.com/lyzcharles/HomeWork HW
-https://github.com/ssercpp12/Homework HW
-https://github.com/cvdlab-alumni/homework HW
-https://github.com/kirbs-/edX-Learning-From-Data-Solutions HW
-https://github.com/stilberk/HomeWork HW
-https://github.com/wanquanxiaowai/homework HW
-https://github.com/likebanana/Homework HW
-https://github.com/charmoniumQ/Homework HW
-https://github.com/ELLIOTTCABLE/Homework HW
-https://github.com/wme7/aero-matlab HW
-https://github.com/anteaya/homework HW
-https://github.com/harababurel/homework HW
-https://github.com/sf-wdi-26/homework HW
-https://github.com/bramwelt/homework HW
-https://github.com/pybursa/homeworks HW
-https://github.com/qcl/ntu-homeworks HW
-https://github.com/AdoHe/Homework HW
-https://github.com/seclab/homework HW
-https://github.com/StargazerYi/hw6-MyHomework HW
-https://github.com/sf-wdi-22-23/22-homework HW
-https://github.com/wally-fork/homework HW
-https://github.com/lorenazs/ProgrammingAssignment2 HW
-https://github.com/umpirsky/country-list DATA
-https://github.com/caesar0301/awesome-public-datasets DATA
-https://github.com/MuseumofModernArt/collection DATA
-https://github.com/ProgrammingFonts/programming-fonts-collection DATA
-https://github.com/spatie/belgian-cities-geocoded DATA
-https://github.com/samayo/country-data DATA
-https://github.com/ClydeDz/json-database DATA
+url,category
+https://github.com/ClydeDz/json-database,
+https://github.com/samayo/country-data,
+https://github.com/spatie/belgian-cities-geocoded,
+https://github.com/ProgrammingFonts/programming-fonts-collection,
+https://github.com/MuseumofModernArt/collection,
+https://github.com/caesar0301/awesome-public-datasets,
+https://github.com/umpirsky/country-list,
+https://github.com/youtaya/objective-c-style-guide,DOCS
+https://github.com/xbezdick/clvm,DOCS
+https://github.com/gscott1967/datasharing,DOCS
+https://github.com/Regloom/the-art-of-command-line,DOCS
+https://github.com/cirosantilli/write-free-science-books-to-get-famous-website,DOCS
+https://github.com/panchotiya/JavaScript-Load-Image,DEV
+https://github.com/GokhanArik/Stack,DEV
+https://github.com/NickCullen/UnityFSM,DEV
+https://github.com/zichengl/Command-Line-Minesweeper,DEV
+https://github.com/Transmuist/G-Supply,DEV
+https://github.com/rorellana2/OCMusicEvents,DEV
+https://github.com/Xal3ph/leaflet-dvf,DEV
+https://github.com/jcbrmn/animsition,DEV
+https://github.com/trifork/gradle-plugins,DEV
+https://github.com/JesterXL/Health-Katas,DEV
+https://github.com/drscannell/stackables,DEV
+https://github.com/alepolidori/chrome-nethserver-phonehome,DEV
+https://github.com/Solaries666/Ultra-AutoMan-2.0,OTHER
+https://github.com/mimo84/ngUpload,DEV
+https://github.com/Vicken52/CS454-Homework2,HW
+https://github.com/BrashFlea/CS3030Homework8,HW
+https://github.com/BBK-SDP-2015-gorbel01/group,HW
+https://github.com/kaleko/CourseraML,HW
+https://github.com/Teodor92/TelerikAcademy,HW
+https://github.com/tiy-gvl-python-2015-09/mystery-word,HW
+https://github.com/meta-ajinkya-pande/homework,HW
+https://github.com/ps-tuebingen-sdpt-2016/homework,HW
+https://github.com/Kentalot/CourseraHomework,HW
+https://github.com/hmisty/adc_tomatoclock,HW
+https://github.com/iosdecal/ios-decal-hw2,HW
+https://github.com/mignev/python-homework,HW
+https://github.com/pcantrell/comp225-registrar,HW
+https://github.com/CS273/HW02,HW
+https://github.com/facebook/react,DEV
+https://github.com/VisualDataWeb/WebVOWL,DEV
+https://github.com/briantemple/homeworkr,DEV
+https://github.com/spring-projects/spring-boot,DEV
+https://github.com/nodegit/nodegit,DEV
+https://github.com/scipy/scipy,DEV
+https://github.com/m2mtech/calculator-2015,HW
+https://github.com/HPI-SWA-Teaching/SWT16-Project-08,HW
+https://github.com/DataScienceSpecialization/courses,EDU
+https://github.com/alex/what-happens-when,EDU
+https://github.com/AllThingsSmitty/jquery-tips-everyone-should-know,EDU
+https://github.com/CMSgov/HealthCare.gov-Styleguide,DOCS
+https://github.com/github/maturity-model,DOCS
+https://github.com/raspberrypi/documentation,DOCS
+https://github.com/bundestag/gesetze,DOCS
+https://github.com/fsr-itse/docs,DOCS
+https://github.com/BloombergMedia/whatiscode,WEB
+https://github.com/JaceRobinson8/jacerobinson8.github.io,WEB
+https://github.com/rubymonstas-zurich/rubymonstas-zurich.github.io,WEB
+https://github.com/ianli/elbowpatched-boilerplate,WEB
+https://github.com/whoisjuan/whoisjuan.github.io,WEB
+https://github.com/ericfischer/housing-inventory,DATA
+https://github.com/GSA/data,DATA
+https://github.com/OpenExoplanetCatalogue/open_exoplanet_catalogue,DATA
+https://github.com/Hipo/university-domains-list,DATA
+https://github.com/minimaxir/big-list-of-naughty-strings,DATA
+https://github.com/jonico/other,OTHER
+https://github.com/openaddresses/openaddresses,DATA
+https://github.com/unitedstates/congress-legislators,DATA
+https://github.com/APIs-guru/openapi-directory,DATA
+https://github.com/Chicago/food-inspections-evaluation,DATA
+https://github.com/cernopendata/opendata.cern.ch,DATA
+https://github.com/benbalter/congressional-districts,DATA
+https://github.com/nodejs/node,DEV
+https://github.com/django/django,DEV
+https://github.com/rust-lang/rust,DEV
+https://github.com/howdyai/botkit,DEV
+https://github.com/exercism/exercism.io,DEV
+https://github.com/python/cpython,DEV
+https://github.com/HospitalRun/hospitalrun-frontend,DEV
+https://github.com/hoodiehq/hoodie,DEV
+https://github.com/pybee/batavia,DEV
+https://github.com/OperationCode/operationcode,DEV
+https://github.com/d3/d3,DEV
+https://github.com/chartjs/Chart.js,DEV
+https://github.com/Leaflet/Leaflet,DEV
+https://github.com/ecomfe/echarts,DEV
+https://github.com/gionkunz/chartist-js,DEV
+https://github.com/jacomyal/sigma.js,DEV
+https://github.com/mozilla/metrics-graphics,DEV
+https://github.com/dc-js/dc.js,DEV
+https://github.com/epochjs/epoch,DEV
+https://github.com/vega/vega,DEV
+https://github.com/matplotlib/matplotlib,DEV
+https://github.com/densitydesign/raw,DEV
+https://github.com/benpickles/peity,DEV
+https://github.com/FormidableLabs/victory,DEV
+https://github.com/gka/chroma.js,DEV
+https://github.com/Boris-Em/BEMSimpleLineGraph,DEV
+https://github.com/PMSI-AlignAlytics/dimple,DEV
+https://github.com/samizdatco/arbor,DEV
+https://github.com/okfn/recline,DEV
+https://github.com/AnalyticalGraphicsInc/cesium,DEV
+https://github.com/uber/deck.gl,DEV
+https://github.com/HumbleSoftware/envisionjs,DEV
+https://github.com/Kozea/pygal,DEV
+https://github.com/kartograph/kartograph.js,DEV
+https://github.com/Netflix/vizceral,DEV
+https://github.com/stamen/modestmaps-js,DEV
+https://github.com/keen/keen-dataviz.js,DEV
+https://github.com/meteor/meteor,DEV
+https://github.com/rails/rails,DEV
+https://github.com/expressjs/express,DEV
+https://github.com/laravel/laravel,DEV
+https://github.com/pallets/flask,DEV
+https://github.com/balderdashy/sails,DEV
+https://github.com/symfony/symfony,DEV
+https://github.com/spring-projects/spring-framework,DEV
+https://github.com/linnovate/mean,DEV
+https://github.com/playframework/playframework,DEV
+https://github.com/sinatra/sinatra,DEV
+https://github.com/revel/revel,DEV
+https://github.com/cakephp/cakephp,DEV
+https://github.com/jhipster/generator-jhipster,DEV
+https://github.com/NancyFx/Nancy,DEV
+https://github.com/derbyjs/derby,DEV
+https://github.com/keithwhor/nodal,DEV
+https://github.com/hanami/hanami,DEV
+https://github.com/padrino/padrino-framework,DEV
+https://github.com/aspnetboilerplate/aspnetboilerplate,DEV
+https://github.com/kraih/mojo,DEV
+https://github.com/ninjaframework/ninja,DEV
+https://github.com/web2py/web2py,DEV
+https://github.com/kemalcr/kemal,DEV
+https://github.com/pakyow/pakyow,DEV
+https://github.com/frappe/frappe,DEV
+https://github.com/perl-catalyst/catalyst-runtime,DEV
+https://github.com/adobe-fonts/source-code-pro,DATA
+https://github.com/google/fonts,DATA
+https://github.com/mozilla/Fira,DATA
+https://github.com/google/roboto,DATA
+https://github.com/adobe-fonts/source-sans-pro,DATA
+https://github.com/be5invis/Iosevka,DATA
+https://github.com/larsenwork/Gidole,DATA
+https://github.com/adobe-fonts/source-serif-pro,DATA
+https://github.com/theleagueof/league-gothic,DATA
+https://github.com/theleagueof/raleway,DATA
+https://github.com/theleagueof/ostrich-sans,DATA
+https://github.com/theleagueof/junction,DATA
+https://github.com/klepas/open-baskerville,DATA
+https://github.com/theleagueof/chunk,DATA
+https://github.com/FortAwesome/Font-Awesome,DATA
+https://github.com/google/material-design-icons,DATA
+https://github.com/driftyco/ionicons,DATA
+https://github.com/erikflowers/weather-icons,DATA
+https://github.com/primer/octicons,DATA
+https://github.com/somerandomdude/Iconic,DATA
+https://github.com/smcllns/css-social-buttons,DATA
+https://github.com/stephenhutchings/typicons.font,DATA
+https://github.com/parkerbennett/stackicons,DATA
+https://github.com/Keyamoon/IcoMoon-Free,DATA
+https://github.com/pfefferle/openwebicons,DATA
+https://github.com/MfgLabs/mfglabs-iconset,DATA
+https://github.com/scottdejonge/map-icons,DATA
+https://github.com/fontello/brandico.font,DATA
+https://github.com/jhogue/PE-Analog-Clock-icon-font,DATA
+https://github.com/whhglyphs/webhostinghub-glyphs,DATA
+https://github.com/xtoolkit/Micon,DATA
+https://github.com/twitter/innovators-patent-agreement,DOCS
+https://github.com/usds/playbook,DOCS
+https://github.com/project-open-data/project-open-data.github.io,DOCS
+https://github.com/divegeek/uscode,DOCS
+https://github.com/catalyzeio/policies,DOCS
+https://github.com/hackdaymanifesto/hackdaymanifesto.github.com,DOCS
+https://github.com/GSA/https,DOCS
+https://github.com/18F/open-source-policy,DOCS
+https://github.com/BetaNYC/Bike-Share-Data-Best-Practices,DOCS
+https://github.com/code4lib/antiharassment-policy,DOCS
+https://github.com/WhiteHouse/fitara,DOCS
+https://github.com/CommerceGov/Policies-and-Guidance,DOCS
+https://github.com/adobe/adobe.github.com,WEB
+https://github.com/Netflix/netflix.github.com,WEB
+https://github.com/Esri/esri.github.com,WEB
+https://github.com/Shopify/shopify.github.com,WEB
+https://github.com/SAP/sap.github.com,WEB
+https://github.com/guardian/guardian.github.com,WEB
+https://github.com/gilt/code.gilt.com,WEB
+https://github.com/cfpb/cfpb.github.io,WEB
+https://github.com/addyosmani/backbone-fundamentals,DOCS
+https://github.com/substack/stream-handbook,DOCS
+https://github.com/manuelkiessling/nodebeginner.org,DOCS
+https://github.com/btford/write-good,DOCS
+https://github.com/mixu/singlepageappbook,DOCS
+https://github.com/oreillymedia/open_government,DOCS
+https://github.com/HoTT/book,DOCS
+https://github.com/swannodette/logic-tutorial,DOCS
+https://github.com/JJ/hoborg,DOCS
+https://github.com/mozzadrella/Informal-Tech-Project,DOCS
+https://github.com/harvesthq/how-to-walkabout,DOCS
+https://github.com/ipython/ipython,DEV
+https://github.com/sympy/sympy,DEV
+https://github.com/astropy/astropy,DEV
+https://github.com/simbody/simbody,DEV
+https://github.com/dfm/emcee,DEV
+https://github.com/dib-lab/khmer,DEV
+https://github.com/cms-sw/cmssw,DEV
+https://github.com/psas/av3-fc,DEV
+https://github.com/ComputationalRadiationPhysics/picongpu,DEV
+https://github.com/ropensci/rplos,DEV
+https://github.com/cyverse/atmosphere,DEV
+https://github.com/swcarpentry/swcarpentry,DOCS
+https://github.com/docker/docker,DEV
+https://github.com/ansible/ansible,DEV
+https://github.com/kubernetes/kubernetes,DEV
+https://github.com/firehol/netdata,DEV
+https://github.com/mitchellh/vagrant,DEV
+https://github.com/grafana/grafana,DEV
+https://github.com/getsentry/sentry,DEV
+https://github.com/etsy/statsd,DEV
+https://github.com/capistrano/capistrano,DEV
+https://github.com/fabric/fabric,DEV
+https://github.com/saltstack/salt,DEV
+https://github.com/elastic/logstash,DEV
+https://github.com/chef/chef,DEV
+https://github.com/puppetlabs/puppet,DEV
+https://github.com/graphite-project/graphite-web,DEV
+https://github.com/deployphp/deployer,DEV
+https://github.com/openshift/origin,DEV
+https://github.com/openstack/openstack,DEV
+https://github.com/StackStorm/st2,DEV
+https://github.com/thenewstack/docker-and-containers-ebooks,DEV
+https://github.com/cloud66/habitus,DEV
+https://github.com/libgdx/libgdx,DEV
+https://github.com/cocos2d/cocos2d-x,DEV
+https://github.com/godotengine/godot,DEV
+https://github.com/CRYTEK-CRYENGINE/CRYENGINE,DEV
+https://github.com/SFTtech/openage,DEV
+https://github.com/MonoGame/MonoGame,DEV
+https://github.com/OpenRA/OpenRA,DEV
+https://github.com/turbulenz/turbulenz_engine,DEV
+https://github.com/GarageGames/Torque3D,DEV
+https://github.com/Gamua/Starling-Framework,DEV
+https://github.com/gameplay3d/GamePlay,DEV
+https://github.com/urho3d/Urho3D,DEV
+https://github.com/jMonkeyEngine/jmonkeyengine,DEV
+https://github.com/SiliconStudio/xenko,DEV
+https://github.com/GarageGames/Torque2D,DEV
+https://github.com/AtomicGameEngine/AtomicGameEngine,DEV
+https://github.com/superpowers/superpowers-core,DEV
+https://github.com/spring/spring,DEV
+https://github.com/AdamsLair/duality,DEV
+https://github.com/panda3d/panda3d,DEV
+https://github.com/methusalah/OpenRTS,DEV
+https://github.com/4ian/GD,DEV
+https://github.com/Circular-Studios/Dash,DEV
+https://github.com/xlgames-inc/XLE,DEV
+https://github.com/apple/swift,DEV
+https://github.com/Alamofire/Alamofire,DEV
+https://github.com/SwiftyJSON/SwiftyJSON,DEV
+https://github.com/PerfectlySoft/Perfect,DEV
+https://github.com/raywenderlich/swift-algorithm-club,DOCS
+https://github.com/Quick/Quick,DEV
+https://github.com/realm/SwiftLint,DEV
+https://github.com/xmartlabs/Eureka,DEV
+https://github.com/Moya/Moya,DEV
+https://github.com/twostraws/HackingWithSwift,DOCS
+https://github.com/patchthecode/JTAppleCalendar,DEV
+https://github.com/typelift/SwiftCheck,DEV
+https://github.com/robrix/Madness,DEV
+https://github.com/buunguyen/octotree,DEV
+https://github.com/OctoLinker/browser-extension,DEV
+https://github.com/jasonlong/isometric-contributions,DEV
+https://github.com/sindresorhus/refined-github,DEV
+https://github.com/muan/github-gmail,DEV
+https://github.com/Justineo/github-hovercard,DEV
+https://github.com/thieman/github-selfies,DEV
+https://github.com/sindresorhus/notifier-for-github-chrome,DEV
+https://github.com/notwaldorf/github-canned-responses,DEV
+https://github.com/kamranahmedse/githunt,DEV
+https://github.com/sindresorhus/notifier-for-github,DEV
+https://github.com/harshjv/github-repo-size,DEV
+https://github.com/muan/dashboard,DEV
+https://github.com/sanemat/do-not-merge-wip-for-github,DEV
+https://github.com/ProLoser/Github-Omnibox,DEV
+https://github.com/thecodejunkie/github.expandinizr,DEV
+https://github.com/Yatser/prettypullrequests,DEV
+https://github.com/ryanflorence/github-plusone-extension,DEV
+https://github.com/benbalter/github-mention-highlighter,DEV
+https://github.com/panzerdp/clipboardy,DEV
+https://github.com/ForbesLindesay/github-real-names,DEV
+https://github.com/mike-north/chrome-github-boxcutter,DEV
+https://github.com/serverless/serverless,DEV
+https://github.com/apex/apex,DEV
+https://github.com/Miserlou/Zappa,DEV
+https://github.com/lambci/lambci,DEV
+https://github.com/awslabs/chalice,DEV
+https://github.com/claudiajs/claudia,DEV
+https://github.com/jorgebastida/gordon,DEV
+https://github.com/mentum/lambdaws,DEV
+https://github.com/goadapp/goad,DEV
+https://github.com/MitocGroup/deep-framework,DEV
+https://github.com/atom/atom,DEV
+https://github.com/adobe/brackets,DEV
+https://github.com/neovim/neovim,DEV
+https://github.com/Microsoft/vscode,DEV
+https://github.com/limetext/lime,DEV
+https://github.com/textmate/textmate,DEV
+https://github.com/syl20bnr/spacemacs,DEV
+https://github.com/LightTable/LightTable,DEV
+https://github.com/coolwanglu/vim.js,DEV
+https://github.com/sharelatex/sharelatex,DEV
+https://github.com/CodeboxIDE/codebox,DEV
+https://github.com/slap-editor/slap,DEV
+https://github.com/zedapp/zed,DEV
+https://github.com/Komodo/KomodoEdit,DEV
+https://github.com/thomaswilburn/Caret,DEV
+https://github.com/leo-editor/leo-editor,DEV
+https://github.com/docker/dockercraft,DEV
+https://github.com/MovingBlocks/Terasology,DEV
+https://github.com/Bukkit/Bukkit,DEV
+https://github.com/MinecraftForge/MinecraftForge,DEV
+https://github.com/cuberite/cuberite,DEV
+https://github.com/overviewer/Minecraft-Overviewer,DEV
+https://github.com/SirCmpwn/TrueCraft,DEV
+https://github.com/PocketMine/PocketMine-MP,DEV
+https://github.com/walterhiggins/ScriptCraft,DEV
+https://github.com/sk89q/WorldEdit,DEV
+https://github.com/msmhq/msm,DEV
+https://github.com/essentials/Essentials,DEV
+https://github.com/SpigotMC/BungeeCord,DEV
+https://github.com/MightyPirates/OpenComputers,DEV
+https://github.com/Vazkii/Botania,DEV
+https://github.com/PrismarineJS/mineflayer,DEV
+https://github.com/micdoodle8/Galacticraft,DEV
+https://github.com/GlowstoneMC/Glowstone,DEV
+https://github.com/MachineMuse/MachineMusePowersuits,DEV
+https://github.com/minefold/hubot-minecraft,DEV
+https://github.com/leereilly/hubot-minecraft-skin,OTHER
+https://github.com/fastlane/fastlane,DEV
+https://github.com/twitter/twitter-kit-android,DEV
+https://github.com/twitter/digits-android,DEV
+https://github.com/bower/bower,DEV
+https://github.com/VundleVim/Vundle.vim,DEV
+https://github.com/npm/npm,DEV
+https://github.com/alcatraz/Alcatraz,DEV
+https://github.com/CocoaPods/CocoaPods,DEV
+https://github.com/composer/composer,DEV
+https://github.com/Carthage/Carthage,DEV
+https://github.com/jordansissel/fpm,DEV
+https://github.com/Homebrew/brew,DEV
+https://github.com/apple/swift-package-manager,DEV
+https://github.com/componentjs/component,DEV
+https://github.com/Masterminds/glide,DEV
+https://github.com/wbond/package_control,DEV
+https://github.com/pypa/pip,DEV
+https://github.com/chocolatey/chocolatey,DEV
+https://github.com/tmux-plugins/tpm,DEV
+https://github.com/rust-lang/cargo,DEV
+https://github.com/rubygems/rubygems,DEV
+https://github.com/caolan/jam,DEV
+https://github.com/volojs/volo,DEV
+https://github.com/gpmgo/gopm,DEV
+https://github.com/spmjs/spm,DEV
+https://github.com/atom/apm,DEV
+https://github.com/freshshell/fresh,DEV
+https://github.com/ruslo/hunter,DEV
+https://github.com/NuGet/Home,DEV
+https://github.com/ocaml/opam,DEV
+https://github.com/bbatsov/rubocop,DEV
+https://github.com/jshint/jshint,DEV
+https://github.com/eslint/eslint,DEV
+https://github.com/koalaman/shellcheck,DEV
+https://github.com/jscs-dev/node-jscs,DEV
+https://github.com/CSSLint/csslint,DEV
+https://github.com/brigade/scss-lint,DEV
+https://github.com/PyCQA/pycodestyle,DEV
+https://github.com/csscomb/csscomb.js,DEV
+https://github.com/golang/lint,DEV
+https://github.com/oclint/oclint,DEV
+https://github.com/checkstyle/checkstyle,DEV
+https://github.com/yaniswang/HTMLHint,DEV
+https://github.com/pre-commit/pre-commit,DEV
+https://github.com/coala/coala,DEV
+https://github.com/clutchski/coffeelint,DEV
+https://github.com/rodjek/puppet-lint,DEV
+https://github.com/ndmitchell/hlint,DEV
+https://github.com/inaka/elvis,DEV
+https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System,DOCS
+https://github.com/fivethirtyeight/data,DATA
+https://github.com/newsapps/beeswithmachineguns,DEV
+https://github.com/nprapps/app-template,DEV
+https://github.com/voxmedia/meme,DEV
+https://github.com/propublica/guides,DOCS
+https://github.com/times/cardkit,DEV
+https://github.com/TimeMagazine/babynames,DATA
+https://github.com/censusreporter/censusreporter,DEV
+https://github.com/datadesk/python-elections,DEV
+https://github.com/huffpostdata/ap-election-loader,DEV
+https://github.com/ajam/2014_payday-nation-data,DATA
+https://github.com/tensorflow/tensorflow,DEV
+https://github.com/scikit-learn/scikit-learn,DEV
+https://github.com/BVLC/caffe,DEV
+https://github.com/fchollet/keras,DEV
+https://github.com/apache/incubator-predictionio,DEV
+https://github.com/Microsoft/CNTK,DEV
+https://github.com/harthur/brain,DEV
+https://github.com/dmlc/mxnet,DEV
+https://github.com/karpathy/convnetjs,DEV
+https://github.com/dmlc/xgboost,DEV
+https://github.com/Theano/Theano,DEV
+https://github.com/clips/pattern,DEV
+https://github.com/numenta/nupic,DEV
+https://github.com/JohnLangford/vowpal_wabbit,DEV
+https://github.com/sjwhitworth/golearn,DEV
+https://github.com/ryanb/ruby-warrior,DEV
+https://github.com/cazala/synaptic,DEV
+https://github.com/NervanaSystems/neon,DEV
+https://github.com/h2oai/h2o-2,DEV
+https://github.com/cloudera/oryx,DEV
+https://github.com/shogun-toolbox/shogun,DEV
+https://github.com/mikeizbicki/HLearn,DEV
+https://github.com/apache/mahout,DEV
+https://github.com/SeldonIO/seldon-server,DEV
+https://github.com/nikolaypavlov/MLPNeuralNet,DEV
+https://github.com/datumbox/datumbox-framework,DEV
+https://github.com/jubatus/jubatus,DEV
+https://github.com/danielsdeleo/Decider,DEV
+https://github.com/github-archive/developer.github.com,WEB
+https://github.com/Microsoft/microsoft.github.io,WEB
+https://github.com/twitter/twitter.github.com,WEB
+https://github.com/github/government.github.com,WEB
+https://github.com/electron/electron.atom.io,WEB
+https://github.com/IBM/ibm.github.io,WEB
+https://github.com/square/square.github.io,WEB
+https://github.com/artsy/artsy.github.io,WEB
+https://github.com/Yelp/yelp.github.io,WEB
+https://github.com/githubteacher/intro-november-2015,EDU
+https://github.com/MostlyAdequate/mostly-adequate-guide,EDU
+https://github.com/DataScienceSpecialization/Developing_Data_Products,EDU
+https://github.com/briandalessandro/DataScienceCourse,EDU
+https://github.com/codeschool/EmberCourseDemo,EDU
+https://github.com/jdleesmiller/latex-course,EDU
+https://github.com/SAP/openSAP-ui5-course,EDU
+https://github.com/rdpeng/CourseraLectures,EDU
+https://github.com/schryer/python_course_material,EDU
+https://github.com/rhiever/python-data-visualization-course,EDU
+https://github.com/berkeley-cs186/course,EDU
+https://github.com/micrum/course,EDU
+https://github.com/uwescience/datasci_course_materials,EDU
+https://github.com/EricSimons/ionic-course,EDU
+https://github.com/byorgey/haskell-course,EDU
+https://github.com/arnicas/interactive-vis-course,EDU
+https://github.com/berkeley-cs186/course-fa15,EDU
+https://github.com/XQueryInstitute/Course-Materials,EDU
+https://github.com/sincerekamal/Advance-Android-Tutorials,EDU
+https://github.com/joeeames/MEANAppsFiles,EDU
+https://github.com/alexis-datascience/courses,EDU
+https://github.com/McNopper/OpenGL,EDU
+https://github.com/CamZHU/camzhu.github.io,WEB
+https://github.com/tcsthyc/hexoPB,WEB
+https://github.com/rockheart/rockheart.github.io,WEB
+https://github.com/ikew0ng/Blog,WEB
+https://github.com/kamilrextin/KamilWebSite,WEB
+https://github.com/asoborov/www.instead,WEB
+https://github.com/stuntguy3000/stuntguy3000.github.io,WEB
+https://github.com/menardmb/kleptocreations.com,WEB
+https://github.com/amyboyd/amyboyd.co.uk,WEB
+https://github.com/corefan/playfuljs,WEB
+https://github.com/jimeh/jimeh.me-api,WEB
+https://github.com/barshamaharjan/barshamaharjan.github.io,WEB
+https://github.com/NASA-rocket-science/NASA-rocket-science.github.io,WEB
+https://github.com/nasa/api-docs,DOCS
+https://github.com/ProseMirror/website,WEB
+https://github.com/FOSDEM/website,WEB
+https://github.com/github/dmca,DOCS
+https://github.com/jlevy/the-art-of-command-line,DOCS
+https://github.com/xabier/comunes-conocimiento-democracia,DOCS
+https://github.com/jtleek/datasharing,DOCS
+https://github.com/dbfun/sql-samples,DOCS
+https://github.com/mmozuras/showoff-resharper,DOCS
+https://github.com/tbandixen/Data-Mining,EDU
+https://github.com/nborwankar/LearnDataScience,EDU
+https://github.com/NYTimes/objective-c-style-guide,DOCS
+https://github.com/yelhouari/20141019-Moolah-Investigation,DOCS
+https://github.com/tollefson/tollefson.github.io,DOCS
+https://github.com/metacran/ropensci-commcall-2015,DOCS
+https://github.com/seriesseed/equity,DOCS
+https://github.com/MikeL83/CV,DOCS
+https://github.com/ppau/documents,DOCS
+https://github.com/DeepskyLog/Documents,DOCS
+https://github.com/kbandla/APTnotes,DOCS
+https://github.com/perl6/specs,DOCS
+https://github.com/GnomeAsiaSummit2015/Documents,DOCS
+https://github.com/WebAssembly/design,DOCS
+https://github.com/fscs/esag,DOCS
+https://github.com/madialting/dokumenter,DOCS
+https://github.com/firegento/verein,DOCS
+https://github.com/thinkingstone/dsa-documents,DOCS
+https://github.com/ffimsl/Dokumente,DOCS
+https://github.com/esokolov/ml-course-msu,EDU
+https://github.com/jtleek/dataanalysis,EDU
+https://github.com/zhouxc/Stanford-Machine-Learning-Course,EDU
+https://github.com/zlotus/Coursera_Machine_Learning_Exercises,EDU
+https://github.com/tuanavu/coursera-university-of-washington,EDU
+https://github.com/BasicProbability/LectureNotes,EDU
+https://github.com/jagajaga/FP-Course-ITMO,EDU
+https://github.com/LoyolaChicagoBooks/lucoodevcourse,EDU
+https://github.com/aycignl/AlgsAndProg-II-BilkentUniversity,EDU
+https://github.com/micromata/webengineering-2015-ss,EDU
+https://github.com/pcsaini/website,WEB
+https://github.com/peterhurford/personal,WEB
+https://github.com/Cyral/Personal-Website,WEB
+https://github.com/sahat/sahat.github.com,WEB
+https://github.com/aymanfarhat/personal-website,WEB
+https://github.com/unhosted/website,WEB
+https://github.com/parisjs/parisjs-website,WEB
+https://github.com/emberjs/website,WEB
+https://github.com/Lucifier129/Lucifier129.github.io,WEB
+https://github.com/Azure/azure.github.io,WEB
+https://github.com/kubernetes/kubernetes.github.io,WEB
+https://github.com/rails/homepage,WEB
+https://github.com/AlexFlipnote/homepage,WEB
+https://github.com/spez/RottenTomatoes,HW
+https://github.com/bcaffo/751and2,HW
+https://github.com/uwhpsc-2016/example-python-homework,HW
+https://github.com/pcsforeducation/Homework,HW
+https://github.com/bcho/homework,HW
+https://github.com/lyzcharles/HomeWork,HW
+https://github.com/ssercpp12/Homework,HW
+https://github.com/cvdlab-alumni/homework,HW
+https://github.com/kirbs-/edX-Learning-From-Data-Solutions,HW
+https://github.com/stilberk/HomeWork,HW
+https://github.com/wanquanxiaowai/homework,HW
+https://github.com/likebanana/Homework,HW
+https://github.com/charmoniumQ/Homework,HW
+https://github.com/ELLIOTTCABLE/Homework,HW
+https://github.com/wme7/aero-matlab,HW
+https://github.com/anteaya/homework,HW
+https://github.com/harababurel/homework,HW
+https://github.com/sf-wdi-26/homework,HW
+https://github.com/bramwelt/homework,HW
+https://github.com/pybursa/homeworks,HW
+https://github.com/qcl/ntu-homeworks,HW
+https://github.com/AdoHe/Homework,HW
+https://github.com/seclab/homework,HW
+https://github.com/StargazerYi/hw6-MyHomework,HW
+https://github.com/sf-wdi-22-23/22-homework,HW
+https://github.com/wally-fork/homework,HW
+https://github.com/lorenazs/ProgrammingAssignment2,HW
