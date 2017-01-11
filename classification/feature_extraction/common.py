@@ -15,7 +15,7 @@ class ActiveTimeExtractor(FeatureExtractor):
         last_commit_date = self.api_repo.pushed_at
         initial_creation_date = self.api_repo.parent.created_at if self.api_repo.fork else self.api_repo.created_at
         active_time = last_commit_date - initial_creation_date
-        self.feature.value = active_time.days
+        self.feature.value = max(active_time.days, 0)
 
 
 class BranchExtractor(FeatureExtractor):
