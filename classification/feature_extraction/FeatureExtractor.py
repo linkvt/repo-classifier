@@ -1,6 +1,7 @@
 import abc
 
 import github.Repository as GithubRepository
+from github.GithubException import GithubException
 
 from classification.GithubAuthentification import GithubAuthentification
 from classification.models import Feature, Repository
@@ -45,7 +46,10 @@ class FeatureExtractor:
 
     def extract(self, api_repo: GithubRepository = None) -> [Feature]:
         self._api_repo = api_repo
-        self._extract()
+        try:
+            self._extract()
+        except GithubException:
+            return self.features
         return self.features
 
     @abc.abstractmethod
