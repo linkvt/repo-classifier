@@ -45,7 +45,7 @@ class FeatureExtractionPipeline:
         self._github_authentication = GithubAuthentification()
 
     def extract_features(self, repos: [Repository]) -> [[Feature]]:
-        with ThreadPool(10) as pool:
+        with ThreadPool(4) as pool:
             feature_lists = pool.map(self._extract_for_single_repo, repos, 2)
             return feature_lists
 
