@@ -33,4 +33,5 @@ class LanguageDEVExtractor(LanguageFeatureExtractor):
         self.features = [Feature.create('Language feature for DEV')]
 
     def _get_relevant_languages(self) -> [str]:
-        return ["C++", "Python", "C", "Java", "JavaScript", "Go", "C#"]
+        return ["C++", "Python", "C", "Java", "JavaScript", "Go", "C#", "Rust", "FORTRAN", "Swift", "CMake", "Perl",
+                "Scala", "Pascal", "Objective-C", "Assembly", "Clojure", "Smalltalk"]
