@@ -1,7 +1,7 @@
 import abc
 
 import github.Repository as GithubRepository
-from github.GithubException import GithubException
+from github.GithubException import UnknownObjectException
 
 from classification.GithubAuthentification import GithubAuthentification
 from classification.models import Feature, Repository
@@ -48,7 +48,7 @@ class FeatureExtractor:
         self._api_repo = api_repo
         try:
             self._extract()
-        except GithubException:
+        except UnknownObjectException:
             pass
         return self.features
 
