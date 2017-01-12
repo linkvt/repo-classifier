@@ -52,7 +52,7 @@
         left: 0;
     }
 </style>
-<div>
+<div style="text-align: center;">
     <label>X:</label>
     <select id="x_features">
     </select>
@@ -61,12 +61,14 @@
     </select>
 </div>
 <svg></svg>
-<form class="form-group">
-    <label>X Max:</label>
-    <input type="number" id="x_max"></input>
-    <label>Y Max:</label>
-    <input type="number" id="y_max"></input>
-</form>
+<div style="text-align: center;">
+    <form class="form-group">
+        <label>X Max:</label>
+        <input type="number" id="x_max"></input>
+        <label>Y Max:</label>
+        <input type="number" id="y_max"></input>
+    </form>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.js"></script>
 <script>
@@ -76,8 +78,8 @@
             bottom: 30,
             left: 120
         },
-        width = 1000 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+        width = 1200 - margin.left - margin.right,
+        height = 600 - margin.top - margin.bottom;
     var x = d3.scale.linear()
         .range([0, width]);
     var y = d3.scale.linear()
@@ -162,7 +164,7 @@
             })
             .on('mouseover', tip.show)
             .on('mouseout', tip.hide)
-            .on('click', function(d) {
+            .on('click', function (d) {
                 window.open(d.name);
             });
         var legend = svg.selectAll(".legend")
