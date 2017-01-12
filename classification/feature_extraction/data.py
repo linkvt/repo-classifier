@@ -15,7 +15,9 @@ class DATAFileExtensionExtractor(FileExtensionExtractor):
 
     @property
     def extensions_to_check(self) -> typing.Set[str]:
-        return {'.7z', '.json', '.geojson', '.xml', '.csv', '.yml', '.yaml', '.txt', '.sql', '.xls', '.xlsx', '.zip'}
+        font_extensions = {'.otf', '.ttf'}
+        return {'.7z', '.json', '.geojson', '.xml', '.csv', '.yml', '.yaml', '.txt', '.sql', '.xls', '.xlsx', '.zip',
+                *font_extensions}
 
 
 class LanguageDATAExtractor(LanguageFeatureExtractor):
