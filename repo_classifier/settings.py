@@ -130,6 +130,7 @@ STATICFILES_DIRS = (
     ('jquery', os.path.join(BASE_DIR, 'node_modules', 'jquery', 'dist')),
     ('bootstrap', os.path.join(BASE_DIR, 'node_modules', 'bootstrap', 'dist')),
     ('bootstrap-fileinput', os.path.join(BASE_DIR, 'node_modules', 'bootstrap-fileinput')),
+    ('data', os.path.join(BASE_DIR, 'data')),
 )
 
 PIPELINE = {

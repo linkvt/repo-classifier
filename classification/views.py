@@ -81,3 +81,7 @@ def dbactions(request: HttpRequest) -> HttpResponse:
     }
 
     return render(request, 'classification/dbactions.html', context)
+
+
+def vis(request: HttpRequest) -> HttpResponse:
+    return render(request, 'classification/vis.html')

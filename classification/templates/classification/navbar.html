@@ -22,13 +22,11 @@
                         <li><a href="{% url 'data_collection:showcase' %}">Github Showcase</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
-                        Analyse <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'classification:analysis' %}">Analysis</a></li>
-                    </ul>
+                <li>
+                    <a href="{% url 'classification:analysis' %}">Analyse</a>
+                </li>
+                <li>
+                    <a href="{% url 'classification:vis' %}">Visualize</a>
                 </li>
                 <li>
                     <a href="{% url 'classification:dbactions' %}">DB Actions</a>
