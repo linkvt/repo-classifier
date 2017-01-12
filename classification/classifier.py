@@ -36,6 +36,7 @@ def train(text, train=True):
 
             evaluator = Evaluator(clf, test_labels, predict_labels)
             yield evaluator.report()  # TODO return the classified repos when they are associated to the features
+            yield evaluator.confusion_matrix()
 
         classifiers[0].save()
 
@@ -61,6 +62,47 @@ def classify(text):
         yield r
 
 
+def validate(text):
+    response = Response()
+    input_parser = InputParser(text, True)
+    splitted_urls, labels = input_parser.parse()
+    repositories = map_urls_to_repositories(splitted_urls)
+
+    clf = Classifier.load()
+
+    if not clf:
+        response.string_output = 'No trained model available.'
+        return response
+
+    samples = extraction_pipeline.extract_features(repositories)
+    predict_labels = clf.predict(samples)
+
+    results = []
+    for sample, repo, predicted in zip(samples, repositories, predict_labels):
+        categories, probabilities = clf.predict_proba([sample])
+        out = ValidationEntity()
+        out.repo = repo
+        out.sample = sample
+        out.predicted = predicted
+        out.prob = list(zip(categories, probabilities[0]))
+        results.append(out)
+
+        result = '{} ({}) - {} \n\t'.format(repo.identifier, repo.category, str(str(repo.category) == predicted))
+        result += '\t'.join(
+            ['{}: {:.2%}'.format(category, prob) for category, prob in zip(categories, probabilities[0])])
+        # results.append(result)
+
+    evaluator = Evaluator(clf, labels, predict_labels)
+    response.string_output += '\n' + evaluator.report()
+    response.string_output += '\n' + evaluator.confusion_matrix()
+    response.items = results
+    return response
+
+    # yield evaluator.report()
+    # yield 'Probabilities\n' + '\n'.join(results)
+    # yield evaluator.confusion_matrix()
+
+
 def classify_single_repo(url):
     repo, _ = Repository.objects.get_or_create(url=url, defaults={'url': url})
 
@@ -82,3 +124,12 @@ def map_urls_to_repositories(urls: [str]) -> [Repository]:
         repo, created = Repository.objects.get_or_create(url=url, defaults={'url': url})
         repos.append(repo)
     return repos
+
+
+class Response:
+    string_output = ''
+    items = []
+
+
+class ValidationEntity:
+    pass

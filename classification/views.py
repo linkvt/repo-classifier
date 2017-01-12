@@ -1,6 +1,7 @@
 from django.http import HttpRequest
 from django.http import HttpResponse
 from django.shortcuts import render
+from github import RateLimitExceededException
 
 from classification import classifier
 from classification.evaluation.DescriptionAnalyser import DescriptionAnalyser
@@ -21,15 +22,23 @@ def index(request: HttpRequest) -> HttpResponse:
         text = None
 
     output_lines = ''
-    if mode == 'train':
-        output_lines = list(classifier.train(text)) if text else []
-    elif mode == 'classify':
-        output_lines = list(classifier.classify(text)) if text else []
-    elif mode == 'classify-single-repo':
-        output_lines = list(classifier.classify_single_repo(url)) if url else []
+    validation_output = None
+
+    try:
+        if mode == 'train':
+            output_lines = list(classifier.train(text)) if text else []
+        elif mode == 'classify':
+            output_lines = list(classifier.classify(text)) if text else []
+        elif mode == 'classify-single-repo':
+            output_lines = list(classifier.classify_single_repo(url)) if url else []
+        elif mode == 'validate':
+            validation_output = classifier.validate(text) if text else None
+    except RateLimitExceededException:
+        output_lines = 'The available request limit was exceeded for the Github API please wait until refresh.'
 
     context = {
         'output': '\n'.join(output_lines),
+        'validation_output': validation_output,
         'single_repository': url,
     }
 
