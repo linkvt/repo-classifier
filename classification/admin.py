@@ -24,6 +24,7 @@ class RepositoryResource(resources.ModelResource):
         exclude = ('id',)
         export_order = ('url', 'category')
         import_id_fields = ('url',)
+        report_skipped = False
         skip_unchanged = True
 
 
@@ -50,6 +51,7 @@ class FeatureResource(resources.ModelResource):
         fields = ('repository', 'name', 'value')
         export_order = fields
         import_id_fields = ('repository', 'name')
+        report_skipped = False
         skip_unchanged = True
 
 
