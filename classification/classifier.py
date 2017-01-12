@@ -24,11 +24,12 @@ def train(text, train=True):
     if train:
         samples = extraction_pipeline.extract_features(repositories)
 
-        training_split = 0.4
-        logger.info('Splitting into {:.0%} training and {:.0%} test data.'.format(1 - training_split, training_split))
+        training_percentage = 0.7
+        logger.info(
+            'Splitting into {:.0%} training and {:.0%} test data.'.format(training_percentage, 1 - training_percentage))
         train_samples, test_samples, train_labels, test_labels = train_test_split(samples, labels,
-                                                                                  test_size=training_split,
-                                                                                  random_state=0)
+                                                                                  test_size=1 - training_percentage,
+                                                                                  random_state=0, stratify=labels)
         for clf in classifiers:
             clf.fit(train_samples, train_labels)
             predict_labels = clf.predict(test_samples)
