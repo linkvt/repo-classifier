@@ -30,6 +30,7 @@ def index(request: HttpRequest) -> HttpResponse:
 
     context = {
         'output': '\n'.join(output_lines),
+        'single_repository': url,
     }
 
     return render(request, 'classification/index.html', context)
