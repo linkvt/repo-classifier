@@ -161,7 +161,10 @@
                 return color(d.category);
             })
             .on('mouseover', tip.show)
-            .on('mouseout', tip.hide);
+            .on('mouseout', tip.hide)
+            .on('click', function(d) {
+                window.open(d.name);
+            });
         var legend = svg.selectAll(".legend")
             .data(color.domain())
             .enter().append("g")
@@ -174,15 +177,30 @@
             .attr("width", 18)
             .attr("height", 18)
             .style("fill", color)
-            .on('mouseover', function (d, i) {
-                svg.selectAll('.dot').style('opacity', 0);
-                svg.selectAll('.' + d).style('opacity', 0.4);
+            .on('mouseover', function (d) {
+                var box = d3.select(this);
+                var deselected = +box.attr('deselected') == 1;
+                if (!deselected) {
+                    svg.selectAll('.dot').style('opacity', 0);
+                    svg.selectAll('.' + d).style('opacity', 0.4);
+                }
             })
             .on('mouseout', function (d, i) {
                 svg.selectAll('.dot').style('opacity', 0.4);
             })
             .on('click', function (d) {
-                svg.selectAll('.' + d).style('visibility', 'hidden');
+                var box = d3.select(this);
+                var deselected = +box.attr('deselected') == 1;
+                if (!deselected) {
+                    svg.selectAll('.dot').style('opacity', 0.4);
+                    svg.selectAll('.' + d).style('visibility', 'hidden');
+                    box.style('opacity', 0.3);
+                    box.attr('deselected', 1);
+                } else {
+                    svg.selectAll('.' + d).style('visibility', 'visible');
+                    box.style('opacity', 1);
+                    box.attr('deselected', 0);
+                }
             });
         legend.append("text")
             .attr("x", width - 24)
