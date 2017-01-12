@@ -10,7 +10,7 @@ from classification.models import Feature
 class HasBuildFileExtractor(FeatureExtractor):
     # TODO: Add more build files
     build_files = ['.travis.yml', 'appveyor.yml', 'circle.yml', 'CMakeLists.txt', 'cmake', 'tox.ini', 'setup.py',
-                   'build.gradle', 'gradle', 'gradlew', 'composer.json', 'makefile' 'package.json', 'pom.xml',
+                   'build.gradle', 'gradle', 'gradlew', 'composer.json', 'Makefile', 'package.json', 'pom.xml',
                    'requirements.txt', 'manifest.json', 'Package.swift']
 
     def _init_features(self):
