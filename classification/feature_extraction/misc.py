@@ -91,3 +91,16 @@ class FileExtensionExtractor(FeatureExtractor):
     @abc.abstractmethod
     def extensions_to_check(self) -> typing.Set[str]:
         raise NotImplementedError()
+
+
+class ContainsYearExtractor(FeatureExtractor):
+    def _init_features(self):
+        self.feature = Feature.create('Description or name contains year')
+
+    def _extract(self):
+        description = self.api_repo.description.lower() if self.api_repo.description else ''
+        name = self.api_repo.name if self.api_repo.name else ''
+
+        # TODO Find more generic way to find year
+        contains_year = any(str(year) in description or str(year) in name for year in range(2000, 2017))
+        self.feature.value = 1 if contains_year else 0

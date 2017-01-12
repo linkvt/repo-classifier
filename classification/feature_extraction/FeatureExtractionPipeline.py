@@ -1,8 +1,8 @@
 import logging
-import typing
 from multiprocessing.pool import ThreadPool
 
 import github.Repository as GithubRepository
+import typing
 
 from classification.GithubAuthentification import GithubAuthentification
 from classification.feature_extraction import common, misc, data, dev, docs, web
@@ -33,6 +33,7 @@ FEATURE_EXTRACTORS = [
     misc.FileNameExtractor,
     web.LanguageWEBExtractor,
     web.DescriptionContainsURLExtractor,
+    misc.ContainsYearExtractor,
 ]
 
 logger = logging.getLogger(__name__)
