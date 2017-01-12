@@ -131,6 +131,7 @@ STATICFILES_DIRS = (
     ('bootstrap', os.path.join(BASE_DIR, 'node_modules', 'bootstrap', 'dist')),
     ('bootstrap-fileinput', os.path.join(BASE_DIR, 'node_modules', 'bootstrap-fileinput')),
     ('data', os.path.join(BASE_DIR, 'data')),
+    ('static', os.path.join(BASE_DIR, 'classification', 'static')),
 )
 
 PIPELINE = {
@@ -139,6 +140,12 @@ PIPELINE = {
     'DISABLE_WRAPPER': True,
 
     'STYLESHEETS': {
+        'static': {
+            'source_filenames': (
+                os.path.join('static', 'style.css'),
+            ),
+            'output_filename': os.path.join('css', 'style.css'),
+        },
         'bootstrap': {
             'source_filenames': (
                 os.path.join('bootstrap', 'css', 'bootstrap.css'),
@@ -148,6 +155,12 @@ PIPELINE = {
         },
     },
     'JAVASCRIPT': {
+        'static': {
+            'source_filenames': (
+                os.path.join('static', 'app.js'),
+            ),
+            'output_filename': os.path.join('js', 'app.js'),
+        },
         'bootstrap': {
             'source_filenames': (
                 os.path.join('jquery', 'jquery.js'),

@@ -9,6 +9,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "bootstrap-fileinput": "^4.3.6",
+    "d3": "3",
     "jquery": "^3.1.1"
   }
 }
