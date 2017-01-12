@@ -1,7 +1,7 @@
 import abc
 
 import github.Repository as GithubRepository
-from github.GithubException import UnknownObjectException
+from github.GithubException import UnknownObjectException, GithubException
 
 from classification.GithubAuthentification import GithubAuthentification
 from classification.models import Feature, Repository
@@ -50,6 +50,13 @@ class FeatureExtractor:
             self._extract()
         except UnknownObjectException:
             pass
+        except GithubException as e:
+            # Repository access blocked
+            if e.status == 451:
+                pass
+            else:
+                raise
+
         return self.features
 
     @abc.abstractmethod
