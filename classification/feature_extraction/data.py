@@ -13,4 +13,4 @@ class DATAFileExtensionExtractor(FileExtensionExtractor):
 
     @property
     def extensions_to_check(self) -> typing.Set[str]:
-        return {'.json', '.geojson', '.xml', '.csv', '.yml', '.txt', '.sql', '.xls', '.xlsx', '.zip'}
+        return {'.json', '.geojson', '.xml', '.csv', '.yml', '.yaml', '.txt', '.sql', '.xls', '.xlsx', '.zip'}
