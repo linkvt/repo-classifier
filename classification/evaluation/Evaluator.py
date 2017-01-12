@@ -1,6 +1,7 @@
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import f1_score
+from sklearn.metrics.classification import confusion_matrix
 
 
 class Evaluator:
@@ -19,3 +20,7 @@ class Evaluator:
         report = classification_report(self.test_labels, self.predict_labels)
 
         return self.clf.name + '\n' + report
+
+    def confusion_matrix(self):
+        legend = ['DEV', 'WEB', 'DATA', 'DOCS', 'EDU', 'HW', 'OTHER']
+        return str(legend) + '\n' + str(confusion_matrix(self.test_labels, self.predict_labels, labels=legend))
