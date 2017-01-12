@@ -49,7 +49,7 @@ class FeatureExtractor:
         try:
             self._extract()
         except GithubException:
-            return self.features
+            pass
         return self.features
 
     @abc.abstractmethod

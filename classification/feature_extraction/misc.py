@@ -3,6 +3,7 @@ import abc
 import os
 import typing
 from collections import defaultdict
+from datetime import datetime
 
 from github import GithubException
 
@@ -94,6 +95,8 @@ class FileExtensionExtractor(FeatureExtractor):
 
 
 class ContainsYearExtractor(FeatureExtractor):
+    _current_year = datetime.now().year
+
     def _init_features(self):
         self.feature = Feature.create('Description or name contains year')
 
@@ -102,5 +105,5 @@ class ContainsYearExtractor(FeatureExtractor):
         name = self.api_repo.name if self.api_repo.name else ''
 
         # TODO Find more generic way to find year
-        contains_year = any(str(year) in description or str(year) in name for year in range(2000, 2017))
+        contains_year = any(str(year) in description or str(year) in name for year in range(2000, self._current_year))
         self.feature.value = 1 if contains_year else 0
