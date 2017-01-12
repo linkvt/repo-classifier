@@ -26,6 +26,7 @@ FEATURE_EXTRACTORS = [
     common.TotalFilesExtractor,
     common.WatchersExtractor,
     data.DATAFileExtensionExtractor,
+    data.LanguageDATAExtractor,
     dev.HasBuildFileExtractor,
     dev.LanguageDEVExtractor,
     docs.DOCSFileExtensionExtractor,

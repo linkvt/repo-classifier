@@ -1,7 +1,9 @@
 """Contains extractors that are used for the DATA category."""
 import typing
 
+from classification.feature_extraction.LanguageFeatureExtractor import LanguageFeatureExtractor
 from classification.feature_extraction.misc import FileExtensionExtractor
+from classification.models import Feature
 
 CATEGORY = 'DATA'
 
@@ -13,4 +15,12 @@ class DATAFileExtensionExtractor(FileExtensionExtractor):
 
     @property
     def extensions_to_check(self) -> typing.Set[str]:
-        return {'.json', '.geojson', '.xml', '.csv', '.yml', '.yaml', '.txt', '.sql', '.xls', '.xlsx', '.zip'}
+        return {'.7z', '.json', '.geojson', '.xml', '.csv', '.yml', '.yaml', '.txt', '.sql', '.xls', '.xlsx', '.zip'}
+
+
+class LanguageDATAExtractor(LanguageFeatureExtractor):
+    def _init_features(self):
+        self.features = [Feature.create('Language feature for ' + CATEGORY)]
+
+    def _get_relevant_languages(self) -> [str]:
+        return ['Perl', 'Python', 'R', 'Ruby', 'Shell']
