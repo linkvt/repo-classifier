@@ -78,3 +78,7 @@
     stroke: #000;
     shape-rendering: crispEdges;
 }
+
+.false-predict {
+    background-color: lightcoral;
+}

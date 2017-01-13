@@ -66,9 +66,11 @@
             <div class="row">
             {% for item in validation_output.items %}
                 <div class="col-8 col-sm-4">
-                    <div class="card" style="width: 35rem;">
+                    <div class="card {% if item.repo.category != item.predicted %} false-predict {% endif %}"
+                         style="width: 35rem;">
                         <div class="card-content">
                             <h5 class="card-title">{{item.repo.identifier}}</h5>
+                            <span>Label: {{item.repo.category}} | Predict: {{item.predicted}}</span>
                             <p class="card-text">{{ item.prob | stringformat:"s" }}</p>
                             <svg class="validation-svg"
                                  data-prob-data="{{item.prob.0.1}}"
