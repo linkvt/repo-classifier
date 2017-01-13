@@ -92,6 +92,9 @@ def validate(text):
             ['{}: {:.2%}'.format(category, prob) for category, prob in zip(categories, probabilities[0])])
         # results.append(result)
 
+    # First the wrong classifications for view
+    results.sort(key=lambda x: x.repo.category == x.predicted)
+
     evaluator = Evaluator(clf, labels, predict_labels)
     response.string_output += '\n' + evaluator.report()
     response.string_output += '\n' + evaluator.confusion_matrix()
