@@ -68,9 +68,11 @@ test.each(function (ob) {
         .style("text-anchor", "end")
         .text("Probability");
 
-    svg.selectAll("bar")
+    var groups = svg.selectAll("bar")
         .data(data)
-        .enter().append("rect")
+        .enter().append('g');
+
+    groups.append("rect")
         .style("fill", "steelblue")
         .attr("x", function (d) {
             return x(d.category);
@@ -84,5 +86,18 @@ test.each(function (ob) {
         })
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide);
+
+    groups.append("text")
+        .attr("x", function (d) {
+            return -70;
+        })
+        .attr("y", function (d) {
+            return x(d.category) + 15;
+        })
+        .attr("transform", "rotate(-90)")
+        .style("text-anchor", "end")
+        .text(function (d) {
+            return d.value;
+        });
 });
 
