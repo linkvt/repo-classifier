@@ -128,6 +128,7 @@ STATICFILES_STORAGE = 'pipeline.storage.NonPackagingPipelineCachedStorage'
 
 STATICFILES_DIRS = (
     ('d3', os.path.join(BASE_DIR, 'node_modules', 'd3')),
+    ('d3-tip', os.path.join(BASE_DIR, 'node_modules', 'd3-tip')),
     ('jquery', os.path.join(BASE_DIR, 'node_modules', 'jquery', 'dist')),
     ('bootstrap', os.path.join(BASE_DIR, 'node_modules', 'bootstrap', 'dist')),
     ('bootstrap-fileinput', os.path.join(BASE_DIR, 'node_modules', 'bootstrap-fileinput')),
@@ -167,6 +168,12 @@ PIPELINE = {
                 os.path.join('d3', 'd3.js'),
             ),
             'output_filename': os.path.join('js', 'd3.js'),
+        },
+        'd3-tip': {
+            'source_filenames': (
+                os.path.join('d3-tip', 'index.js'),
+            ),
+            'output_filename': os.path.join('js', 'd3-tip.js'),
         },
         'bootstrap': {
             'source_filenames': (
