@@ -84,7 +84,7 @@ def validate(text):
         out.repo = repo
         out.sample = sample
         out.predicted = predicted
-        out.prob = list(zip(categories, probabilities[0]))
+        out.prob = list((category, '{0:.2f}'.format(prob)) for category, prob in zip(categories, probabilities[0]))
         results.append(out)
 
         result = '{} ({}) - {} \n\t'.format(repo.identifier, repo.category, str(str(repo.category) == predicted))
