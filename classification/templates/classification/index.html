@@ -70,7 +70,15 @@
                         <div class="card-content">
                             <h5 class="card-title">{{item.repo.identifier}}</h5>
                             <p class="card-text">{{ item.prob | stringformat:"s" }}</p>
-                            <svg data-probs="{{item.prob}}"></svg>
+                            <svg class="validation-svg"
+                                 data-prob-data="{{item.prob.0.1}}"
+                                 data-prob-dev="{{item.prob.1.1}}"
+                                 data-prob-docs="{{item.prob.2.1}}"
+                                 data-prob-edu="{{item.prob.3.1}}"
+                                 data-prob-hw="{{item.prob.4.1}}"
+                                 data-prob-other="{{item.prob.5.1}}"
+                                 data-prob-web="{{item.prob.6.1}}">
+                            </svg>
                         </div>
                     </div>
                 </div>
