@@ -8,6 +8,11 @@ var test = d3.selectAll('.validation-svg');
 test.each(function (ob) {
     svg = d3.select(this);
 
+    var tip = d3.tip().attr('class', 'd3-tip').html(function (d) {
+        return 'Value: ' + d.value;
+    });
+    svg.call(tip);
+
     var x = d3.scale.ordinal().rangeRoundBands([0, width], .4);
 
     var y = d3.scale.linear().range([height, 1]);
@@ -76,6 +81,8 @@ test.each(function (ob) {
         })
         .attr("height", function (d) {
             return height - y(d.value);
-        });
+        })
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide);
 });
 
