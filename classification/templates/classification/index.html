@@ -44,6 +44,32 @@
             </div>
         </div>
     </div>
+    {% if reports %}
+    {% for name, matrix, report in reports %}
+    <div class="col-8 col-sm-6 col-md-6">
+        <div class="card">
+            <div class="card-content">
+                <h4 class="card-title" style="text-align: center; font-weight: bold;">
+                    {{ name }} Classification Report
+                </h4>
+                <svg class="report" width="500" height="350"
+                     data-matrix="{{ report }}">
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="col-8 col-sm-6 col-md-6">
+        <div class="card" style="height: 430px;">
+            <div class="card-content">
+                <h4 class="card-title" style="text-align: center; font-weight: bold;">
+                    {{ name }} Confusion Matrix
+                </h4>
+                <svg class="confusion-matrix" width="500" height="550" data-matrix="{{ matrix }}"></svg>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
     {% if output %}
     <div class="col-md-12">
         <div class="panel panel-default">
@@ -86,7 +112,6 @@
         </div>
         {% endfor %}
     </div>
-
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">Output</div>

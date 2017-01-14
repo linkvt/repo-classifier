@@ -21,10 +21,12 @@ def train(text, train=True):
     classifiers = [MLPClassifier(), ExtraTreesClassifier(), RandomForestClassifier(), SVMClassifier(),
                    KNeighborsClassifier()]
 
+    result = ''
+    reports = []
     if train:
         samples = extraction_pipeline.extract_features(repositories)
 
-        training_percentage = 0.7
+        training_percentage = 0.6
         logger.info(
             'Splitting into {:.0%} training and {:.0%} test data.'.format(training_percentage, 1 - training_percentage))
         train_samples, test_samples, train_labels, test_labels = train_test_split(samples, labels,
@@ -35,10 +37,11 @@ def train(text, train=True):
             predict_labels = clf.predict(test_samples)
 
             evaluator = Evaluator(clf, test_labels, predict_labels)
-            yield evaluator.report()  # TODO return the classified repos when they are associated to the features
-            yield evaluator.confusion_matrix()
+            result += evaluator.report() + '\n'
+            reports.append((clf.name, evaluator.confusion_matrix_raw(), evaluator.report_raw()))
 
         classifiers[0].save()
+    return result, reports
 
 
 def classify(text):
@@ -49,17 +52,15 @@ def classify(text):
     clf = Classifier.load()
 
     if not clf:
-        yield 'No trained model available.'
-        return
+        return 'No trained model available.'
 
     samples = extraction_pipeline.extract_features(repos)
 
     labels = clf.predict(samples)
 
-    result = [url + ' ' + label for url, label in zip(urls, labels)]
+    result = '\n'.join(url + ' ' + label for url, label in list(zip(urls, labels)))
 
-    for r in result:
-        yield r
+    return result
 
 
 def validate(text):
@@ -111,14 +112,13 @@ def classify_single_repo(url):
 
     clf = Classifier.load()
     if not clf:
-        yield 'No trained model available.'
-        return
+        return 'No trained model available.'
 
     samples = extraction_pipeline.extract_features([repo])
     categories, probabilities = clf.predict_proba(samples)
     result = '\n'.join(['{}: {:.2%}'.format(category, prob) for category, prob in zip(categories, probabilities[0])])
 
-    yield result
+    return result
 
 
 def map_urls_to_repositories(urls: [str]) -> [Repository]:

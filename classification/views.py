@@ -22,24 +22,29 @@ def index(request: HttpRequest) -> HttpResponse:
         text = None
 
     output_lines = ''
+    matrices = None
+    reports = None
     validation_output = None
 
     try:
         if mode == 'train':
-            output_lines = list(classifier.train(text)) if text else []
+            output_lines, reports = classifier.train(text) if text else ([], None)
         elif mode == 'classify':
-            output_lines = list(classifier.classify(text)) if text else []
+            output_lines = classifier.classify(text) if text else None
+            print(output_lines)
         elif mode == 'classify-single-repo':
-            output_lines = list(classifier.classify_single_repo(url)) if url else []
+            output_lines = classifier.classify_single_repo(url) if url else None
         elif mode == 'validate':
             validation_output = classifier.validate(text) if text else None
     except RateLimitExceededException:
         output_lines = 'The available request limit was exceeded for the Github API please wait until refresh.'
 
     context = {
-        'output': '\n'.join(output_lines),
+        'output': output_lines,
         'validation_output': validation_output,
         'single_repository': url,
+        'matrices': matrices,
+        'reports': reports,
     }
 
     return render(request, 'classification/index.html', context)

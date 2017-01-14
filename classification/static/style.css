@@ -116,3 +116,19 @@
     top: 100%;
     left: 0;
 }
+
+.report text {
+    fill: black;
+    font-size: 12px;
+    font-weight: bold;
+    text-anchor: middle;
+}
+
+.report .average-rect {
+    stroke: black;
+    stroke-width: 2px;
+}
+
+.report .average-text {
+    font-size: 14px;
+}
