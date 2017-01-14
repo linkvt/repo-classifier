@@ -1,21 +1,21 @@
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 300 - margin.left - margin.right,
-    height = 150 - margin.top - margin.bottom;
+var validation_margin = {top: 20, right: 20, bottom: 30, left: 40},
+    validation_width = 300 - validation_margin.left - validation_margin.right,
+    validation_height = 150 - validation_margin.top - validation_margin.bottom;
 
 
-var test = d3.selectAll('.validation-svg');
+var validation_svgs = d3.selectAll('.validation-svg');
 
-test.each(function (ob) {
-    svg = d3.select(this);
+validation_svgs.each(function (ob) {
+    var svg = d3.select(this);
 
     var tip = d3.tip().attr('class', 'd3-tip').html(function (d) {
         return 'Value: ' + d.value;
     });
     svg.call(tip);
 
-    var x = d3.scale.ordinal().rangeRoundBands([0, width], .4);
+    var x = d3.scale.ordinal().rangeRoundBands([0, validation_width], .4);
 
-    var y = d3.scale.linear().range([height, 1]);
+    var y = d3.scale.linear().range([validation_height, 1]);
 
     var xAxis = d3.svg.axis()
         .scale(x)
@@ -42,15 +42,15 @@ test.each(function (ob) {
 
     y.domain([0, 1]);
 
-    svg.attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+    svg.attr("width", validation_width + validation_margin.left + validation_margin.right)
+        .attr("height", validation_height + validation_margin.top + validation_margin.bottom)
         .append("g")
         .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+            "translate(" + validation_margin.left + "," + validation_margin.top + ")");
 
     svg.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
+        .attr("transform", "translate(0," + validation_height + ")")
         .call(xAxis)
         .selectAll("text")
         .style("text-anchor", "end")
@@ -82,7 +82,7 @@ test.each(function (ob) {
             return y(d.value);
         })
         .attr("height", function (d) {
-            return height - y(d.value);
+            return validation_height - y(d.value);
         })
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide);
