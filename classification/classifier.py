@@ -100,6 +100,9 @@ def validate(text):
     response.string_output += '\n' + evaluator.report()
     response.string_output += '\n' + evaluator.confusion_matrix()
     response.items = results
+    response.clf_name = clf.name
+    response.confusion_matrix = evaluator.confusion_matrix_raw()
+    response.report = evaluator.report_raw()
     return response
 
     # yield evaluator.report()

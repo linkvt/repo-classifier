@@ -70,48 +70,53 @@
     </div>
     {% endfor %}
     {% endif %}
-    {% if output %}
-    <div class="col-md-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">Output</div>
-            <div class="panel-body">
-                <p>
-                    <a href="{{ output | data_uri:'text/csv' }}" target="_blank" class="btn btn-primary"
-                       download="classified-repositories.csv">Download Classified Repositories</a>
-                </p>
-                {% if single_repository %}
-                <p>Repository: <a href="{{ single_repository }}">{{ single_repository }}</a></p>
-                {% endif %}
-                <pre style="margin-bottom: 0">{{ output | escape }}</pre>
-            </div>
-        </div>
-    </div>
-    {% endif %}
     {% if validation_output %}
-    <pre style="margin-bottom: 0">{{ validation_output.string_output | escape }}</pre>
-    <div class="row">
-        {% for item in validation_output.items %}
-        <div class="col-8 col-sm-4">
-            <div class="card {% if item.repo.category != item.predicted %} false-predict {% else %} true-predict {% endif %}"
-                 style="width: 35rem;">
-                <div class="card-content">
-                    <h5 class="card-title"><a href="https://github.com/{{item.repo.identifier}}" target="_blank">{{item.repo.identifier}}</a>
-                    </h5>
-                    <span>Label: {{item.repo.category}} | Predict: {{item.predicted}}</span>
-                    <svg class="validation-svg"
-                         data-prob-data="{{item.prob.0.1}}"
-                         data-prob-dev="{{item.prob.1.1}}"
-                         data-prob-docs="{{item.prob.2.1}}"
-                         data-prob-edu="{{item.prob.3.1}}"
-                         data-prob-hw="{{item.prob.4.1}}"
-                         data-prob-other="{{item.prob.5.1}}"
-                         data-prob-web="{{item.prob.6.1}}">
-                    </svg>
-                </div>
+    <div class="col-8 col-sm-6 col-md-6">
+        <div class="card">
+            <div class="card-content">
+                <h4 class="card-title" style="text-align: center; font-weight: bold;">
+                    {{ validation_output.clf_name }} Classification Report
+                </h4>
+                <svg class="report" width="500" height="350"
+                     data-matrix="{{ validation_output.report }}">
+                </svg>
             </div>
         </div>
-        {% endfor %}
     </div>
+    <div class="col-8 col-sm-6 col-md-6">
+        <div class="card" style="height: 430px;">
+            <div class="card-content">
+                <h4 class="card-title" style="text-align: center; font-weight: bold;">
+                    {{ validation_output.clf_name }} Confusion Matrix
+                </h4>
+                <svg class="confusion-matrix"
+                     width="500" height="550"
+                     data-matrix="{{ validation_output.confusion_matrix }}">
+                </svg>
+            </div>
+        </div>
+    </div>
+    {% for item in validation_output.items %}
+    <div class="col-8 col-sm-4">
+        <div class="card {% if item.repo.category != item.predicted %} false-predict {% else %} true-predict {% endif %}"
+             style="width: 35rem;">
+            <div class="card-content">
+                <h5 class="card-title"><a href="https://github.com/{{item.repo.identifier}}" target="_blank">{{item.repo.identifier}}</a>
+                </h5>
+                <span>Label: {{item.repo.category}} | Predict: {{item.predicted}}</span>
+                <svg class="validation-svg"
+                     data-prob-data="{{item.prob.0.1}}"
+                     data-prob-dev="{{item.prob.1.1}}"
+                     data-prob-docs="{{item.prob.2.1}}"
+                     data-prob-edu="{{item.prob.3.1}}"
+                     data-prob-hw="{{item.prob.4.1}}"
+                     data-prob-other="{{item.prob.5.1}}"
+                     data-prob-web="{{item.prob.6.1}}">
+                </svg>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">Output</div>
@@ -120,10 +125,11 @@
                     <a href="{{ output | data_uri:'text/csv' }}" target="_blank" class="btn btn-primary"
                        download="classified-repositories.csv">Download Classified Repositories</a>
                 </p>
+                <pre style="margin-bottom: 0">{{ validation_output.string_output | escape }}</pre>
                 {% if single_repository %}
                 <p>Repository: <a href="{{ single_repository }}">{{ single_repository }}</a></p>
-                {% endif %}
                 <pre style="margin-bottom: 0">{{ output | escape }}</pre>
+                {% endif %}
             </div>
         </div>
     </div>
