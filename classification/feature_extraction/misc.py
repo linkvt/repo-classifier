@@ -107,3 +107,13 @@ class ContainsYearExtractor(FeatureExtractor):
         # TODO Find more generic way to find year
         contains_year = any(str(year) in description or str(year) in name for year in range(2000, self._current_year))
         self.feature.value = 1 if contains_year else 0
+
+
+class ImageFileExtensionExtractor(FileExtensionExtractor):
+    @property
+    def category(self) -> str:
+        return 'Images'
+
+    @property
+    def extensions_to_check(self) -> typing.Set[str]:
+        return {'.gif', '.jpg', '.jpeg', '.png', '.svg'}

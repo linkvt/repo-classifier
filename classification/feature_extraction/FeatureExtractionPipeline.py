@@ -30,11 +30,12 @@ FEATURE_EXTRACTORS = [
     dev.HasBuildFileExtractor,
     dev.LanguageDEVExtractor,
     docs.DOCSFileExtensionExtractor,
+    misc.ContainsYearExtractor,
     misc.DescriptionKeyWordExtractor,
     misc.FileNameExtractor,
+    misc.ImageFileExtensionExtractor,
     web.LanguageWEBExtractor,
     web.DescriptionContainsURLExtractor,
-    misc.ContainsYearExtractor,
 ]
 
 logger = logging.getLogger(__name__)
