@@ -160,6 +160,7 @@ PIPELINE = {
         'static': {
             'source_filenames': (
                 os.path.join('static', 'app.js'),
+                os.path.join('static', 'vis.js'),
             ),
             'output_filename': os.path.join('js', 'app.js'),
         },
