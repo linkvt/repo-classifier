@@ -97,11 +97,17 @@
         </div>
     </div>
     {% for item in validation_output.items %}
-    <div class="col-8 col-sm-4">
-        <div class="card {% if item.repo.category != item.predicted %} false-predict {% else %} true-predict {% endif %}"
+    <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card "
              style="width: 35rem;">
+
             <div class="card-content">
-                <h5 class="card-title"><a href="https://github.com/{{item.repo.identifier}}" target="_blank">{{item.repo.identifier}}</a>
+                <img class="img-responsive"
+                     src="static/{% if item.repo.category == item.predicted %}success.svg{% else %}error.svg{% endif %}"
+                     style="width: 30px; height: 30px; float:right;">
+                <h5 class="card-title"
+                    style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 90%;"><a
+                        href="https://github.com/{{item.repo.identifier}}" target="_blank">{{item.repo.identifier}}</a>
                 </h5>
                 <span>Label: {{item.repo.category}} | Predict: {{item.predicted}}</span>
                 <svg class="validation-svg"
@@ -117,7 +123,7 @@
         </div>
     </div>
     {% endfor %}
-    <div class="col-md-12">
+    <div class="col-xs-12">
         <div class="panel panel-default">
             <div class="panel-heading">Output</div>
             <div class="panel-body">
@@ -135,4 +141,6 @@
     </div>
     {% endif %}
 </div>
+
 {% endblock %}
+
