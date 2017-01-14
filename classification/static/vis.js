@@ -20,7 +20,11 @@ if (!d3.select(SELECT_SVG).empty()) {
         .scale(vis_y)
         .orient("left");
     var vis_color = d3.scale.category10();
-    var vis_svg = d3.select("svg#vis-features");
+    var vis_svg = d3.select("#vis-features")
+        .attr('width', 1200)
+        .attr('height', 600)
+        .append("g")
+        .attr("transform", "translate(" + vis_margin.left + "," + vis_margin.top + ")");
     var vis_tip = d3.tip().attr('class', 'd3-tip').html(function (d) {
         return d.name.slice(19) + "<br>" + X_FEATURE + ": " + d[X_FEATURE] + "<br>" + Y_FEATURE + ': ' + d[Y_FEATURE];
     });
