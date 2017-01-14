@@ -22,7 +22,6 @@ def index(request: HttpRequest) -> HttpResponse:
         text = None
 
     output_lines = ''
-    matrices = None
     reports = None
     validation_output = None
 
@@ -31,7 +30,6 @@ def index(request: HttpRequest) -> HttpResponse:
             output_lines, reports = classifier.train(text) if text else ([], None)
         elif mode == 'classify':
             output_lines = classifier.classify(text) if text else None
-            print(output_lines)
         elif mode == 'classify-single-repo':
             output_lines = classifier.classify_single_repo(url) if url else None
         elif mode == 'validate':
@@ -43,7 +41,6 @@ def index(request: HttpRequest) -> HttpResponse:
         'output': output_lines,
         'validation_output': validation_output,
         'single_repository': url,
-        'matrices': matrices,
         'reports': reports,
     }
 
