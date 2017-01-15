@@ -140,6 +140,21 @@
         </div>
     </div>
     {% endif %}
+    {% if single_repository %}
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Output</div>
+            <div class="panel-body">
+                <p>
+                    <a href="{{ output | data_uri:'text/csv' }}" target="_blank" class="btn btn-primary"
+                       download="classified-repositories.csv">Download Classified Repositories</a>
+                </p>
+                <p>Repository: <a href="{{ single_repository }}">{{ single_repository }}</a></p>
+                <pre style="margin-bottom: 0">{{ output | escape }}</pre>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 </div>
 
 {% endblock %}
