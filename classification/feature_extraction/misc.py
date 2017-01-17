@@ -13,17 +13,17 @@ from classification.models import Feature
 
 class DescriptionKeyWordExtractor(FeatureExtractor):
     keywords = ['homework', 'lecture', 'course', 'framework', 'application', 'api', 'webapp', 'icons',
-                'data', 'list', 'fonts', 'material', 'introduction', 'github', 'website', 'site', 'page', 'assignment',
+                'data', 'list', 'font', 'material', 'introduction', 'github', 'website', 'site', 'page', 'assignment',
                 'group', 'official', 'documentation', 'document', 'dokument', 'policy', 'grading', 'submission',
                 'deadline', 'university', 'science', 'learning', 'slides', 'notes', 'guide', 'presentation', 'personal',
-                'blog', 'project', 'portfolio', 'my', 'class', 'collection']
+                'blog', 'project', 'portfolio', 'my', 'class', 'collection', 'open', 'repository', 'jekyll', 'package']
 
     def _init_features(self):
         self.features = [Feature.create('Contains keyword "' + keyword + '"') for keyword in self.keywords]
 
     def _extract(self):
         description = self.api_repo.description.lower() if self.api_repo.description else ''
-        name = self.api_repo.name if self.api_repo.name else ''
+        name = self.api_repo.name.lower() if self.api_repo.name else ''
 
         for keyword, feature in zip(self.keywords, self.features):
             if keyword in description or keyword in name:
@@ -33,7 +33,9 @@ class DescriptionKeyWordExtractor(FeatureExtractor):
 
 
 class FileNameExtractor(FeatureExtractor):
-    filenames = ['index.html', 'css', 'js', 'img', 'images', 'fonts', 'src', 'assets', 'sass', '_data']
+    filenames = ['index.html', 'css', 'js', 'img', 'images', 'fonts', 'src', 'assets', 'sass', '_data', '_layouts',
+                 'data', 'datapackage.json', 'index.md', 'index.rst', 'summary.md', 'syllabus.md', 'notebooks',
+                 'exercises']
 
     def _init_features(self):
         self.features = [Feature.create('Contains file "' + filename + '"') for filename in self.filenames]
@@ -42,7 +44,7 @@ class FileNameExtractor(FeatureExtractor):
         repo_filenames = []
         try:
             repo_files = self.api_repo.get_dir_contents('')
-            repo_filenames = [file.name for file in repo_files if file.name]
+            repo_filenames = [file.name.lower() for file in repo_files if file.name]
         except GithubException:
             pass
         for filename, feature in zip(self.filenames, self.features):
