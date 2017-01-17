@@ -72,7 +72,7 @@
         <div class="card">
             <div class="card-content">
                 <h5 class="card-title" style="text-align: center; font-weight: bold;">
-                    ROC Curve
+                    {{ name }} ROC Curve
                 </h5>
                 {% if roc_curve %}
                 <svg class="roc-curve" data-fpr="{{ roc_curve.0 }}" data-tpr="{{ roc_curve.1 }}">

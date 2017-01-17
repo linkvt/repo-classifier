@@ -13,7 +13,7 @@ roc_curves.each(function () {
     };
     var width = 330 - margins.left - margins.right;
     var height = 330 - margins.top - margins.bottom;
-    roc_curve.attr('width', 300).attr('height', 330);
+    roc_curve.attr('width', 330).attr('height', 330);
     var x_scale = d3.scale.linear().domain([0, 1]).range([0, width]);
     var y_scale = d3.scale.linear().domain([0, 1]).range([height, 0]);
 
