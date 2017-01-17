@@ -7,8 +7,8 @@ matrices.each(function () {
     var categories = ['DEV', 'WEB', 'DATA', 'DOCS', 'EDU', 'HW', 'OTHER'];
     var color = d3.scale.category10();
     var colorScales = [];
-    var gridSize = 40;
-    var svg = matrix.append('g').attr('transform', 'translate(100, 40)');
+    var gridSize = 35;
+    var svg = matrix.append('g').attr('transform', 'translate(0, 40)');
     var tip = d3.tip().attr('class', 'd3-tip').html(function (d) {
         return d;
     });
@@ -41,7 +41,6 @@ matrices.each(function () {
             return d;
         })
         .style('font-weight', 'bold');
-    ;
 
     var gridElement = svg.selectAll("rect")
         .data(data)
@@ -59,8 +58,8 @@ matrices.each(function () {
         .attr("y", function (d, i, j) {
             return j * gridSize + 20;
         })
-        .attr("height", 35)
-        .attr("width", 35)
+        .attr("height", 32)
+        .attr("width", 32)
         .attr("fill", function (d, i, j) {
             return colorScales[j](d);
         })
@@ -79,5 +78,5 @@ matrices.each(function () {
         .style('fill', 'white')
         .style('text-anchor', 'middle');
     svg.append('text').attr('x', -100).attr('y', 170).text('True Label').style('fill', 'gray');
-    svg.append('text').attr('x', 140).attr('y', -20).text('Predicted Label').style('fill', 'gray');
+    svg.append('text').attr('x', 120).attr('y', -20).text('Predicted Label').style('fill', 'gray');
 });

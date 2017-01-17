@@ -38,7 +38,15 @@ def train(text, train=True):
 
             evaluator = Evaluator(clf, test_labels, predict_labels)
             result += evaluator.report() + '\n'
-            reports.append((clf.name, evaluator.confusion_matrix_raw(), evaluator.report_raw()))
+
+            roc_curve = None
+            try:
+                _, probs = clf.predict_proba(test_samples)
+                fpr, tpr = evaluator.roc_curve_raw(probs)
+                roc_curve = [fpr, tpr]
+            except AttributeError:
+                pass
+            reports.append((clf.name, evaluator.confusion_matrix_raw(), evaluator.report_raw(), roc_curve))
 
         classifiers[0].save()
     return result, reports
@@ -102,6 +110,13 @@ def validate(text):
     response.items = results
     response.clf_name = clf.name
     response.confusion_matrix = evaluator.confusion_matrix_raw()
+    response.roc_curve = None
+    try:
+        _, probs = clf.predict_proba(samples)
+        fpr, tpr = evaluator.roc_curve_raw(probs)
+        response.roc_curve = [fpr, tpr]
+    except AttributeError:
+        pass
     response.report = evaluator.report_raw()
     return response
 

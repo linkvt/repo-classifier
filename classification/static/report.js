@@ -3,7 +3,7 @@ var reports = d3.selectAll('.report');
 reports.each(function () {
     var report = d3.select(this);
     var data = JSON.parse(report.attr('data-matrix'));
-    var svg = report.append('g').attr('transform', 'translate(100, 20)');
+    var svg = report.append('g').attr('transform', 'translate(20, 20)');
 
     var categories = ['DEV', 'WEB', 'DATA', 'DOCS', 'EDU', 'HW', 'OTHER', 'Average'];
     var columns = ['Precision', 'Recall', 'F1', 'Support'];

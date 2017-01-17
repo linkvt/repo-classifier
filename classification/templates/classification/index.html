@@ -45,33 +45,50 @@
         </div>
     </div>
     {% if reports %}
-    {% for name, matrix, report in reports %}
-    <div class="col-8 col-sm-6 col-md-6">
+    {% for name, matrix, report, roc_curve in reports %}
+    <div class="col-4 col-sm-4 col-md-4">
         <div class="card">
             <div class="card-content">
-                <h4 class="card-title" style="text-align: center; font-weight: bold;">
-                    {{ name }} Classification Report
-                </h4>
-                <svg class="report" width="500" height="350"
+                <h5 class="card-title" style="text-align: center; font-weight: bold;">
+                    {{ name }} Report
+                </h5>
+                <svg class="report" width="500" height="330"
                      data-matrix="{{ report }}">
                 </svg>
             </div>
         </div>
     </div>
-    <div class="col-8 col-sm-6 col-md-6">
-        <div class="card" style="height: 430px;">
+    <div class="col-4 col-sm-4 col-md-4">
+        <div class="card">
             <div class="card-content">
-                <h4 class="card-title" style="text-align: center; font-weight: bold;">
+                <h5 class="card-title" style="text-align: center; font-weight: bold;">
                     {{ name }} Confusion Matrix
-                </h4>
-                <svg class="confusion-matrix" width="500" height="550" data-matrix="{{ matrix }}"></svg>
+                </h5>
+                <svg class="confusion-matrix" width="500" height="330" data-matrix="{{ matrix }}"></svg>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-sm-4 col-md-4">
+        <div class="card">
+            <div class="card-content">
+                <h5 class="card-title" style="text-align: center; font-weight: bold;">
+                    ROC Curve
+                </h5>
+                {% if roc_curve %}
+                <svg class="roc-curve" data-fpr="{{ roc_curve.0 }}" data-tpr="{{ roc_curve.1 }}">
+                </svg>
+                {% else %}
+                <div style="height: 336px;">
+                    <span style="color: gray">No ROC curve available for this classifier</span>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
     {% endfor %}
     {% endif %}
     {% if validation_output %}
-    <div class="col-8 col-sm-6 col-md-6">
+    <div class="col-4 col-sm-4 col-md-4">
         <div class="card">
             <div class="card-content">
                 <h4 class="card-title" style="text-align: center; font-weight: bold;">
@@ -83,21 +100,35 @@
             </div>
         </div>
     </div>
-    <div class="col-8 col-sm-6 col-md-6">
+    <div class="col-4 col-sm-4 col-md-4">
         <div class="card" style="height: 430px;">
             <div class="card-content">
                 <h4 class="card-title" style="text-align: center; font-weight: bold;">
                     {{ validation_output.clf_name }} Confusion Matrix
                 </h4>
                 <svg class="confusion-matrix"
-                     width="500" height="550"
+                     width="500" height="330"
                      data-matrix="{{ validation_output.confusion_matrix }}">
                 </svg>
             </div>
         </div>
     </div>
+    <div class="col-4 col-sm-4 col-md-4">
+        <div class="card" style="height: 430px;">
+            <div class="card-content">
+                <h4 class="card-title" style="text-align: center; font-weight: bold;">
+                    {{ validation_output.clf_name }} ROC Curve
+                </h4>
+                <svg class="roc-curve"
+                     width="500" height="330"
+                     data-fpr="{{ validation_output.roc_curve.0 }}"
+                     data-tpr="{{ validation_output.roc_curve.1 }}">
+                </svg>
+            </div>
+        </div>
+    </div>
     {% for item in validation_output.items %}
-    <div class="col-sm-12 col-md-6 col-lg-4">
+    <div class="col-sm-4 col-md-4 col-lg-4">
         <div class="card "
              style="width: 35rem;">
 

@@ -163,6 +163,7 @@ PIPELINE = {
                 os.path.join('static', 'confusion_matrix.js'),
                 os.path.join('static', 'report.js'),
                 os.path.join('static', 'vis.js'),
+                os.path.join('static', 'roc_curve.js'),
             ),
             'output_filename': os.path.join('js', 'app.js'),
         },

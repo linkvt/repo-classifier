@@ -1,8 +1,9 @@
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import f1_score
-from sklearn.metrics.classification import confusion_matrix
 from sklearn.metrics import precision_recall_fscore_support
+from sklearn.metrics.classification import confusion_matrix
+from sklearn.metrics.ranking import roc_curve
 
 
 class Evaluator:
@@ -24,6 +25,17 @@ class Evaluator:
 
         return self.clf.name + '\n' + report
 
+    def roc_curve_raw(self, probs):
+        prob_categories = ['DATA', 'DEV', 'DOCS', 'EDU', 'HW', 'OTHER', 'WEB']
+        fprs = []
+        tprs = []
+        for i, category in enumerate(prob_categories):
+            scores = [prob[i] for prob in probs]
+            fpr, tpr, _ = roc_curve(y_true=self.test_labels, pos_label=category, y_score=scores)
+            fprs.append(fpr.tolist())
+            tprs.append(tpr.tolist())
+        return fprs, tprs
+
     def confusion_matrix(self):
         return str(self.categories) + '\n' + str(
             confusion_matrix(self.test_labels, self.predict_labels, labels=self.categories))
@@ -35,9 +47,9 @@ class Evaluator:
         precision, recall, f1, support = precision_recall_fscore_support(self.test_labels, self.predict_labels,
                                                                          labels=self.categories)
         prec_average, rec_average, f1_average, _ = precision_recall_fscore_support(self.test_labels,
-                                                                                            self.predict_labels,
-                                                                                            average='macro',
-                                                                                            labels=self.categories)
+                                                                                   self.predict_labels,
+                                                                                   average='macro',
+                                                                                   labels=self.categories)
         support_total = sum(support)
         matrix = [precision.tolist(), recall.tolist(), f1.tolist(), support.tolist()]
         matrix = [list(i) for i in zip(*matrix)]

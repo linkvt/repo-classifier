@@ -132,3 +132,16 @@
 .report .average-text {
     font-size: 14px;
 }
+
+.roc-line {
+    fill: none;
+    stroke: orange;
+    stroke-width: 2px;
+}
+
+.random-line {
+    fill: none;
+    stroke: black;
+    stroke-width: 2px;
+    stroke-dasharray: 3;
+}
