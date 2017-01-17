@@ -1,12 +1,12 @@
 # Repo Classifier
 
 ## Requirements
-- python 3.5
+- python 3.5+
 - pip
 - yarn
 
 ## Setup
-- Create a virtual environment with `pyvenv .venv` (or `python -m venv .venv` if `pyvenv` isn't available)
+- Create a virtual environment with `python -m venv .venv`
 - Activate the venv with `source .venv/bin/activate` or install `autoenv` and create a `.env` file as described below
 - Install the dependencies with `pip install -r requirements.txt`
 - Setup the python SDK to `.venv/bin/python` to also access the dependencies in the venv
