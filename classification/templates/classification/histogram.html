@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+{% extends 'classification/base.html' %}
+
+{% load filters %}
+
+{% block title %}{% endblock %}
+{% block content %}
+<div>
+    <select id= "features"> </select>
+    <span style="margin-left: 150px;">
+        Maximum
+        <input id="max" type="number" step="1" min="0"> </input>
+        Bins
+        <input id="n" type="number" value="15" min="2"> </input>
+    </span>
+</div>
+<svg id="histogram" width="1200" height="1200"></svg>
+{% endblock %}

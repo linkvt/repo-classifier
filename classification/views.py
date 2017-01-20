@@ -97,3 +97,7 @@ def dbactions(request: HttpRequest) -> HttpResponse:
 
 def vis(request: HttpRequest) -> HttpResponse:
     return render(request, 'classification/vis.html')
+
+
+def histogram(request):
+    return render(request, 'classification/histogram.html')
