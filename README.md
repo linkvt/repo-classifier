@@ -11,6 +11,7 @@
 - Install the dependencies with `pip install -r requirements.txt`
 - Setup the python SDK to `.venv/bin/python` to also access the dependencies in the venv
 - Install web dependencies with `yarn`
+- Add Github credentials to file github.conf based on github.conf.template
 
 ### New Dependencies
 - Install a dependency in the venv with `pip install DEPENDENCY`
