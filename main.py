@@ -23,8 +23,8 @@ with open(args.filepath) as file:
     text = file.read()
 
 if args.train:
-    result = list(classifier.train(text))
-    print('\n'.join(result))
+    result, _ = classifier.train(text)
+    print(result)
 elif args.classify:
-    result = list(classifier.classify(text))
-    print('\n'.join(result))
+    result = classifier.classify(text)
+    print(result)
