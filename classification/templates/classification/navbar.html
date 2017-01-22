@@ -25,8 +25,14 @@
                 <li>
                     <a href="{% url 'classification:analysis' %}">Analyse</a>
                 </li>
-                <li>
-                    <a href="{% url 'classification:vis' %}">Visualize</a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
+                        Visualize <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'classification:vis' %}">Scatter Plot</a></li>
+                        <li><a href="{% url 'classification:histogram' %}">Histogram</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="{% url 'classification:dbactions' %}">DB Actions</a>

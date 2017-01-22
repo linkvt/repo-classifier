@@ -148,7 +148,7 @@ if (!d3.select('#histogram').empty()) {
             .attr('width', 30)
             .attr('height', 20)
             .attr('x', function (d, i) {
-                return 310;
+                return width + 10;
             })
             .attr('y', function (d, i) {
                 return 30 + i * 55 + 5;
@@ -156,7 +156,7 @@ if (!d3.select('#histogram').empty()) {
             .style('fill', color);
         legend.append('text')
             .attr('x', function (d, i) {
-                return 310 + 15;
+                return width + 25;
             })
             .attr('y', function (d, i) {
                 return 40 + i * 55 + 6;
