@@ -32,6 +32,11 @@ echo "repo-classifier - NICE! (venv on)"
 - Run `python manage.py migrate` to setup the database.
 - Execute `python manage.py runserver` to start the live reloading webserver on [localhost:8000](http://localhost:8000/).
 
+## Run in CLI
+After the complete setup described above open a terminal and `cd` into the root directory of the project.
+Then just execute `python main.py` and a help output will guide you with the possible parameters.
+For simple classification just run `python main.py -f "path/to/file" -c` which will run the classification (Attention: the model has to be available to run the classification).
+If training is needed just replace the `-c` with `-t`: `python main.py -f "path/to/file" -t`
 
 ## Reference
 - autoenv: https://github.com/kennethreitz/autoenv
