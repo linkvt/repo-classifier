@@ -12,8 +12,8 @@ class InputParser:
                 separator = ","
                 del lines[0]
             split_text = [line.split(separator) for line in lines]
-            repo_ids = [t[0] for t in split_text]
+            urls = [t[0].rstrip('/') for t in split_text]
             labels = [t[1] for t in split_text]
-            return repo_ids, labels
+            return urls, labels
         else:
             return lines, []

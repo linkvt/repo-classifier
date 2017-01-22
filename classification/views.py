@@ -31,7 +31,7 @@ def index(request: HttpRequest) -> HttpResponse:
         elif mode == 'classify':
             output_lines = classifier.classify(text) if text else None
         elif mode == 'classify-single-repo':
-            output_lines = classifier.classify_single_repo(url) if url else None
+            output_lines = classifier.classify_single_repo(url.rstrip('/')) if url else None
         elif mode == 'validate':
             validation_output = classifier.validate(text) if text else None
     except RateLimitExceededException:

@@ -25,6 +25,7 @@ class Repository(models.Model):
 
     @property
     def identifier(self):
+        # TODO parse the path of the url instead of using a fixed offset
         return self.url[19:]
 
     @property
