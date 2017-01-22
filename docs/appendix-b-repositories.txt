@@ -1,31 +1,31 @@
-https://github.com/ga-chicago/wdi5-homework
-https://github.com/Aggregates/MI_HW2
-https://github.com/datasciencelabs/2016/
-https://github.com/githubteacher/intro-november-2015
-https://github.com/atom/atom
-https://github.com/jmcglone/jmcglone.github.io
-https://github.com/hpi-swt2-exercise/java-tdd-challenge
-https://github.com/alphagov/performanceplatform-documentation
-https://github.com/harvesthq/how-to-walkabout
-https://github.com/vhf/free-programming-books
-https://github.com/d3/d3
-https://github.com/carlosmn/CoMa-II
-https://github.com/git/git-scm.com
-https://github.com/PowerDNS/pdns
-https://github.com/cmrberry/cs6300-git-practice
-https://github.com/Sefaria/Sefaria-Project
-https://github.com/mongodb/docs
-https://github.com/sindresorhus/eslint-config-xo
-https://github.com/e-books/backbone.en.douceur
-https://github.com/erikflowers/weather-icons
-https://github.com/tensorflow/tensorflow
-https://github.com/cs231n/cs231n.github.io
-https://github.com/m2mtech/smashtag-2015
-https://github.com/openaddresses/openaddresses
-https://github.com/benbalter/congressional-districts
-https://github.com/Chicago/food-inspections-evaluation
-https://github.com/OpenInstitute/OpenDuka
-https://github.com/torvalds/linux
-https://github.com/bhuga/bhuga.net
-https://github.com/macloo/just_enough_code
-https://github.com/hughperkins/howto-jenkins-ssl
+https://github.com/ga-chicago/wdi5-homework HW
+https://github.com/Aggregates/MI_HW2 HW
+https://github.com/datasciencelabs/2016/ EDU
+https://github.com/githubteacher/intro-november-2015 EDU
+https://github.com/atom/atom DEV
+https://github.com/jmcglone/jmcglone.github.io WEB
+https://github.com/hpi-swt2-exercise/java-tdd-challenge DEV
+https://github.com/alphagov/performanceplatform-documentation DOCS
+https://github.com/harvesthq/how-to-walkabout DOCS
+https://github.com/vhf/free-programming-books DOCS
+https://github.com/d3/d3 DEV
+https://github.com/carlosmn/CoMa-II HW
+https://github.com/git/git-scm.com WEB
+https://github.com/PowerDNS/pdns DEV
+https://github.com/cmrberry/cs6300-git-practice OTHER
+https://github.com/Sefaria/Sefaria-Project DEV
+https://github.com/mongodb/docs DOCS
+https://github.com/sindresorhus/eslint-config-xo DEV
+https://github.com/e-books/backbone.en.douceur DOCS
+https://github.com/erikflowers/weather-icons DATA
+https://github.com/tensorflow/tensorflow DEV
+https://github.com/cs231n/cs231n.github.io EDU
+https://github.com/m2mtech/smashtag-2015 EDU
+https://github.com/openaddresses/openaddresses DATA
+https://github.com/benbalter/congressional-districts DATA
+https://github.com/Chicago/food-inspections-evaluation DEV
+https://github.com/OpenInstitute/OpenDuka DATA
+https://github.com/torvalds/linux DEV
+https://github.com/bhuga/bhuga.net WEB
+https://github.com/macloo/just_enough_code WEB
+https://github.com/hughperkins/howto-jenkins-ssl OTHER
