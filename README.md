@@ -28,6 +28,22 @@ source .venv/bin/activate
 echo "repo-classifier - NICE! (venv on)"
 ```
 
+## Files for input
+We have to separate between files for classification and files for training.
+For training we need a file which contains the label for a url.
+We support two formatted inputs for training:
+
+Separated with a simple space.
+```
+https://github.com/briantemple/homeworkr DEV
+```
+
+or separated with a comma and first line will be ignored (becaused we used the django export):
+```
+url,category
+https://github.com/owncloud/documentation,DOCS
+```
+
 ## Run the web application (Preferred)
 - Run `python manage.py migrate` to setup the database.
 - Execute `python manage.py runserver` to start the live reloading webserver on [localhost:8000](http://localhost:8000/).
