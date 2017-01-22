@@ -1,9 +1,13 @@
 # Repo Classifier
+Repo Classifier is a web application realized with Django that uses Machine Learning algorithms to classify GitHub 
+repositories into several categories. This project is developed by the team of the University of Stuttgart for the 
+[informatiCup2017](https://github.com/InformatiCup/InformatiCup2017/).
+
 
 ## Requirements
 - python 3.5+
 - pip
-- [yarn](https://yarnpkg.com/en/docs/install#linux-tab)
+- [yarn](https://yarnpkg.com/en/docs/install)
 
 ## Setup
 - Create a virtual environment with `python -m venv .venv`
@@ -11,7 +15,7 @@
 - Install the dependencies with `pip install -r requirements.txt`
 - Setup the python SDK to `.venv/bin/python` to also access the dependencies in the venv
 - Install web dependencies with `yarn`
-- Add Github credentials to `github.conf` based on `github.conf.template`
+- Copy the file `github.conf.template` to `github.conf` and set your GitHub token or credentials
 
 ### New Dependencies
 - Install a dependency in the venv with `pip install DEPENDENCY`
