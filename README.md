@@ -3,7 +3,7 @@
 ## Requirements
 - python 3.5+
 - pip
-- yarn
+- [yarn](https://yarnpkg.com/en/docs/install#linux-tab)
 
 ## Setup
 - Create a virtual environment with `python -m venv .venv`
