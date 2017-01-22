@@ -16,7 +16,7 @@ class Classifier:
 
     def __init__(self, clf, params, name):
         self.clf = Pipeline([('select', SelectPercentile(score_func=mutual_info_classif, percentile=70)), ('clf', clf)])
-        params['select__percentile'] = [50, 60, 70, 80, 90]
+        params['select__percentile'] = [60, 70, 80, 90]
         self.clf = GridSearchCV(self.clf, param_grid=params, scoring='f1_macro')
         self.name = name
         self.scaler = MinMaxScaler()
@@ -83,15 +83,15 @@ class Classifier:
 
 class RandomForestClassifier(Classifier):
     def __init__(self):
-        params = dict(clf__n_estimators=[60, 80, 100], clf__min_samples_split=[2], clf__max_depth=[None, 30, 40])
-        class_weights = {'DEV': 1, 'WEB': 2, 'DATA': 4, 'DOCS': 4, 'EDU': 15, 'HW': 5, 'OTHER': 10}
+        params = dict(clf__n_estimators=[80, 120, 150, 170], clf__min_samples_split=[2], clf__max_depth=[None, 40])
+        class_weights = {'DEV': 1, 'WEB': 2, 'DATA': 4, 'DOCS': 4, 'EDU': 20, 'HW': 15, 'OTHER': 25}
         super().__init__(ensemble.RandomForestClassifier(class_weight=class_weights), params, 'RandomForestClassifier')
 
 
 class ExtraTreesClassifier(Classifier):
     def __init__(self):
-        params = dict(clf__n_estimators=[60, 80, 100], clf__min_samples_split=[2], clf__max_depth=[None, 30, 40])
-        class_weights = {'DEV': 1, 'WEB': 2, 'DATA': 4, 'DOCS': 4, 'EDU': 15, 'HW': 5, 'OTHER': 10}
+        params = dict(clf__n_estimators=[80, 120, 150, 170], clf__min_samples_split=[2], clf__max_depth=[None, 40])
+        class_weights = {'DEV': 1, 'WEB': 2, 'DATA': 4, 'DOCS': 4, 'EDU': 20, 'HW': 15, 'OTHER': 25}
         super().__init__(ensemble.ExtraTreesClassifier(class_weight=class_weights), params, 'ExtraTreesClassifier')
 
 
