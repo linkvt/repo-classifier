@@ -54,6 +54,17 @@ Then just execute `python main.py` and a help output will guide you with the pos
 For simple classification just run `python main.py -f "path/to/file" -c` which will run the classification (Attention: the model has to be available to run the classification).
 If training is needed just replace the `-c` with `-t`: `python main.py -f "path/to/file" -t`
 
+## FAQ
+
+### Klassifikation funktioniert nicht. Konsole wirft Fehler mit nicht passenden Featurezahlen oder ähnliches.
+Das schließt darauf hin, dass sich die Featurereihenfolge oder die Featureanzahl verändert hat und ein altes Classification model genutzt. Für den Fall muss man das Training neu starten und dadurch ein neues `model` generieren lassen, dass dann verwendet werden kann.
+
+### Welche Daten werden persistent gespeichert?
+Im root Verzeichnis befinden sich die `db` und ein `model`.
+Die DB beinhaltet dabei gecachte Werte für Features und Repositories und erleichtert so neues Trainieren etc, da keine Request gesendet werden müssen.
+Das Model ist das Klassifizierungsmodel und beinhaltet das Training, wodurch die Klassifizierung überhaupt erst ermöglicht wird.
+Diese Dateien können auch kopiert und wiederverwendet werden, solange sich nichts an den Features selbst verändert.
+
 ## Reference
 - autoenv: https://github.com/kennethreitz/autoenv
 - packaging: https://packaging.python.org/installing/
