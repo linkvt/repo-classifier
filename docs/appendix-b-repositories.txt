@@ -1,6 +1,6 @@
 https://github.com/ga-chicago/wdi5-homework HW
 https://github.com/Aggregates/MI_HW2 HW
-https://github.com/datasciencelabs/2016/ EDU
+https://github.com/datasciencelabs/2016 EDU
 https://github.com/githubteacher/intro-november-2015 EDU
 https://github.com/atom/atom DEV
 https://github.com/jmcglone/jmcglone.github.io WEB
