@@ -24,9 +24,9 @@ source .venv/bin/activate
 echo "repo-classifier - NICE! (venv on)"
 ```
 
-## Run the application
-Run `python manage.py migrate` to setup the database.
-Execute `python manage.py runserver` to start the live reloading webserver on [localhost:8000](http://localhost:8000/).
+## Run the web application
+- Run `python manage.py migrate` to setup the database.
+- Execute `python manage.py runserver` to start the live reloading webserver on [localhost:8000](http://localhost:8000/).
 
 
 ## Reference
