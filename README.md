@@ -29,24 +29,34 @@ echo "repo-classifier - NICE! (venv on)"
 ```
 
 ## Files for input
-We have to separate between files for classification and files for training.
+For classification we expect a file containing one line for each repository url.
+```
+https://github.com/briantemple/homeworkr
+https://github.com/angular
+...
+```
+
 For training we need a file which contains the label for a url.
 We support two formatted inputs for training:
 
 Separated with a simple space.
 ```
 https://github.com/briantemple/homeworkr DEV
+...
 ```
 
 or separated with a comma and first line will be ignored (becaused we used the django export):
 ```
 url,category
 https://github.com/owncloud/documentation,DOCS
+...
 ```
 
 ## Run the web application (Preferred)
 - Run `python manage.py migrate` to setup the database.
 - Execute `python manage.py runserver` to start the live reloading webserver on [localhost:8000](http://localhost:8000/).
+- You can now run the classifier by uploading a file and pressing `Classify`.
+- (Optional) You can train a model by uploading a file as described above and pressing `Train`.
 
 ## Run in CLI
 After the complete setup described above open a terminal and `cd` into the root directory of the project.
