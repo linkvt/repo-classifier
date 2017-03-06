@@ -75,7 +75,9 @@ if (!d3.select(VALIDATION_SVG_SELECTOR).empty()) {
             .enter().append('g');
 
         groups.append("rect")
-            .style("fill", "steelblue")
+            .attr("class", function (d) {
+                return "category-" + d.category;
+            })
             .attr("x", function (d) {
                 return x(d.category);
             })

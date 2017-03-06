@@ -220,28 +220,41 @@
 
 .category-DEV {
     background-color: rgb(31, 119, 180);
+    fill: rgb(31, 119, 180);
 }
 
 .category-HW {
     background-color: rgb(140, 86, 75);
+    fill: rgb(140, 86, 75);
 }
 
 .category-DATA {
-    background-color: rgb(44, 160, 44);;
+    background-color: rgb(44, 160, 44);
+    fill: rgb(44, 160, 44);
 }
 
 .category-OTHER {
     background-color: rgb(227, 119, 194);
+    fill: rgb(227, 119, 194);
 }
 
 .category-EDU {
     background-color: rgb(148, 103, 189);
+    fill: rgb(148, 103, 189);
 }
 
 .category-WEB {
-    background-color :rgb(255, 127, 14);
+    background-color : rgb(255, 127, 14);
+    fill: rgb(255, 127, 14);
 }
 
 .category-DOCS {
     background-color: rgb(214, 39, 40);
+    fill: rgb(214, 39, 40);
+}
+
+.validation-svg text {
+    text-shadow: 0 0 10px white;
+    fill: #585757;
+    font-weight: bold;
 }
