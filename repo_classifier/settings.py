@@ -132,6 +132,7 @@ STATICFILES_DIRS = (
     ('jquery', os.path.join(BASE_DIR, 'node_modules', 'jquery', 'dist')),
     ('bootstrap', os.path.join(BASE_DIR, 'node_modules', 'bootstrap', 'dist')),
     ('bootstrap-fileinput', os.path.join(BASE_DIR, 'node_modules', 'bootstrap-fileinput')),
+    ('font-awesome', os.path.join(BASE_DIR, 'node_modules', 'font-awesome')),
     ('data', os.path.join(BASE_DIR, 'data')),
     ('static', os.path.join(BASE_DIR, 'classification', 'static')),
 )
@@ -154,6 +155,12 @@ PIPELINE = {
                 os.path.join('bootstrap-fileinput', 'css', 'fileinput.css'),
             ),
             'output_filename': os.path.join('css', 'bootstrap.css'),
+        },
+        'font-awesome': {
+            'source_filenames': (
+                os.path.join('font-awesome', 'css', 'font-awesome.css'),
+            ),
+            'output_filename': os.path.join('css', 'font-awesome.css'),
         },
     },
     'JAVASCRIPT': {

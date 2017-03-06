@@ -11,6 +11,7 @@
     "bootstrap-fileinput": "^4.3.6",
     "d3": "3",
     "d3-tip": "^0.7.1",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.1.1"
   }
 }
