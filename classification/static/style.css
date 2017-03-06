@@ -221,3 +221,31 @@ body {
         background-color: #434343;
     }
 }
+
+.category-DEV {
+    background-color: rgb(31, 119, 180);
+}
+
+.category-HW {
+    background-color: rgb(140, 86, 75);
+}
+
+.category-DATA {
+    background-color: rgb(44, 160, 44);;
+}
+
+.category-OTHER {
+    background-color: rgb(227, 119, 194);
+}
+
+.category-EDU {
+    background-color: rgb(148, 103, 189);
+}
+
+.category-WEB {
+    background-color :rgb(255, 127, 14);
+}
+
+.category-DOCS {
+    background-color: rgb(214, 39, 40);
+}
