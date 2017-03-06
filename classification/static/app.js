@@ -100,6 +100,7 @@ if (!d3.select(VALIDATION_SVG_SELECTOR).empty()) {
             })
             .attr("transform", "rotate(-90)")
             .style("text-anchor", "end")
+            .style("pointer-events", "none")
             .text(function (d) {
                 return d.value;
             });
