@@ -22,6 +22,12 @@ repositories into several categories. This project is developed by the team of t
 - Save a snapshot of the dependencies with `pip freeze > requirements.txt`
 
 ### Configure autoenv
+After autoenv is installed you need to configure your bash to automatically use it. There are different ways to use it depending on the shell you use.
+For example
+- Bash [README](https://github.com/kennethreitz/autoenv#using-aur):
+`$ echo 'source /usr/share/autoenv/activate.sh' >> ~/.bashrc`
+- ZSH with oh-my-zsh [README](https://github.com/zpm-zsh/autoenv#using-oh-my-zsh)
+
 Simply create a file called `.env` in the root directory of the repository and paste this in it for Linux.
 ```
 source .venv/bin/activate
